@@ -4,8 +4,18 @@
 }
 
 .logo-class {
-  text-align: center;width: ;
+  text-align: center;
 }
+
+.home-image {
+  height: 200px;
+}
+
+.about {
+  text-align: center;
+}
+
+
 
 /*.router-outlet-class {*/
   /*height: 70%;*/
