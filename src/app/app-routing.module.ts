@@ -1,7 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {HomePageComponent} from './home-page/home-page.component';
+import {GoodDeedsComponent} from './good-deeds/good-deeds.component';
+import {SuccessStoriesComponent} from './success-stories/success-stories.component';
+import {GalleryComponent} from './gallery/gallery.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
-const routes: Routes = [];
+// @ts-ignore
+// @ts-ignore
+const routes: Routes = [
+  {path: 'home', component: HomePageComponent},
+  {path: 'good-deeds', component: GoodDeedsComponent},
+  {path: 'succes-stories', component: SuccessStoriesComponent},
+  {path: 'gallery', component: GalleryComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '**', component: PageNotFoundComponent}
+
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
