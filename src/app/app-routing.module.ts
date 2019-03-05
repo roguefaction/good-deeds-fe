@@ -12,7 +12,7 @@ import {RegisterJobComponent} from "./register-job/register-job.component";
 const routes: Routes = [
   {path: 'home', component: HomePageComponent},
   {path: 'good-deeds', component: GoodDeedsComponent},
-  {path: 'succes-stories', component: SuccessStoriesComponent},
+  {path: 'success-stories', component: SuccessStoriesComponent},
   {path: 'gallery', component: GalleryComponent},
   {path: 'register-job', component: RegisterJobComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
