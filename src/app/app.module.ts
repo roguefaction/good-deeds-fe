@@ -9,7 +9,8 @@ import { SuccessStoriesComponent } from './success-stories/success-stories.compo
 import { GalleryComponent } from './gallery/gallery.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
-import { JobListComponent } from './job-list/job-list.component';
+import { GoodDeedsDetailsComponent } from './good-deeds-details/good-deeds-details.component';
+import { RegisterJobComponent } from './register-job/register-job.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { JobListComponent } from './job-list/job-list.component';
     GalleryComponent,
     PageNotFoundComponent,
     RegisterFormComponent,
-    JobListComponent
+    GoodDeedsDetailsComponent,
+    RegisterJobComponent,
   ],
   imports: [
     BrowserModule,
