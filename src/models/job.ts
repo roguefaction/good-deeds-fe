@@ -1,8 +1,8 @@
 export interface Job {
-  organisationName: string;
+  title: string;
   jobName: string;
-  place: string;
-  aboutJob: string;
+  city: string;
+  about: string;
   name: string;
   contacts: string;
 
