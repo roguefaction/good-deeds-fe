@@ -18,9 +18,9 @@ export class JobService {
     headers.append('Content-Type', 'application/json');
   }
 
-  addJob(job: Job) {
-    const headers = new HttpHeaders();
-    this.createAuthorizationHeader(headers);
-    return this.http.post(`https://calm-waters-93672.herokuapp.com/job`);
-  }
+  // addJob(job: Job) {
+  //   const headers = new HttpHeaders();
+  //   this.createAuthorizationHeader(headers);
+  //   return this.http.post(`https://calm-waters-93672.herokuapp.com/job`);
+  // }
 }

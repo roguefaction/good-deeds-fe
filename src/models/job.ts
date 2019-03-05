@@ -1,9 +1,13 @@
 export interface Job {
   title: string;
-  jobName: string;
   city: string;
-  about: string;
-  name: string;
-  contacts: string;
+  contactPerson: string;
+  phoneNumber: string;
+  email: string;
+  organisation: string;
+  maxPeople: number;
+  currentPeople: number;
+  description: string;
+  tags: string;
 
 }
