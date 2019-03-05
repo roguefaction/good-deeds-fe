@@ -1,11 +1,21 @@
 .logo {
-  width: 10%;
-  height: 10%;
+  width: 25%;
+  height: 25%;
 }
 
 .logo-class {
-  text-align: center;width: ;
+  text-align: center;
 }
+
+.home-image {
+  height: 200px;
+}
+
+.about {
+  text-align: center;
+}
+
+
 
 /*.router-outlet-class {*/
   /*height: 70%;*/
