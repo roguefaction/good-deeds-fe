@@ -15,11 +15,11 @@
         Idea field is required
       </div>
       <div *ngIf="registerJobForm.get('idea').hasError('minlength')" class="alert-danger alert">
-        Idea is to short
+        Idea is too short
       </div>
 
       <div *ngIf="registerJobForm.get('idea').hasError('maxlength')" class="alert-danger alert">
-        Idea is to long
+        Idea is too long
       </div>
     </div>
 
@@ -31,11 +31,11 @@
     </div>
     <div *ngIf="registerJobForm.get('organization').touched">
       <div *ngIf="registerJobForm.get('organization').hasError('minlength')" class="alert-danger alert">
-        Organization field is to short
+        Organization field is too short
       </div>
 
       <div *ngIf="registerJobForm.get('organization').hasError('maxlength')" class="alert-danger alert">
-        Organization field is to long
+        Organization field is too long
       </div>
     </div>
 
@@ -50,11 +50,11 @@
         Location field is required
       </div>
       <div *ngIf="registerJobForm.get('location').hasError('minlength')" class="alert-danger alert">
-        Location field is to short
+        Location field is too short
       </div>
 
       <div *ngIf="registerJobForm.get('location').hasError('maxlength')" class="alert-danger alert">
-        Location field is to long
+        Location field is too long
       </div>
       <div *ngIf="registerJobForm.get('location').hasError('pattern')" class="alert-danger alert">
         Location must be only letters
@@ -117,7 +117,7 @@
       </div>
     <div *ngIf="registerJobForm.get('description').touched">
       <div *ngIf="registerJobForm.get('description').hasError('maxlength')" class="alert-danger alert">
-        Description field is to long
+        Description field is too long
       </div>
     </div>
 
@@ -131,7 +131,7 @@
     </div>
     <div *ngIf="registerJobForm.get('hashtags').touched">
       <div *ngIf="registerJobForm.get('hashtags').hasError('maxlength')" class="alert-danger alert">
-        Hashtags field is to long
+        Hashtags field is too long
       </div>
       <div *ngIf="registerJobForm.get('hashtags').hasError('pattern')" class="alert-danger alert">
         Hashtag has to start with # symbol
