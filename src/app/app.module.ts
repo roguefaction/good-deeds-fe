@@ -10,8 +10,9 @@ import { SuccessStoriesComponent } from './success-stories/success-stories.compo
 import { GalleryComponent } from './gallery/gallery.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
-import { GoodDeedsDetailsComponent } from './good-deeds-details/good-deeds-details.component';
-import { RegisterJobComponent } from './register-job/register-job.component';
+import { HttpClientModule } from '@angular/common/http';
+import {GoodDeedsDetailsComponent} from './good-deeds-details/good-deeds-details.component';
+import {RegisterJobComponent} from './register-job/register-job.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,9 @@ import { RegisterJobComponent } from './register-job/register-job.component';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule

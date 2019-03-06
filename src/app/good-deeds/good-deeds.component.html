@@ -5,19 +5,17 @@
 
 
 </div>
+
 <div class="container">
-  <table class="table table-hover table-primary">
-    <thead>
-    <tr>
-      <th scope="col">Organisation</th>
-      <th scope="col">Job</th>
-      <th scope="col">Place</th>
-      <th scope="col"></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr app-good-deeds-details [job]="job" *ngFor="let job of jobs"></tr>
-    </tbody>
-  </table>
+  <div class="row">
+    <div class="col-3"><h5>Organisation</h5></div>
+    <div class="col-3"><h5>Title</h5></div>
+    <div class="col-3"><h5>City</h5></div>
+    <div class="col-3"></div>
+  </div>
 </div>
-<div>
+
+<div app-good-deeds-details [job]="job" *ngFor="let job of jobs"></div>
+
+
+

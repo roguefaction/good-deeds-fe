@@ -7,9 +7,12 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class GoodDeedsDetailsComponent implements OnInit {
   @Input() job;
+  collapseOpen = false;
   constructor() { }
 
   ngOnInit() {
   }
-
+  collapseAbout() {
+    this.collapseOpen = !this.collapseOpen;
+  }
 }

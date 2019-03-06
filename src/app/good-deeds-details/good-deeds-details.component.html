@@ -1,4 +1,37 @@
-<th>{{job.organisationName}}</th>
-<th>{{job.jobName}}</th>
-<th>{{job.place}}</th>
+<!--<th>{{job.title}}</th>-->
+<!--<th>{{job.jobName}}</th>-->
+<!--<th>{{job.city}}</th>-->
 
+<div class="container">
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header row">
+        <div (click)="collapseAbout()" class="col-3">
+        <h5  class="mb-0 ">
+            {{job.organization}}
+        </h5>
+        </div>
+        <div (click)="collapseAbout()" class="col-3">
+          <h5 class="mb-0">
+              {{job.title}}
+          </h5>
+        </div>
+        <div (click)="collapseAbout()" class="col-3">
+          <h5 class="mb-0">
+              {{job.city}}
+          </h5>
+        </div>
+        <div class="col-3">
+          <button>Register</button>
+        </div>
+      </div>
+
+      <div  class="collapse collapse-animation" [ngClass]="{ 'show': collapseOpen }">
+        <div class="card-body">
+          <p class="container">Description: <br> {{job.description}}</p><br>
+          <p class="container">Contact person:<br>{{job.contactPerson}}<br>{{job.email}}<br>{{job.phoneNumber}} </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
