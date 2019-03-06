@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Job} from "../../models/job";
 import {HttpResponse} from "@angular/common/http";
 import {JobService} from "../services/job.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register-job',
@@ -22,7 +23,7 @@ export class RegisterJobComponent implements OnInit {
   createForm() {
     this.registerJobForm = this.formBuilder.group({
       title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
-      organisation: ['', [Validators.minLength(5), Validators.maxLength(50)]],
+      organization: ['', [Validators.minLength(5), Validators.maxLength(50)]],
       city: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern('^[A-Za-z ]+$')]],
       emailAddress: ['', [Validators.required, Validators.email]],
       contactPerson: ['', [Validators.required]],
@@ -60,7 +61,10 @@ export class RegisterJobComponent implements OnInit {
       () => {
         alert('You did it, James');
       });
+
+
   }
+
 
 
 }
