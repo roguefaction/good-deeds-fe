@@ -26,7 +26,7 @@ export class RegisterJobComponent implements OnInit {
       phoneNumber: ['', [Validators.required, Validators.pattern('^\\+370[0-9]{8}')]],
       description: ['', [Validators.maxLength(500)]],
       // hastags pasidometi del validacijos
-      hashtags: ['', [Validators.maxLength(500), Validators.pattern('#[A-Za-z0-9\\\\-\\\\.\\\\_]+')]]
+      hashtags: ['', [Validators.maxLength(500), Validators.pattern('(#[a-zA-Z]+,?)+[^,]$')]]
     });
   }
 
@@ -35,5 +35,6 @@ export class RegisterJobComponent implements OnInit {
     console.log(this.registerJobForm.value);
 
   }
+
 
 }
