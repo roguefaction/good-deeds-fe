@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-register-job',
@@ -7,9 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterJobComponent implements OnInit {
 
-  constructor() { }
+  registerJobForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.createForm();
+  }
+
+  createForm() {
+    this.registerJobForm = this.formBuilder.group({
+      idea: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
+      organization: ['', [Validators.minLength(5), Validators.maxLength(50)]],
+      location: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      emailAddress: ['', [Validators.required, Validators.email]],
+      contactPerson: ['', [Validators.required]],
+      phoneNumber: ['', [Validators.required, Validators.minLength(12), Validators.maxLength(12)]],
+      description: ['', [Validators.maxLength(500)]],
+      // hastags pasidometi del validacijos
+      hashtags: ['', [Validators.maxLength(500), Validators.pattern('#')]]
+    });
+  }
+
+  submitForm() {
+    console.log(this.registerJobForm);
+    console.log(this.registerJobForm.value);
+
   }
 
 }
