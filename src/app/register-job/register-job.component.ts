@@ -20,13 +20,13 @@ export class RegisterJobComponent implements OnInit {
     this.registerJobForm = this.formBuilder.group({
       idea: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
       organization: ['', [Validators.minLength(5), Validators.maxLength(50)]],
-      location: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      location: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern('^[A-Za-z ]+$')]],
       emailAddress: ['', [Validators.required, Validators.email]],
       contactPerson: ['', [Validators.required]],
-      phoneNumber: ['', [Validators.required, Validators.minLength(12), Validators.maxLength(12)]],
+      phoneNumber: ['', [Validators.required, Validators.pattern('^\\+370[0-9]{8}')]],
       description: ['', [Validators.maxLength(500)]],
       // hastags pasidometi del validacijos
-      hashtags: ['', [Validators.maxLength(500), Validators.pattern('#')]]
+      hashtags: ['', [Validators.maxLength(500), Validators.pattern('#[A-Za-z0-9\\\\-\\\\.\\\\_]+')]]
     });
   }
 

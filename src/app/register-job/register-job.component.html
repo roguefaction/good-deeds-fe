@@ -56,6 +56,9 @@
       <div *ngIf="registerJobForm.get('location').hasError('maxlength')" class="alert-danger alert">
         Location field is to long
       </div>
+      <div *ngIf="registerJobForm.get('location').hasError('pattern')" class="alert-danger alert">
+        Location must be only letters
+      </div>
     </div>
 
     <h1 class="h1-padding">Contacts</h1>
@@ -98,14 +101,11 @@
     </div>
     <div *ngIf="registerJobForm.get('phoneNumber').touched">
       <div *ngIf="registerJobForm.get('phoneNumber').hasError('required')" class="alert-danger alert">
-        Phone number field is required
-      </div>
-      <div *ngIf="registerJobForm.get('phoneNumber').hasError('minlength')" class="alert-danger alert">
-        Phone number field is to short
+        Phone number is required
       </div>
 
-      <div *ngIf="registerJobForm.get('phoneNumber').hasError('maxlength')" class="alert-danger alert">
-        Phone number field is to long
+      <div *ngIf="registerJobForm.get('phoneNumber').hasError('pattern')" class="alert-danger alert">
+        Phone number must be valid
       </div>
     </div>
 
