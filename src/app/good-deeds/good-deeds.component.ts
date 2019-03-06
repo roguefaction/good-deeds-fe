@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {JobService} from '../services/job.service';
 import {Job} from '../../models/job';
+import {HttpResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-good-deeds',
@@ -29,4 +30,5 @@ export class GoodDeedsComponent implements OnInit {
       }
     );
   }
+
 }
