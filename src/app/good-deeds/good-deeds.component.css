@@ -34,3 +34,14 @@
   display: none;
   overflow: hidden;
 }
+
+.title-image {
+  background: url('../../assets/images/vintage-rainbow-color-badge.png');
+  background-size: cover;
+}
+
+.card{
+  min-height: 3rem;
+  vertical-align: middle;
+
+}

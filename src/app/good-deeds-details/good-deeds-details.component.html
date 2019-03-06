@@ -7,9 +7,9 @@
     <div class="card">
       <div class="card-header row">
         <div (click)="collapseAbout()" class="col-3">
-        <h5  class="mb-0 ">
+        <h4 class=""  class="mb-0 ">
             {{job.organization}}
-        </h5>
+        </h4>
         </div>
         <div (click)="collapseAbout()" class="col-3">
           <h5 class="mb-0">
@@ -22,14 +22,18 @@
           </h5>
         </div>
         <div class="col-3">
-          <button>Register</button>
+          <button class="btn btn-success btn-block">Register</button>
         </div>
       </div>
 
       <div  class="collapse collapse-animation" [ngClass]="{ 'show': collapseOpen }">
         <div class="card-body">
-          <p class="container">Description: <br> {{job.description}}</p><br>
-          <p class="container">Contact person:<br>{{job.contactPerson}}<br>{{job.email}}<br>{{job.phoneNumber}} </p>
+          <p class="container display-6">Description: </p>
+          <p class="p">{{job.description}}</p>
+          <p class="container display-6">Contact person:</p>
+          <p class="p">{{job.contactPerson}}</p>
+          <p class="p">{{job.email}}</p>
+          <p class="p">{{job.phoneNumber}}</p>
         </div>
       </div>
     </div>
