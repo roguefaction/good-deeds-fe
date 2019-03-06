@@ -5,7 +5,7 @@ import {GoodDeedsComponent} from './good-deeds/good-deeds.component';
 import {SuccessStoriesComponent} from './success-stories/success-stories.component';
 import {GalleryComponent} from './gallery/gallery.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
-import {RegisterJobComponent} from "./register-job/register-job.component";
+import {RegisterJobComponent} from './register-job/register-job.component';
 
 // @ts-ignore
 // @ts-ignore

@@ -1,3 +1,148 @@
-<p>
-  register-job works!
-</p>
+<div class="container">
+
+  <form class="form-padding" [formGroup]="registerJobForm" (ngSubmit)="submitForm()">
+
+    <h1 class="h1-padding">Job registration</h1>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Idea*</label>
+      <div class="col-sm-7">
+        <input formControlName="idea" class="form-control"  placeholder="SOS animal">
+      </div>
+    </div>
+    <div *ngIf="registerJobForm.get('idea').touched">
+      <div *ngIf="registerJobForm.get('idea').hasError('required')" class="alert-danger alert">
+        Idea field is required
+      </div>
+      <div *ngIf="registerJobForm.get('idea').hasError('minlength')" class="alert-danger alert">
+        Idea is to short
+      </div>
+
+      <div *ngIf="registerJobForm.get('idea').hasError('maxlength')" class="alert-danger alert">
+        Idea is to long
+      </div>
+    </div>
+
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Organization:</label>
+    <div class="col-sm-7">
+      <input formControlName="organization" class="form-control">
+    </div>
+    </div>
+    <div *ngIf="registerJobForm.get('organization').touched">
+      <div *ngIf="registerJobForm.get('organization').hasError('minlength')" class="alert-danger alert">
+        Organization field is to short
+      </div>
+
+      <div *ngIf="registerJobForm.get('organization').hasError('maxlength')" class="alert-danger alert">
+        Organization field is to long
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">City/location*</label>
+      <div class="col-sm-7">
+        <input formControlName="location" class="form-control">
+      </div>
+    </div>
+    <div *ngIf="registerJobForm.get('location').touched">
+      <div *ngIf="registerJobForm.get('location').hasError('required')" class="alert-danger alert">
+        Location field is required
+      </div>
+      <div *ngIf="registerJobForm.get('location').hasError('minlength')" class="alert-danger alert">
+        Location field is to short
+      </div>
+
+      <div *ngIf="registerJobForm.get('location').hasError('maxlength')" class="alert-danger alert">
+        Location field is to long
+      </div>
+    </div>
+
+    <h1 class="h1-padding">Contacts</h1>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Email*</label>
+      <div class="col-sm-7">
+        <input formControlName="emailAddress" class="form-control">
+      </div>
+    </div>
+    <div *ngIf="registerJobForm.get('emailAddress').touched">
+      <div *ngIf="registerJobForm.get('emailAddress').hasError('required')" class="alert-danger alert">
+        Email field is required
+      </div>
+      <div *ngIf="registerJobForm.get('emailAddress').hasError('email')" class="alert-danger alert">
+        Valid email is required
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Contact person*</label>
+      <div class="col-sm-7">
+        <input formControlName="contactPerson" class="form-control" placeholder="John Cena">
+      </div>
+    </div>
+    <div *ngIf="registerJobForm.get('contactPerson').touched">
+      <div *ngIf="registerJobForm.get('contactPerson').hasError('required')" class="alert-danger alert">
+        Contact person field is required
+      </div>
+      <div *ngIf="registerJobForm.get('contactPerson').hasError('name')">
+        Valid name is required
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Phone number*</label>
+      <div class="col-sm-7">
+        <input formControlName="phoneNumber" class="form-control">
+      </div>
+    </div>
+    <div *ngIf="registerJobForm.get('phoneNumber').touched">
+      <div *ngIf="registerJobForm.get('phoneNumber').hasError('required')" class="alert-danger alert">
+        Phone number field is required
+      </div>
+      <div *ngIf="registerJobForm.get('phoneNumber').hasError('minlength')" class="alert-danger alert">
+        Phone number field is to short
+      </div>
+
+      <div *ngIf="registerJobForm.get('phoneNumber').hasError('maxlength')" class="alert-danger alert">
+        Phone number field is to long
+      </div>
+    </div>
+
+    <h1 class="h1-padding">Description</h1>
+
+
+      <div class="form-group">
+        <textarea formControlName="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+    <div *ngIf="registerJobForm.get('description').touched">
+      <div *ngIf="registerJobForm.get('description').hasError('maxlength')" class="alert-danger alert">
+        Description field is to long
+      </div>
+    </div>
+
+
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Hashtags:</label>
+      <div class="col-sm-7">
+        <input formControlName="hashtags" class="form-control" placeholder="#metoo">
+      </div>
+    </div>
+    <div *ngIf="registerJobForm.get('hashtags').touched">
+      <div *ngIf="registerJobForm.get('hashtags').hasError('maxlength')" class="alert-danger alert">
+        Hashtags field is to long
+      </div>
+      <div *ngIf="registerJobForm.get('hashtags').hasError('pattern')" class="alert-danger alert">
+        Hashtag has to start with # symbol
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-7">
+        <button type="submit" class="btn btn-primary">Register</button>
+      </div>
+    </div>
+  </form>
+
+</div>
