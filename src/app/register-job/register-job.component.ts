@@ -31,7 +31,7 @@ export class RegisterJobComponent implements OnInit {
       phoneNumber: ['', [Validators.required, Validators.pattern('^\\+370[0-9]{8}')]],
       description: ['', [Validators.maxLength(500)]],
       // hastags pasidometi del validacijos
-      tags: ['', [Validators.maxLength(500), Validators.pattern('(#[a-zA-Z0-9]+,?)+[^,]$')]]
+      tags: ['', [Validators.maxLength(500), Validators.pattern('(#[a-zA-Z]+,?)+[^,]$')]]
     //  /#(\w*[0-9a-zA-Z]+\w*[0-9a-zA-Z])/g
     });
   }
@@ -42,11 +42,15 @@ export class RegisterJobComponent implements OnInit {
       console.log(this.registerJobForm);
       alert('Please fix the form!');
       return;
-    } else {
-      this.router.navigate(['good-deeds']);
     }
 
+    if (this.registerJobForm.valid) {
+       this.router.navigate(['good-deeds']);
+       window.location.reload();
+
+    }
     this.addJob(this.registerJobForm.value);
+
   }
 
   addJob(job: Job) {
@@ -64,7 +68,6 @@ export class RegisterJobComponent implements OnInit {
 
 
   }
-
 
 
 }
