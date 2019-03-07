@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Job} from "../../models/job";
-import {HttpResponse} from "@angular/common/http";
-import {JobService} from "../services/job.service";
-import {Router} from "@angular/router";
+import {Job} from '../models/job';
+import {HttpResponse} from '@angular/common/http';
+import {JobService} from '../services/job.service';
 
 @Component({
   selector: 'app-register-job',
@@ -34,8 +33,6 @@ export class RegisterJobComponent implements OnInit {
     });
   }
 
-
-
   submitForm() {
 
     if (this.registerJobForm.invalid) {
@@ -43,9 +40,6 @@ export class RegisterJobComponent implements OnInit {
       alert('Please fix the form!');
       return;
     }
-    
-
-    
     this.addJob(this.registerJobForm.value);
   }
 
