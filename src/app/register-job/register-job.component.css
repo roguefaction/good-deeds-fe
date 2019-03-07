@@ -9,3 +9,8 @@
 #exampleFormControlTextarea1 {
   max-width: 74%;
 }
+
+.title-image {
+  background: url('../../assets/images/vintage-rainbow-color-badge.png');
+  background-size: cover;
+}

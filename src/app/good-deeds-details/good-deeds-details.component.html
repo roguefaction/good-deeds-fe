@@ -2,6 +2,10 @@
   <div class="accordion">
     <div class="card">
       <div class="card-header row accordion-style">
+        <div (click)="collapseAbout()" class="col-1">
+          <img class="mb-0 header-class text-dark" src="../../assets/images/caret.png">
+
+        </div>
         <div (click)="collapseAbout()" class="col-3">
           <h5 class="mb-0 header-class text-dark">
             {{job.organization}}
@@ -17,11 +21,10 @@
             {{job.city}}
           </h5>
         </div>
-        <div class="col-3 container">
+        <div class="col-2 container">
           <button class="btn btn-success btn-block"><h1 class="button-text">Register</h1></button>
         </div>
       </div>
-
 
       <div class="collapse collapse-style card" [ngClass]="{ 'show': collapseOpen }">
         <div class="card-body">

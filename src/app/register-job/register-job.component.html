@@ -1,63 +1,68 @@
+<div class="jumbotron title-image">
+  <h1 class="text-center text-white display-2">Register Job</h1>
+</div>
+
+
 <div class="container">
 
   <form class="form-padding" [formGroup]="registerJobForm" (ngSubmit)="submitForm()  ">
 
-    <h1 class="h1-padding">Job registration</h1>
+    <h1 class="h1-padding">Deed registration</h1>
 
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label">title*</label>
+      <label class="col-sm-2 col-form-label">Title*</label>
       <div class="col-sm-7">
-        <input formControlName="title" class="form-control"  placeholder="SOS animal">
+        <input formControlName="title" class="form-control"  placeholder="Save the squirrels">
       </div>
     </div>
     <div *ngIf="registerJobForm.get('title').touched">
       <div *ngIf="registerJobForm.get('title').hasError('required')" class="alert-danger alert">
-        title field is required
+        Title field is required
       </div>
       <div *ngIf="registerJobForm.get('title').hasError('minlength')" class="alert-danger alert">
-        title is too short
+        Title is too short
       </div>
 
       <div *ngIf="registerJobForm.get('title').hasError('maxlength')" class="alert-danger alert">
-        title is too long
+        Title is too long
       </div>
     </div>
 
     <div class="form-group row">
-    <label class="col-sm-2 col-form-label">organization:</label>
+    <label class="col-sm-2 col-form-label">Organization:</label>
     <div class="col-sm-7">
-      <input formControlName="organization" class="form-control">
+      <input formControlName="organization" class="form-control" placeholder="National Squirrel University">
     </div>
     </div>
     <div *ngIf="registerJobForm.get('organization').touched">
       <div *ngIf="registerJobForm.get('organization').hasError('minlength')" class="alert-danger alert">
-        organization field is too short
+        Organization field is too short
       </div>
 
       <div *ngIf="registerJobForm.get('organization').hasError('maxlength')" class="alert-danger alert">
-        organization field is too long
+        Organization field is too long
       </div>
     </div>
 
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">City/city*</label>
       <div class="col-sm-7">
-        <input formControlName="city" class="form-control">
+        <input formControlName="city" class="form-control" placeholder="Vilnius">
       </div>
     </div>
     <div *ngIf="registerJobForm.get('city').touched">
       <div *ngIf="registerJobForm.get('city').hasError('required')" class="alert-danger alert">
-        city field is required
+        City field is required
       </div>
       <div *ngIf="registerJobForm.get('city').hasError('minlength')" class="alert-danger alert">
-        city field is too short
+        City field is too short
       </div>
 
       <div *ngIf="registerJobForm.get('city').hasError('maxlength')" class="alert-danger alert">
-        city field is too long
+        City field is too long
       </div>
       <div *ngIf="registerJobForm.get('city').hasError('pattern')" class="alert-danger alert">
-        city must be only letters
+        City must be only letters
       </div>
     </div>
 
@@ -66,7 +71,7 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Email*</label>
       <div class="col-sm-7">
-        <input formControlName="emailAddress" class="form-control">
+        <input formControlName="emailAddress" class="form-control" placeholder="mcsquirrel@gmail.com">
       </div>
     </div>
     <div *ngIf="registerJobForm.get('emailAddress').touched">
@@ -81,7 +86,7 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Contact person*</label>
       <div class="col-sm-7">
-        <input formControlName="contactPerson" class="form-control" placeholder="John Cena">
+        <input formControlName="contactPerson" class="form-control" placeholder="Name Surname">
       </div>
     </div>
     <div *ngIf="registerJobForm.get('contactPerson').touched">
@@ -96,7 +101,7 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Phone number*</label>
       <div class="col-sm-7">
-        <input formControlName="phoneNumber" class="form-control">
+        <input formControlName="phoneNumber" class="form-control" placeholder="+37060000000">
       </div>
     </div>
     <div *ngIf="registerJobForm.get('phoneNumber').touched">
@@ -113,7 +118,7 @@
 
 
       <div class="form-group">
-        <textarea formControlName="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea formControlName="description" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Describe what is this project about"></textarea >
       </div>
     <div *ngIf="registerJobForm.get('description').touched">
       <div *ngIf="registerJobForm.get('description').hasError('maxlength')" class="alert-danger alert">
@@ -124,14 +129,14 @@
 
 
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label">tags:</label>
+      <label class="col-sm-2 col-form-label">Tags:</label>
       <div class="col-sm-7">
-        <input formControlName="tags" class="form-control" placeholder="#metoo">
+        <input formControlName="tags" class="form-control" placeholder="#happydays">
       </div>
     </div>
     <div *ngIf="registerJobForm.get('tags').touched">
       <div *ngIf="registerJobForm.get('tags').hasError('maxlength')" class="alert-danger alert">
-        tags field is too long
+        Tags field is too long
       </div>
       <div *ngIf="registerJobForm.get('tags').hasError('pattern')" class="alert-danger alert">
         Hashtag has to start with # symbol

@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Job} from '../models/job';
-import {HttpResponse} from "@angular/common/http";
-import {JobService} from "../services/job.service";
-import {routerNgProbeToken} from "@angular/router/src/router_module";
+import {HttpResponse} from '@angular/common/http';
+import {JobService} from '../services/job.service';
+import {routerNgProbeToken} from '@angular/router/src/router_module';
 import {Router} from '@angular/router';
 
 @Component({
@@ -15,7 +15,8 @@ export class RegisterJobComponent implements OnInit {
 
   registerJobForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private jobService: JobService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private jobService: JobService, private router: Router) {
+  }
 
   ngOnInit() {
     this.createForm();
@@ -32,7 +33,7 @@ export class RegisterJobComponent implements OnInit {
       description: ['', [Validators.maxLength(500)]],
       // hastags pasidometi del validacijos
       tags: ['', [Validators.maxLength(500), Validators.pattern('(#[a-zA-Z0-9]+,?)+[^,]$')]]
-    //  /#(\w*[0-9a-zA-Z]+\w*[0-9a-zA-Z])/g
+      //  /#(\w*[0-9a-zA-Z]+\w*[0-9a-zA-Z])/g
     });
   }
 
@@ -64,7 +65,6 @@ export class RegisterJobComponent implements OnInit {
 
 
   }
-
 
 
 }
