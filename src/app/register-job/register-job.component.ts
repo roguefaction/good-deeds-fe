@@ -36,18 +36,16 @@ export class RegisterJobComponent implements OnInit {
     });
   }
 
-
-
   submitForm() {
 
     if (this.registerJobForm.invalid) {
-      console.log(this.registerJobForm)
+      console.log(this.registerJobForm);
       alert('Please fix the form!');
       return;
     } else {
       this.router.navigate(['good-deeds']);
     }
-     
+
     this.addJob(this.registerJobForm.value);
   }
 
@@ -61,7 +59,7 @@ export class RegisterJobComponent implements OnInit {
 
       },
       () => {
-        alert('You did it, James');
+        console.log('Operation complete');
       });
 
 
