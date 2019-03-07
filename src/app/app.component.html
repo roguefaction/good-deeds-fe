@@ -2,29 +2,29 @@
 <body>
 
 <div class="container logo-class">
-  <img class="logo" alt="Company Logo" src='assets/h-gooddeeds.png'>
 </div>
 
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
 
     <button (click)="toggleNavbar()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse show" id="navbarColor01" [ngClass]="{ 'show': navbarOpen }">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="home">Home <span class="sr-only">(current)</span></a>
+      <img class="logo navbar-brand" alt="Company Logo" src='assets/h-gooddeeds.png'>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link display-5" routerLink="home">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="good-deeds">Good deeds</a>
+          <a class="nav-link display-5" routerLink="good-deeds">Good deeds</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="success-stories">Succes stories</a>
+          <a class="nav-link display-5" routerLink="success-stories">Succes stories</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="gallery">Gallery</a>
+          <a class="nav-link display-5" routerLink="gallery">Gallery</a>
         </li>
       </ul>
 
