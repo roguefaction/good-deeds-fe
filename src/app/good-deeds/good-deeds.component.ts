@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {JobService} from '../services/job.service';
-import {Job} from '../../models/job';
+import {Job} from '../models/job';
 
 @Component({
   selector: 'app-good-deeds',
