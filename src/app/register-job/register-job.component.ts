@@ -38,27 +38,23 @@ export class RegisterJobComponent implements OnInit {
   submitForm() {
 
     if (this.registerJobForm.invalid) {
-      console.log(this.registerJobForm)
+      console.log(this.registerJobForm);
       alert('Please fix the form!');
       return;
     }
-    
-
-    
     this.addJob(this.registerJobForm.value);
   }
 
   addJob(job: Job) {
     this.jobService.addJob(job).subscribe(
       data => {
-        console.log('Succesfully Added job');
+        alert('Succesfully Added job');
       },
       Error => {
-        console.log(HttpResponse.toString());
-
+        alert(HttpResponse.toString());
       },
       () => {
-        alert('You did it, James');
+        console.log('Operation complete');
       });
   }
 
