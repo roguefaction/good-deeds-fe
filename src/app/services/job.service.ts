@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Job} from '../models/job';
@@ -8,8 +8,9 @@ import {Job} from '../models/job';
 })
 export class JobService {
 
-  constructor(private http: HttpClient ) {
+  constructor(private http: HttpClient) {
   }
+
   getJobs(): Observable<Job[]> {
     return this.http.get<Job[]>(`https://calm-waters-93672.herokuapp.com/job`);
   }
@@ -18,9 +19,17 @@ export class JobService {
     headers.append('Content-Type', 'application/json');
   }
 
-  // addJob(job: Job) {
-  //   const headers = new HttpHeaders();
-  //   this.createAuthorizationHeader(headers);
-  //   return this.http.post(`https://calm-waters-93672.herokuapp.com/job`);
-  // }
+
+  addJob(job: Job) {
+    return this.http.post('https://calm-waters-93672.herokuapp.com/job', job);
+  }
+
+  editJob(job: Job, id: number) {
+    return this.http.put('https://calm-waters-93672.herokuapp.com/job/' + id, job);
+  }
+
+  getJobById(id: number): Observable<Job>  {
+    return this.http.get<Job>('https://calm-waters-93672.herokuapp.com/job/' + id);
+
+  }
 }

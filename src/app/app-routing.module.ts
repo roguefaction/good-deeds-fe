@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule} from '@angular/router';
 import {HomePageComponent} from './home-page/home-page.component';
 import {GoodDeedsComponent} from './good-deeds/good-deeds.component';
 import {SuccessStoriesComponent} from './success-stories/success-stories.component';
@@ -15,10 +15,9 @@ const routes: Routes = [
   {path: 'success-stories', component: SuccessStoriesComponent},
   {path: 'gallery', component: GalleryComponent},
   {path: 'register-job', component: RegisterJobComponent},
+  {path: 'edit-job/:id', component: RegisterJobComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: '**', component: PageNotFoundComponent}
-
-
+  {path: '**', component: PageNotFoundComponent},
 ];
 
 @NgModule({
