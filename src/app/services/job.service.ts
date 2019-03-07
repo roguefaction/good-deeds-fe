@@ -23,4 +23,9 @@ export class JobService {
   //   this.createAuthorizationHeader(headers);
   //   return this.http.post(`https://calm-waters-93672.herokuapp.com/job`);
   // }
+  addJob(job: Job) {
+    return this.http.post('https://calm-waters-93672.herokuapp.com/job', job);
+
+  }
+
 }
