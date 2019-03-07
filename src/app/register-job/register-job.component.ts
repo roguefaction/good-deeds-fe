@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Job} from '../models/job';
-import {HttpResponse} from '@angular/common/http';
-import {JobService} from '../services/job.service';
-import {routerNgProbeToken} from '@angular/router/src/router_module';
+import {HttpResponse} from "@angular/common/http";
+import {JobService} from "../services/job.service";
+import {routerNgProbeToken} from "@angular/router/src/router_module";
 import {Router} from '@angular/router';
 
 @Component({
@@ -15,8 +15,7 @@ export class RegisterJobComponent implements OnInit {
 
   registerJobForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private jobService: JobService, private router: Router) {
-  }
+  constructor(private formBuilder: FormBuilder, private jobService: JobService, private router: Router) { }
 
   ngOnInit() {
     this.createForm();
@@ -32,8 +31,8 @@ export class RegisterJobComponent implements OnInit {
       phoneNumber: ['', [Validators.required, Validators.pattern('^\\+370[0-9]{8}')]],
       description: ['', [Validators.maxLength(500)]],
       // hastags pasidometi del validacijos
-      tags: ['', [Validators.maxLength(500), Validators.pattern('(#[a-zA-Z0-9]+,?)+[^,]$')]]
-      //  /#(\w*[0-9a-zA-Z]+\w*[0-9a-zA-Z])/g
+      tags: ['', [Validators.maxLength(500), Validators.pattern('(#[a-zA-Z]+,?)+[^,]$')]]
+    //  /#(\w*[0-9a-zA-Z]+\w*[0-9a-zA-Z])/g
     });
   }
 
@@ -43,11 +42,15 @@ export class RegisterJobComponent implements OnInit {
       console.log(this.registerJobForm);
       alert('Please fix the form!');
       return;
-    } else {
-      this.router.navigate(['good-deeds']);
     }
 
+    if (this.registerJobForm.valid) {
+       this.router.navigate(['good-deeds']);
+       window.location.reload();
+
+    }
     this.addJob(this.registerJobForm.value);
+
   }
 
   addJob(job: Job) {
@@ -65,6 +68,7 @@ export class RegisterJobComponent implements OnInit {
 
 
   }
+
 
 
 }
