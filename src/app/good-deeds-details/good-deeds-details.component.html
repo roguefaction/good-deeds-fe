@@ -24,14 +24,14 @@
           </h5>
         </div>
         <div class="col-5 col-md-2 container ">
-          <button class="btn btn-success btn-block bg-btn"><h1 class="button-text">Register</h1></button>
+          <button class="btn btn-success btn-block bg-btn"><h1 class="button-text">Apply</h1></button>
         </div>
       </div>
 
       <div class="collapse collapse-style card bg-collapse" [ngClass]="{ 'show': collapseOpen }">
         <div class="card-body">
           <p class="container display-6 small-size-screen">Organization: </p>
-          <p class="p small-size-screen">{{job.organization}}</p>
+          <h5 class="p small-size-screen">{{job.organization}}</h5>
           <p class="container display-6 small-size-screen">City: </p>
           <p class="p small-size-screen">{{job.city}}</p>
           <p class="container display-6">Description: </p>
@@ -40,6 +40,8 @@
           <p class="p">{{job.contactPerson}}</p>
           <p class="p">{{job.email}}</p>
           <p class="p">{{job.phoneNumber}}</p>
+          <p class="container display-6">Tags:</p>
+          <p class="p">{{job.tags}}</p>
         </div>
       </div>
     </div>

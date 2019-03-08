@@ -6573,11 +6573,11 @@ button.bg-info:focus {
 }
 
 .bg-table-header{
-  background-color: orange;
+  background-color: #7abaff;
 }
 
 .bg-table{
-  background-color: #fff3cd !important;
+  background-color: whitesmoke !important;
 }
 .bg-btn{
   background-color: forestgreen;
@@ -6594,7 +6594,7 @@ button.bg-warning:focus {
 }
 
 .bg-collapse{
-  background-color: #fcf8e3 !important;
+  background-color: whitesmoke !important;
 }
 a.bg-danger:hover, a.bg-danger:focus,
 button.bg-danger:hover,
