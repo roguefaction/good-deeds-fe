@@ -5,7 +5,6 @@ import {HttpResponse} from '@angular/common/http';
 import {JobService} from '../services/job.service';
 import {Router} from '@angular/router';
 import {ActivatedRoute} from '@angular/router';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-register-job',
@@ -16,20 +15,20 @@ export class RegisterJobComponent implements OnInit {
 
   registerJobForm: FormGroup;
   jobId: number;
-  job: Observable<Job>;
+  job: Job;
 
-  constructor(private formBuilder: FormBuilder, private jobService: JobService, private route: ActivatedRoute) {
-    this.route.params.subscribe(id => this.jobId);
+  constructor(private formBuilder: FormBuilder, private jobService: JobService, private route: ActivatedRoute, private router: Router) {
+    this.route.params.subscribe(id => {
+      this.jobId = id['id'];
+    });
   }
 
   ngOnInit() {
-    if (this.jobService.getJobById(this.jobId) != null) {
-      this.job = this.jobService.getJobById(this.jobId);
-
-    } else {
-      this.createForm();
-    }
-
+    this.createForm();
+    // if (this.jobService.getJobById(this.jobId) != null) {
+    //
+    // } else {
+    // }
   }
 
   createForm() {
@@ -43,18 +42,25 @@ export class RegisterJobComponent implements OnInit {
       description: ['', [Validators.maxLength(500)]],
       // hastags pasidometi del validacijos
       tags: ['', [Validators.maxLength(500), Validators.pattern('(#[a-zA-Z]+,?)+[^,]$')]]
+      //  /#(\w*[0-9a-zA-Z]+\w*[0-9a-zA-Z])/g
     });
   }
 
-
-  submitFormIfRegister() {
+  submitForm() {
 
     if (this.registerJobForm.invalid) {
       console.log(this.registerJobForm);
       alert('Please fix the form!');
       return;
     }
+
+    if (this.registerJobForm.valid) {
+      this.router.navigate(['good-deeds']);
+      window.location.reload();
+
+    }
     this.addJob(this.registerJobForm.value);
+
   }
 
   submitFormIfEdit() {
@@ -76,6 +82,7 @@ export class RegisterJobComponent implements OnInit {
 
       },
       () => {
+        console.log('Operation complete');
       });
   }
 
@@ -83,6 +90,20 @@ export class RegisterJobComponent implements OnInit {
     this.jobService.editJob(job, id).subscribe(
       data => {
         console.log('Succesfully Edited job');
+      },
+      Error => {
+        console.log(HttpResponse.toString());
+
+      },
+      () => {
+      });
+  }
+
+  getJobById(id: number) {
+    this.jobService.getJobById(id).subscribe(
+      data => {
+        console.log('Deed retrieval successful');
+        this.job = data;
       },
       Error => {
         console.log(HttpResponse.toString());

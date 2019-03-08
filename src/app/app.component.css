@@ -15,8 +15,13 @@
   text-align: center;
 }
 
+.footer-copyright {
+  margin-top: 5%;
+  bottom:0;
+  margin-bottom: 2%;
+}
 
 
 /*.router-outlet-class {*/
-  /*height: 70%;*/
+/*height: 70%;*/
 /*}*/

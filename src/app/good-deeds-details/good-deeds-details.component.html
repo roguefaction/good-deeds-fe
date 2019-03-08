@@ -1,33 +1,35 @@
-<!--<th>{{job.title}}</th>-->
-<!--<th>{{job.jobName}}</th>-->
-<!--<th>{{job.city}}</th>-->
-
 <div class="container">
-  <div class="accordion" id="accordionExample">
+  <div class="accordion">
     <div class="card">
-      <div class="card-header row">
+      <div class="card-header row accordion-style">
+        <div (click)="collapseAbout()" class="col-1">
+          <img class="mb-0 header-class text-dark" src="../../assets/images/caret.png">
+
+        </div>
         <div (click)="collapseAbout()" class="col-3">
-        <h4  class="mb-0 ">
+          <h5 class="mb-0 header-class text-dark">
             {{job.organization}}
-        </h4>
-        </div>
-        <div (click)="collapseAbout()" class="col-3">
-          <h5 class="mb-0">
-              {{job.title}}
           </h5>
         </div>
         <div (click)="collapseAbout()" class="col-3">
-          <h5 class="mb-0">
-              {{job.city}}
+          <h5 class="mb-0 header-class text-dark">
+            {{job.title}}
           </h5>
         </div>
+        <div (click)="collapseAbout()" class="col-3">
+          <h5 class="mb-0 header-class text-dark">
+            {{job.city}}
+          </h5>
+        </div>
+        <div class="col-2 container">
+          <button class="btn btn-success btn-block"><h1 class="button-text">Register</h1></button>
         <div class="col-3">
           <button class="btn btn-success">Register</button>
           <button class="btn btn-warning text-white" routerLink="/edit-job">Edit</button>
         </div>
       </div>
 
-      <div  class="collapse collapse-animation" [ngClass]="{ 'show': collapseOpen }">
+      <div class="collapse collapse-style card" [ngClass]="{ 'show': collapseOpen }">
         <div class="card-body">
           <p class="container display-6">Description: </p>
           <p class="p">{{job.description}}</p>
@@ -39,4 +41,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

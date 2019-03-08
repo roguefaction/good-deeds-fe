@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {JobService} from '../services/job.service';
 import {Job} from '../models/job';
 
@@ -9,10 +9,20 @@ import {Job} from '../models/job';
 })
 export class GoodDeedsComponent implements OnInit {
   jobs: Job[];
-  constructor(private jobService: JobService) { }
+
+  constructor(private jobService: JobService) {
+  }
+
+  isListReady: boolean;
 
   ngOnInit() {
+    this.isListReady = false;
     this.getJobs();
+
+  }
+
+  listIsReady() {
+    this.isListReady = true;
   }
 
   getJobs() {
@@ -20,14 +30,14 @@ export class GoodDeedsComponent implements OnInit {
       jobs => {
         console.log(jobs);
         this.jobs = jobs;
-    },
+      },
       error1 => {
         console.log('error');
       },
       () => {
         console.log('completed');
+        this.listIsReady();
       }
     );
   }
-
 }

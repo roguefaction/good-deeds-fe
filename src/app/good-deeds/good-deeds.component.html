@@ -5,23 +5,24 @@
 </div>
 
 <div class="container button-class-div">
-  <button class="btn btn-danger" routerLink="/register-job">Register job</button>
-
-
+  <button class="btn btn-danger button-text" routerLink="/register-job">Register job</button>
 </div>
 
-<div class="container">
-  <div class="card bg-warning">
+<div *ngIf="isListReady==false" class="d-flex justify-content-center text-danger" role="status">
+  <div class="spinner-border" role="status"></div>
+</div>
+
+<div class="container" *ngIf="isListReady==true">
+  <div class="card bg-warning container">
     <div class="row wider text-white">
-      <div class="col-3"><h2 class="display-5">Organisation</h2></div>
-      <div class="col-3"><h2 class="display-5">Title</h2></div>
-      <div class="col-3"><h2 class="display-5">City</h2></div>
-      <div class="col-3"></div>
+      <div class="col-1"></div>
+      <div class="col-3"><h2 class="display-5 good-deeds-h1">Organization</h2></div>
+      <div class="col-3"><h2 class="display-5 good-deeds-h1">Title</h2></div>
+      <div class="col-3"><h2 class="display-5 good-deeds-h1">City</h2></div>
+      <div class="col-2"></div>
     </div>
   </div>
 </div>
 
 <div app-good-deeds-details [job]="job" *ngFor="let job of jobs"></div>
-
-
 
