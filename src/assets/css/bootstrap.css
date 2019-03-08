@@ -6565,6 +6565,17 @@ button.bg-info:focus {
   background-color: #ffc107 !important;
 }
 
+.bg-table-header{
+  background-color: orange;
+}
+
+.bg-table{
+  background-color: #fff3cd !important;
+}
+.bg-btn{
+  background-color: forestgreen;
+}
+
 a.bg-warning:hover, a.bg-warning:focus,
 button.bg-warning:hover,
 button.bg-warning:focus {
@@ -6575,6 +6586,9 @@ button.bg-warning:focus {
   background-color: #dc3545 !important;
 }
 
+.bg-collapse{
+  background-color: #fcf8e3 !important;
+}
 a.bg-danger:hover, a.bg-danger:focus,
 button.bg-danger:hover,
 button.bg-danger:focus {

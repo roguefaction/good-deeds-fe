@@ -5,7 +5,7 @@
 </div>
 
 <div class="container button-class-div">
-  <button class="btn btn-danger button-text" routerLink="/register-job">Register job</button>
+  <button class="btn btn-danger button-text" routerLink="/register-job">Register deed</button>
 </div>
 
 <div *ngIf="isListReady==false" class="d-flex justify-content-center text-danger" role="status">
@@ -13,12 +13,12 @@
 </div>
 
 <div class="container" *ngIf="isListReady==true">
-  <div class="card bg-warning container">
+  <div class="card bg-table-header container">
     <div class="row wider text-white">
       <div class="col-1"></div>
-      <div class="col-3"><h2 class="display-5 good-deeds-h1">Organization</h2></div>
-      <div class="col-3"><h2 class="display-5 good-deeds-h1">Title</h2></div>
-      <div class="col-3"><h2 class="display-5 good-deeds-h1">City</h2></div>
+      <div class="col-3"><h2 class="display-6 header-class ">Organization</h2><img class="logo style-class align-content-center" src="../../assets/images/network.png"></div>
+      <div class="col-3"><h2 class="display-6 header-class">Title</h2><img class="logo style-class align-content-center" src="../../assets/images/text-document-with-title.png"></div>
+      <div class="col-3"><h2 class="display-6 header-class">City</h2><img class="logo style-class align-content-center" src="../../assets/images/place.png"></div>
       <div class="col-2"></div>
     </div>
   </div>
