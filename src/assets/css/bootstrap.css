@@ -419,12 +419,19 @@ h6, .h6 {
   line-height: 1.2;
 }
 
+.display-heading {
+    font-size: 2rem;
+    vertical-align: middle;
+    line-height: 1.2;
+    font-weight: 300;
+  }
+
 .display-5 {
-   font-size: 2rem;
-   font-weight: 300;
-   line-height: 1.2;
-   margin: 20px;
- }
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 20px;
+}
 
 .display-6 {
   font-size: 1.5rem;

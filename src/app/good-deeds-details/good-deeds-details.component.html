@@ -3,8 +3,10 @@
     <div class="card">
       <div class="bg-table card-header row accordion-style d-flex">
         <div (click)="collapseAbout()" class="col-1">
-          <img class="mb-0 header-class text-dark" src="../../assets/images/caret.png">
-
+          <img class="mb-0 header-class text-dark caret" src="../../assets/images/caret-down-small-dark.svg"
+               *ngIf="collapseOpen==false" alt="caret.png">
+          <img class="mb-0 header-class text-dark caret-up" src="../../assets/images/caret_up.png"
+               *ngIf="collapseOpen==true" alt="caret.png">
         </div>
         <div (click)="collapseAbout()" class="col-3">
           <h5 class="mb-0 header-class text-dark text-truncate">
@@ -22,7 +24,7 @@
           </h5>
         </div>
         <div class="col-5 col-md-2 container">
-          <button class="btn btn-success btn-block btn-group-sm bg-btn"><h1 class="button-text">Register</h1></button>
+          <button class="btn btn-success btn-block btn-group-sm bg-btn" disabled><h1 class="button-text">Register</h1></button>
         </div>
       </div>
 

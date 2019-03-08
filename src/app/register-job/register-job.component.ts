@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Job} from '../models/job';
 import {HttpResponse} from '@angular/common/http';
 import {JobService} from '../services/job.service';
+import {routerNgProbeToken} from '@angular/router/src/router_module';
 import {Router} from '@angular/router';
 
 @Component({
@@ -40,7 +41,7 @@ export class RegisterJobComponent implements OnInit {
 
     if (this.registerJobForm.invalid) {
       console.log(this.registerJobForm);
-      alert('Please fix the form!');
+      this.markFormGroupTouched(this.registerJobForm);
       return;
     }
 
@@ -51,6 +52,16 @@ export class RegisterJobComponent implements OnInit {
     }
     this.addJob(this.registerJobForm.value);
 
+  }
+
+  private markFormGroupTouched(formGroup: FormGroup) {
+    (<any> Object).values(formGroup.controls).forEach(control => {
+      control.markAsTouched();
+
+      if (control.controls) {
+        this.markFormGroupTouched(control);
+      }
+    });
   }
 
   addJob(job: Job) {

@@ -12,6 +12,7 @@
   <div class="spinner-border" role="status"></div>
 </div>
 
+
 <div class="container" *ngIf="isListReady==true">
   <div class="card bg-table-header container">
     <div class="row wider text-white">
@@ -23,6 +24,7 @@
     </div>
   </div>
 </div>
+
 
 <div app-good-deeds-details [job]="job" *ngFor="let job of jobs"></div>
 
