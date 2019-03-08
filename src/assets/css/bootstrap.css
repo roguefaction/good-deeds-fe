@@ -419,12 +419,19 @@ h6, .h6 {
   line-height: 1.2;
 }
 
+.display-heading {
+    font-size: 2rem;
+    vertical-align: middle;
+    line-height: 1.2;
+    font-weight: 300;
+  }
+
 .display-5 {
-   font-size: 2rem;
-   font-weight: 300;
-   line-height: 1.2;
-   margin: 20px;
- }
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 20px;
+}
 
 .display-6 {
   font-size: 1.5rem;
@@ -6565,6 +6572,17 @@ button.bg-info:focus {
   background-color: #ffc107 !important;
 }
 
+.bg-table-header{
+  background-color: orange;
+}
+
+.bg-table{
+  background-color: #fff3cd !important;
+}
+.bg-btn{
+  background-color: forestgreen;
+}
+
 a.bg-warning:hover, a.bg-warning:focus,
 button.bg-warning:hover,
 button.bg-warning:focus {
@@ -6575,6 +6593,9 @@ button.bg-warning:focus {
   background-color: #dc3545 !important;
 }
 
+.bg-collapse{
+  background-color: #fcf8e3 !important;
+}
 a.bg-danger:hover, a.bg-danger:focus,
 button.bg-danger:hover,
 button.bg-danger:focus {

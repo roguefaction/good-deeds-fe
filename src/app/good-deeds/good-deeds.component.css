@@ -50,7 +50,23 @@
   font-size:1.5vw;
 }
 
+
+
 .button-text{
   font-size: 2.5vh;
   vertical-align: middle;
 }
+.style-class{
+  display: none;
+}
+@media only screen and (max-width: 770px){
+  .style-class{
+    display: inline-block;
+    align-content: center;
+    margin-top: 7%;
+  }
+  .header-class{
+    display: none;
+  }
+}
+

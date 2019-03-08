@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Job} from '../models/job';
 import {HttpResponse} from '@angular/common/http';
 import {JobService} from '../services/job.service';
+import {routerNgProbeToken} from '@angular/router/src/router_module';
 import {Router} from '@angular/router';
 import {ActivatedRoute} from '@angular/router';
 
@@ -25,10 +26,7 @@ export class RegisterJobComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    // if (this.jobService.getJobById(this.jobId) != null) {
-    //
-    // } else {
-    // }
+
   }
 
   createForm() {
@@ -36,7 +34,7 @@ export class RegisterJobComponent implements OnInit {
       title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
       organization: ['', [Validators.minLength(5), Validators.maxLength(50)]],
       city: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern('^[A-Za-z ]+$')]],
-      emailAddress: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       contactPerson: ['', [Validators.required]],
       phoneNumber: ['', [Validators.required, Validators.pattern('^\\+370[0-9]{8}')]],
       description: ['', [Validators.maxLength(500)]],
@@ -50,7 +48,7 @@ export class RegisterJobComponent implements OnInit {
 
     if (this.registerJobForm.invalid) {
       console.log(this.registerJobForm);
-      alert('Please fix the form!');
+      this.markFormGroupTouched(this.registerJobForm);
       return;
     }
 
@@ -63,6 +61,7 @@ export class RegisterJobComponent implements OnInit {
 
   }
 
+
   submitFormIfEdit() {
 
     if (this.registerJobForm.invalid) {
@@ -70,6 +69,16 @@ export class RegisterJobComponent implements OnInit {
       alert('Please fix the form!');
       return;
     }
+  }
+
+  private markFormGroupTouched(formGroup: FormGroup) {
+    (<any> Object).values(formGroup.controls).forEach(control => {
+      control.markAsTouched();
+
+      if (control.controls) {
+        this.markFormGroupTouched(control);
+      }
+    });
   }
 
   addJob(job: Job) {

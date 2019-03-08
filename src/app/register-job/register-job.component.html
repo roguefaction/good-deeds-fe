@@ -1,5 +1,5 @@
 <div class="jumbotron title-image">
-  <h1 class="text-center text-white display-2">Register Job</h1>
+  <h1 class="text-center text-white display-2">Register a deed</h1>
 </div>
 
 
@@ -71,14 +71,14 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Email*</label>
       <div class="col-sm-7">
-        <input formControlName="emailAddress" class="form-control" placeholder="mcsquirrel@gmail.com">
+        <input formControlName="email" class="form-control" placeholder="mcsquirrel@gmail.com">
       </div>
     </div>
-    <div *ngIf="registerJobForm.get('emailAddress').touched">
-      <div *ngIf="registerJobForm.get('emailAddress').hasError('required')" class="alert-danger alert">
+    <div *ngIf="registerJobForm.get('email').touched">
+      <div *ngIf="registerJobForm.get('email').hasError('required')" class="alert-danger alert">
         Email field is required
       </div>
-      <div *ngIf="registerJobForm.get('emailAddress').hasError('email')" class="alert-danger alert">
+      <div *ngIf="registerJobForm.get('email').hasError('email')" class="alert-danger alert">
         Valid email is required
       </div>
     </div>
