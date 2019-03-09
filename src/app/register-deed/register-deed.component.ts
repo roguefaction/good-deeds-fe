@@ -1,21 +1,21 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Job} from '../models/job';
+import {Deed} from '../models/deed';
 import {HttpResponse} from '@angular/common/http';
-import {JobService} from '../services/job.service';
+import {DeedService} from '../services/deed.service';
 import {routerNgProbeToken} from '@angular/router/src/router_module';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-register-job',
-  templateUrl: './register-job.component.html',
-  styleUrls: ['./register-job.component.css']
+  selector: 'app-register-deed',
+  templateUrl: './register-deed.component.html',
+  styleUrls: ['./register-deed.component.css']
 })
-export class RegisterJobComponent implements OnInit {
+export class RegisterDeedComponent implements OnInit {
 
   registerJobForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private jobService: JobService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private jobService: DeedService, private router: Router) {
   }
 
   ngOnInit() {
@@ -62,10 +62,10 @@ export class RegisterJobComponent implements OnInit {
     });
   }
 
-  addJob(job: Job) {
-    this.jobService.addJob(job).subscribe(
+  addJob(deed: Deed) {
+    this.jobService.addJob(deed).subscribe(
       data => {
-        console.log('Succesfully Added job');
+        console.log('Succesfully Added deed');
       },
       Error => {
         console.log(HttpResponse.toString());

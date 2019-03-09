@@ -1,4 +1,4 @@
-export interface Job {
+export interface Deed {
   title: string;
   city: string;
   contactPerson: string;

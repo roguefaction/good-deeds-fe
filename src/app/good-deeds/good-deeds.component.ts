@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {JobService} from '../services/job.service';
-import {Job} from '../models/job';
+import {DeedService} from '../services/deed.service';
+import {Deed} from '../models/deed';
 
 @Component({
   selector: 'app-good-deeds',
@@ -8,9 +8,9 @@ import {Job} from '../models/job';
   styleUrls: ['./good-deeds.component.css']
 })
 export class GoodDeedsComponent implements OnInit {
-  jobs: Job[];
+  jobs: Deed[];
 
-  constructor(private jobService: JobService) {
+  constructor(private jobService: DeedService) {
   }
 
   isListReady: boolean;
