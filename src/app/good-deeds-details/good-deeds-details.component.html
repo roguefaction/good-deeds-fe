@@ -1,24 +1,24 @@
 <div class="container cursor-class">
   <div class="accordion">
     <div class="card">
-      <div class="bg-table card-header row accordion-style d-flex ">
-        <div (click)="collapseAbout()" class="col-1">
+      <div class="bg-table card-header row accordion-style d-flex" (click)="collapseAbout()">
+        <div class="col-1">
           <img class="mb-0 header-class text-dark caret" src="../../assets/images/caret-down-small-dark.svg"
                *ngIf="collapseOpen==false" alt="caret.png">
           <img class="mb-0 header-class text-dark caret-up" src="../../assets/images/caret_up.png"
                *ngIf="collapseOpen==true" alt="caret.png">
         </div>
-        <div (click)="collapseAbout()" class="col-3 not-display-small">
+        <div class="col-3 not-display-small">
           <h5 class="mb-0 header-class text-dark ">
             {{job.organization}}
           </h5>
         </div>
-        <div (click)="collapseAbout()" class="col-3">
+        <div class="col-3">
           <h5 class="mb-0 header-class text-dark style-on-small-screen">
             {{job.title}}
           </h5>
         </div>
-        <div (click)="collapseAbout()" class="col-3 not-display-small">
+        <div class="col-3 not-display-small">
           <h5 class="mb-0 header-class text-dark ">
             {{job.city}}
           </h5>
