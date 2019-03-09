@@ -15,13 +15,14 @@ const routes: Routes = [
   {path: 'success-stories', component: SuccessStoriesComponent},
   {path: 'gallery', component: GalleryComponent},
   {path: 'register-job', component: RegisterJobComponent},
-  {path: 'edit-job/:id', component: RegisterJobComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: '**', component: PageNotFoundComponent},
+  {path: '**', component: PageNotFoundComponent}
+
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-
+export class AppRoutingModule { }
