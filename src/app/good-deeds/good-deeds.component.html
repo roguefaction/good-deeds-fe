@@ -8,12 +8,12 @@
   <button class="btn btn-danger button-text " routerLink="/register-job">Add deed</button>
 </div>
 
-<div *ngIf="isListReady==false" class="d-flex justify-content-center text-danger" role="status">
+<div *ngIf="!isListReady" class="d-flex justify-content-center text-danger" role="status">
   <div class="spinner-border" role="status"></div>
 </div>
 
 
-<div class="container" *ngIf="isListReady==true">
+<div class="container" *ngIf="isListReady===true">
   <div class="card bg-table-header container">
     <div class="row wider text-white">
       <div class="col-1"></div>
@@ -26,5 +26,5 @@
 </div>
 
 
-<div app-good-deeds-details [job]="job" *ngFor="let job of jobs"></div>
+<app-good-deeds-details [job]="job" *ngFor="let job of jobs"></app-good-deeds-details>
 

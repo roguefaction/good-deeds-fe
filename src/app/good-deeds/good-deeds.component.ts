@@ -21,9 +21,6 @@ export class GoodDeedsComponent implements OnInit {
 
   }
 
-  listIsReady() {
-    this.isListReady = true;
-  }
 
   getJobs() {
     this.jobService.getJobs().subscribe(
@@ -36,7 +33,7 @@ export class GoodDeedsComponent implements OnInit {
       },
       () => {
         console.log('completed');
-        this.listIsReady();
+        this.isListReady = true;
       }
     );
   }
