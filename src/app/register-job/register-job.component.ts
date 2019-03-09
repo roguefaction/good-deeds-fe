@@ -43,9 +43,7 @@ export class RegisterJobComponent implements OnInit {
       console.log(this.registerJobForm);
       this.markFormGroupTouched(this.registerJobForm);
       return;
-    }
-
-    if (this.registerJobForm.valid) {
+    } else {
       this.router.navigate(['good-deeds']);
       window.location.reload();
 
