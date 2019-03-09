@@ -15,4 +15,8 @@ export class GoodDeedsDetailsComponent implements OnInit {
   collapseAbout() {
     this.collapseOpen = !this.collapseOpen;
   }
+
+  consoleSomething() {
+    console.log('MYGTUKAS VEIKIA');
+  }
 }
