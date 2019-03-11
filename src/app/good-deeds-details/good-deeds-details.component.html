@@ -1,7 +1,7 @@
 <div class="container cursor-class">
   <div class="accordion">
     <div class="card">
-      <div class="bg-table card-header row accordion-style d-flex grey-coloring" (click)="collapseAbout()">
+      <div class="bg-table card-header row accordion-style d-flex " (click)="collapseAbout()">
         <div class="col-1">
           <img class="mb-0 header-class text-dark caret" src="../../assets/images/caret-down-small-dark.svg"
                *ngIf="collapseOpen==false" alt="caret.png">
@@ -28,7 +28,7 @@
         </div>
       </div>
 
-      <div class="collapse collapse-style card bg-collapse" [ngClass]="{ 'show': collapseOpen }">
+      <div class="collapse collapse-style card grey-coloring" [ngClass]="{ 'show': collapseOpen }">
         <div class="card-body">
           <p class="container display-6 small-size-screen">Organization: </p>
           <h5 class="p small-size-screen">{{job.organization}}</h5>

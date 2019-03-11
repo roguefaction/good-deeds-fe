@@ -43,13 +43,8 @@ export class RegisterDeedComponent implements OnInit {
       console.log(this.registerJobForm);
       this.markFormGroupTouched(this.registerJobForm);
       return;
-    } else {
-      this.router.navigate(['good-deeds']);
-      window.location.reload();
-
     }
     this.addJob(this.registerJobForm.value);
-
   }
 
   private markFormGroupTouched(formGroup: FormGroup) {
@@ -66,15 +61,17 @@ export class RegisterDeedComponent implements OnInit {
     this.jobService.addJob(deed).subscribe(
       data => {
         console.log('Succesfully Added deed');
+        console.log(Response);
       },
       Error => {
-        console.log(HttpResponse.toString());
-
+        alert('Something went wrong');
+        alert(Response);
       },
       () => {
         console.log('Operation complete');
+        console.log(Response);
+        this.router.navigateByUrl('/good-deeds');
       });
-
 
   }
 
