@@ -8,6 +8,8 @@ import {Deed} from '../models/deed';
 })
 export class DeedService {
 
+  deedToExpand: string;
+
   constructor(private http: HttpClient) {
   }
 

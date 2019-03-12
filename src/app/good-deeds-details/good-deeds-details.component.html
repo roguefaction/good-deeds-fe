@@ -4,9 +4,9 @@
       <div class="bg-table card-header row accordion-style d-flex " (click)="collapseAbout()">
         <div class="col-1">
           <img class="mb-0 header-class text-dark caret" src="../../assets/images/caret-down-small-dark.svg"
-               *ngIf="collapseOpen==false" alt="caret.png">
+               *ngIf="!collapseOpen" alt="caret.png">
           <img class="mb-0 header-class text-dark caret-up" src="../../assets/images/caret_up.png"
-               *ngIf="collapseOpen==true" alt="caret.png">
+               *ngIf="collapseOpen" alt="caret.png">
         </div>
         <div class="col-3 on-770">
         <h5 class="mb-0 header-class text-dark style-on-small-screen">
@@ -16,6 +16,7 @@
         <div class="col-2 not-display-small">
           <h5 class="mb-0 header-class text-dark ">
             {{deed.date}}
+            {{collapseOpen}}
           </h5>
         </div>
         <div class="col-2 not-display-small">
