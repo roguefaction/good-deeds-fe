@@ -8,7 +8,7 @@ import {Deed} from '../models/deed';
   styleUrls: ['./good-deeds.component.css']
 })
 export class GoodDeedsComponent implements OnInit {
-  jobs: Deed[];
+  deed: Deed[];
 
   constructor(private jobService: DeedService) {
   }
@@ -26,7 +26,7 @@ export class GoodDeedsComponent implements OnInit {
     this.jobService.getJobs().subscribe(
       jobs => {
         console.log(jobs);
-        this.jobs = jobs;
+        this.deed = jobs;
       },
       error1 => {
         console.log('error');

@@ -6,7 +6,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./good-deeds-details.component.css']
 })
 export class GoodDeedsDetailsComponent implements OnInit {
-  @Input() job;
+  @Input() deed;
   collapseOpen = false;
   constructor() { }
 

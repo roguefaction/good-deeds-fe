@@ -17,15 +17,15 @@
   <div class="card bg-table-header container">
     <div class="row wider text-white">
       <div class="col-1"></div>
+      <div class="col-3"><h2 class="display-6 header-class small-size ">Title</h2></div>
       <div class="col-2"><h2 class="display-6 header-class ">Date</h2></div>
-      <div class="col-3"><h2 class="display-6 header-class ">Organization</h2></div>
-      <div class="col-2"><h2 class="display-6 header-class small-size ">Title</h2></div>
       <div class="col-2"><h2 class="display-6 header-class ">City</h2></div>
+      <div class="col-2"><h2 class="display-6 header-class ">Max people</h2></div>
       <div class="col-2"></div>
     </div>
   </div>
 </div>
 
 
-<app-good-deeds-details [job]="job" *ngFor="let job of jobs"></app-good-deeds-details>
+<app-good-deeds-details [deed]="deed" *ngFor="let deed of deed"></app-good-deeds-details>
 
