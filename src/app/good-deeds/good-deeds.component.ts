@@ -10,23 +10,23 @@ import {Deed} from '../models/deed';
 export class GoodDeedsComponent implements OnInit {
   deed: Deed[];
 
-  constructor(private jobService: DeedService) {
+  constructor(private deedService: DeedService) {
   }
 
   isListReady: boolean;
 
   ngOnInit() {
     this.isListReady = false;
-    this.getJobs();
+    this.getDeeds();
 
   }
 
 
-  getJobs() {
-    this.jobService.getDeeds().subscribe(
-      jobs => {
-        console.log(jobs);
-        this.deed = jobs;
+  getDeeds() {
+    this.deedService.getDeeds().subscribe(
+      deeds => {
+        console.log(deeds);
+        this.deed = deeds;
       },
       error1 => {
         console.log('error');
