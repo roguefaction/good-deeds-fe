@@ -8,7 +8,8 @@ import {Deed} from '../models/deed';
   styleUrls: ['./good-deeds.component.css']
 })
 export class GoodDeedsComponent implements OnInit {
-  deed: Deed[];
+  deeds: Deed[];
+  itemsPerPage = 5;
 
   constructor(private deedService: DeedService) {
   }
@@ -21,12 +22,16 @@ export class GoodDeedsComponent implements OnInit {
 
   }
 
+  sortByDate() {
+    this.deeds.sort();
+  }
+
 
   getDeeds() {
     this.deedService.getDeeds().subscribe(
       deeds => {
         console.log(deeds);
-        this.deed = deeds;
+        this.deeds = deeds;
       },
       error1 => {
         console.log('error');
@@ -37,4 +42,9 @@ export class GoodDeedsComponent implements OnInit {
       }
     );
   }
+  showItems(value) {
+    this.itemsPerPage = value;
+
+  }
+
 }

@@ -12,6 +12,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HttpClientModule} from '@angular/common/http';
 import {GoodDeedsDetailsComponent} from './good-deeds-details/good-deeds-details.component';
 import {RegisterDeedComponent} from './register-deed/register-deed.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {RegisterDeedComponent} from './register-deed/register-deed.component';
     FormsModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
