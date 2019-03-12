@@ -12,6 +12,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HttpClientModule} from '@angular/common/http';
 import {GoodDeedsDetailsComponent} from './good-deeds-details/good-deeds-details.component';
 import {RegisterDeedComponent} from './register-deed/register-deed.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {RegisterDeedComponent} from './register-deed/register-deed.component';
     PageNotFoundComponent,
     GoodDeedsDetailsComponent,
     RegisterDeedComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,
