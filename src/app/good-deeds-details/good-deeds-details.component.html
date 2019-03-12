@@ -8,23 +8,28 @@
           <img class="mb-0 header-class text-dark caret-up" src="../../assets/images/caret_up.png"
                *ngIf="collapseOpen==true" alt="caret.png">
         </div>
+        <div class="col-2 not-display-small">
+          <h5 class="mb-0 header-class text-dark ">
+            {{job.date}}
+          </h5>
+        </div>
         <div class="col-3 not-display-small">
           <h5 class="mb-0 header-class text-dark ">
             {{job.organization}}
           </h5>
         </div>
-        <div class="col-3">
+        <div class="col-2">
           <h5 class="mb-0 header-class text-dark style-on-small-screen">
             {{job.title}}
           </h5>
         </div>
-        <div class="col-3 not-display-small">
+        <div class="col-2 not-display-small">
           <h5 class="mb-0 header-class text-dark ">
             {{job.city}}
           </h5>
         </div>
-        <div class="col-5 col-md-2 container ">
-          <button class="btn btn-success btn-block bg-btn"><h1 class="button-text">Apply</h1></button>
+        <div class="col-2 col-md-2 container ">
+          <button class="btn btn-success align-content-lg-end bg-btn"><h1 class="button-text">Apply</h1></button>
         </div>
       </div>
 
