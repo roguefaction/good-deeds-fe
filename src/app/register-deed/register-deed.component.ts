@@ -61,7 +61,7 @@ export class RegisterDeedComponent implements OnInit {
   }
 
   addJob(deed: Deed) {
-    this.jobService.addJob(deed).subscribe(
+    this.jobService.addDeed(deed).subscribe(
       data => {
         console.log('Succesfully Added deed');
       },

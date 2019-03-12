@@ -23,7 +23,7 @@ export class GoodDeedsComponent implements OnInit {
 
 
   getJobs() {
-    this.jobService.getJobs().subscribe(
+    this.jobService.getDeeds().subscribe(
       jobs => {
         console.log(jobs);
         this.deed = jobs;
