@@ -26,11 +26,12 @@ export class RegisterDeedComponent implements OnInit {
     this.registerJobForm = this.formBuilder.group({
       title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
       organization: ['', [Validators.minLength(5), Validators.maxLength(50)]],
-      city: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern('^[A-Za-z ]+$')]],
+      city: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50),
+        Validators.pattern('[^\\x00-\\x7F]*[a-zA-Z\\s]*')]],
       date: ['', [Validators.required]],
       maxPeople: ['', [Validators.pattern('^[0-9]*')]],
       email: ['', [Validators.required, Validators.email]],
-      contactPerson: ['', [Validators.required]],
+      contactPerson: ['', [Validators.required, Validators.pattern('[^\\x00-\\x7F]*[a-zA-Z\\s]*')]],
       phoneNumber: ['', [Validators.required, Validators.pattern('^\\+370[0-9]{8}')]],
       description: ['', [Validators.maxLength(500)]],
       // hastags pasidometi del validacijos
@@ -45,13 +46,8 @@ export class RegisterDeedComponent implements OnInit {
       console.log(this.registerJobForm);
       this.markFormGroupTouched(this.registerJobForm);
       return;
-    } else {
-      this.router.navigate(['good-deeds']);
-      window.location.reload();
-
     }
     this.addJob(this.registerJobForm.value);
-
   }
 
   private markFormGroupTouched(formGroup: FormGroup) {
@@ -69,14 +65,13 @@ export class RegisterDeedComponent implements OnInit {
       data => {
         console.log('Succesfully Added deed');
       },
-      Error => {
-        console.log(HttpResponse.toString());
-
+      ErrorResponse => {
+        alert(ErrorResponse.error.message);
       },
       () => {
         console.log('Operation complete');
+        this.router.navigateByUrl('/good-deeds');
       });
-
 
   }
 

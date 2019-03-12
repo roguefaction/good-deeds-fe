@@ -18,6 +18,10 @@
   display: none;
 }
 
+.grey-coloring{
+  background-color: rgba(0,0,0,0.02);
+}
+
 @media only screen and (max-width: 770px){
   .small-size-screen{
     display: inline-block;
