@@ -4,6 +4,7 @@
 .header-class{
   font-family: "Arial";
   font-size: 2vh;
+  text-align: left;
 }
 
 .accordion-style{
@@ -21,15 +22,19 @@
   background-color: rgba(0,0,0,0.02);
 }
 
-@media only screen and (max-width: 770px){
+@media only screen and (max-width: 1000px){
   .small-size-screen{
     display: inline-block;
   }
   .not-display-small{
     display: none;
   }
-
+  .button-container{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
 }
+
 
 .cursor-class{
   cursor: pointer;
@@ -57,3 +62,5 @@
   width:100%;
   z-index:100;
 }
+
+

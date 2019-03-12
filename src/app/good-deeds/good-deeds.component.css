@@ -53,6 +53,7 @@
 .button-text{
   font-size: 2.5vh;
   vertical-align: middle;
+  margin: 0px;
 }
 .style-class{
   display: none;
@@ -61,7 +62,7 @@
 
 
 
-@media only screen and (max-width: 770px){
+@media only screen and (max-width: 1000px){
   .style-class{
     display: inline-block;
     align-content: center;

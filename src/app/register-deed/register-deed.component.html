@@ -45,7 +45,7 @@
     </div>
 
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label">City/city*</label>
+      <label class="col-sm-2 col-form-label">City*</label>
       <div class="col-sm-7">
         <input formControlName="city" class="form-control" placeholder="Vilnius" maxLength="50">
       </div>
@@ -63,6 +63,31 @@
       </div>
       <div *ngIf="registerJobForm.get('city').hasError('pattern')" class="alert-danger alert">
         City must be only letters
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Date*</label>
+      <div class="col-sm-7">
+        <input  type="date" formControlName="date" class="form-control" placeholder="2010-10-10">
+      </div>
+    </div>
+    <div *ngIf="registerJobForm.get('date').touched">
+      <div *ngIf="registerJobForm.get('date').hasError('required')" class="alert-danger alert">
+        Date field is required
+      </div>
+
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Max People</label>
+      <div class="col-sm-7">
+        <input formControlName="maxPeople" class="form-control">
+      </div>
+    </div>
+    <div *ngIf="registerJobForm.get('maxPeople').touched">
+      <div *ngIf="registerJobForm.get('maxPeople').hasError('pattern')" class="alert-danger alert">
+        Maximum value of people must be only numbers
       </div>
     </div>
 

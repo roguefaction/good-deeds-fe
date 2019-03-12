@@ -11,7 +11,7 @@ export class DeedService {
   constructor(private http: HttpClient) {
   }
 
-  getJobs(): Observable<Deed[]> {
+  getDeeds(): Observable<Deed[]> {
     return this.http.get<Deed[]>(`https://calm-waters-93672.herokuapp.com/deeds`);
   }
 
@@ -20,8 +20,8 @@ export class DeedService {
   }
 
 
-  addJob(job: Deed) {
-    return this.http.post('https://calm-waters-93672.herokuapp.com/deed', job);
+  addDeed(deed: Deed) {
+    return this.http.post('https://calm-waters-93672.herokuapp.com/deed', deed);
   }
 
 }

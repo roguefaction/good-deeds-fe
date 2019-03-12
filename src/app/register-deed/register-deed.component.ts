@@ -28,6 +28,8 @@ export class RegisterDeedComponent implements OnInit {
       organization: ['', [Validators.minLength(5), Validators.maxLength(50)]],
       city: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50),
         Validators.pattern('[^\\x00-\\x7F]*[a-zA-Z\\s]*')]],
+      date: ['', [Validators.required]],
+      maxPeople: ['', [Validators.pattern('^[0-9]*')]],
       email: ['', [Validators.required, Validators.email]],
       contactPerson: ['', [Validators.required, Validators.pattern('[^\\x00-\\x7F]*[a-zA-Z\\s]*')]],
       phoneNumber: ['', [Validators.required, Validators.pattern('^\\+370[0-9]{8}')]],
@@ -59,7 +61,7 @@ export class RegisterDeedComponent implements OnInit {
   }
 
   addJob(deed: Deed) {
-    this.jobService.addJob(deed).subscribe(
+    this.jobService.addDeed(deed).subscribe(
       data => {
         console.log('Succesfully Added deed');
       },
