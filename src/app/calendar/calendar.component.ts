@@ -23,6 +23,7 @@ import {
   CalendarEventTimesChangedEvent,
   CalendarView
 } from 'angular-calendar';
+import {DeedService} from '../services/deed.service';
 
 const colors: any = {
   red: {
@@ -47,6 +48,8 @@ const colors: any = {
 })
 export class CalendarComponent {
 
+  constructor(private modal: NgbModal, private jobService: DeedService) {
+  }
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
   view: CalendarView = CalendarView.Month;
@@ -121,8 +124,6 @@ export class CalendarComponent {
 
   activeDayIsOpen: boolean = true;
 
-  constructor(private modal: NgbModal) {
-  }
 
   dayClicked({date, events}: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
@@ -150,8 +151,7 @@ export class CalendarComponent {
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
-    this.modalData = {event, action};
-    this.modal.open(this.modalContent, {size: 'lg'});
+    // navigate somewhere
   }
 
   addEvent(): void {
