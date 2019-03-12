@@ -24,6 +24,7 @@ import {
   CalendarView
 } from 'angular-calendar';
 import {DeedService} from '../services/deed.service';
+import {Deed} from '../models/deed';
 
 const colors: any = {
   red: {
@@ -47,8 +48,11 @@ const colors: any = {
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent {
+  deeds: Deed[];
 
-  constructor(private modal: NgbModal, private jobService: DeedService) {
+  constructor(private modal: NgbModal, private deedService: DeedService) {
+    this.getDeeds();
+    this.loadEvents(this.deeds);
   }
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
@@ -79,50 +83,50 @@ export class CalendarComponent {
     }
   ];
 
+
   refresh: Subject<any> = new Subject();
 
-  events: CalendarEvent[] = [
-    {
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
-      title: 'A 3 day event',
-      color: colors.red,
-      actions: this.actions,
-      allDay: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      draggable: true
-    },
-    {
-      start: startOfDay(new Date()),
-      title: 'An event with no end date',
-      color: colors.yellow,
-      actions: this.actions
-    },
-    {
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      title: 'A long event that spans 2 months',
-      color: colors.blue,
-      allDay: true
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: new Date(),
-      title: 'A draggable and resizable event',
-      color: colors.yellow,
-      actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      draggable: true
-    }
-  ];
+  events: CalendarEvent[];
 
   activeDayIsOpen: boolean = true;
+
+  event: CalendarEvent;
+
+  getDeeds() {
+    this.deedService.getDeeds().subscribe(
+      jobs => {
+        console.log(jobs);
+        this.deed = jobs;
+      },
+      error1 => {
+        console.log('error');
+      },
+      () => {
+        console.log('completed');
+      }
+    );
+  }
+
+  loadEvents(deeds: Deed[]){
+    for(let deed of deeds){
+      event =  {
+          start: subDays(startOfDay(new Date()), 1),
+          end: addDays(new Date(), 1),
+          title: deed.title,
+          color: colors.red,
+          actions: this.actions,
+          allDay: true,
+          resizable: {
+          beforeStart: true,
+            afterEnd: true
+        },
+        draggable: true
+      }
+      this.events.push(event);
+
+    }
+    this.refresh.next();
+  }
 
 
   dayClicked({date, events}: { date: Date; events: CalendarEvent[] }): void {
