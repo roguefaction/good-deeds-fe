@@ -52,7 +52,6 @@ export class CalendarComponent {
 
   constructor(private modal: NgbModal, private deedService: DeedService) {
     this.getDeeds();
-    this.loadEvents(this.deeds);
   }
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
@@ -86,17 +85,18 @@ export class CalendarComponent {
 
   refresh: Subject<any> = new Subject();
 
-  events: CalendarEvent[];
+  events: CalendarEvent[] = [];
 
   activeDayIsOpen: boolean = true;
 
-  event: CalendarEvent;
+  newEvent: CalendarEvent;
 
   getDeeds() {
     this.deedService.getDeeds().subscribe(
-      jobs => {
-        console.log(jobs);
-        this.deed = jobs;
+      deeds => {
+        console.log(deeds);
+        this.deeds = deeds;
+        this.loadEvents(this.deeds);
       },
       error1 => {
         console.log('error');
@@ -108,23 +108,21 @@ export class CalendarComponent {
   }
 
   loadEvents(deeds: Deed[]){
-    for(let deed of deeds){
-      event =  {
-          start: subDays(startOfDay(new Date()), 1),
-          end: addDays(new Date(), 1),
-          title: deed.title,
-          color: colors.red,
-          actions: this.actions,
-          allDay: true,
-          resizable: {
+    this.deeds.forEach( (deed) => {
+
+      this.events.push({
+        start: new Date(deed.date),
+        title: deed.title,
+        color: colors.red,
+        actions: this.actions,
+        allDay: true,
+        resizable: {
           beforeStart: true,
-            afterEnd: true
+          afterEnd: true
         },
         draggable: true
-      }
-      this.events.push(event);
-
-    }
+      });
+    });
     this.refresh.next();
   }
 
