@@ -1,7 +1,7 @@
 <div class="container cursor-class">
   <div class="accordion">
     <div class="card">
-      <div class="bg-table card-header row accordion-style d-flex " (click)="collapseAbout()">
+      <div class="bg-table card-header row accordion-style d-flex from-400 " (click)="collapseAbout()">
         <div class="col-1">
           <img class="mb-0 header-class text-dark caret" src="../../assets/images/caret-down-small-dark.svg"
                *ngIf="collapseOpen==false" alt="caret.png">
@@ -15,7 +15,7 @@
         </h5>
       </div>
 
-        <div class="col-8 from-1000">
+        <div class="col-7 from-1000 container">
           <h5 class="mb-0 header-class text-dark style-on-small-screen">
             {{deed.title}}
           </h5>
@@ -39,7 +39,7 @@
         <div class="col-1 till-1000">
           <button class="btn btn-success bg-btn apply-button">Apply</button>
         </div>
-        <div class="col-3 from-1000">
+        <div class="col-4 from-1000 container">
           <button class="btn btn-success bg-btn apply-button">Apply</button>
         </div>
       </div>

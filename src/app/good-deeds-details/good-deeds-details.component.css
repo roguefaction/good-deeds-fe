@@ -17,7 +17,9 @@
 .small-size-screen{
   display: none;
 }
-
+.from-1000{
+  display: none;
+}
 .grey-coloring{
   background-color: rgba(0,0,0,0.02);
 }
@@ -39,10 +41,6 @@
     display: none;
   }
 }
-.from-1000{
-  display: none;
-}
-
 .cursor-class{
   cursor: pointer;
 }

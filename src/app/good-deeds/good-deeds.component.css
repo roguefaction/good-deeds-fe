@@ -72,5 +72,6 @@
   }
   .small-size{
     display: inline-block;
+    text-align: center;
   }
 }
