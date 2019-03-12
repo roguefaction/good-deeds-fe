@@ -12,11 +12,11 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Title*</label>
       <div class="col-sm-7">
-        <input formControlName="title" class="form-control"  placeholder="Save the squirrels">
+        <input formControlName="title" class="form-control"  placeholder="Save the squirrels" maxLength="50">
       </div>
     </div>
     <div *ngIf="registerJobForm.get('title').touched">
-      <div *ngIf="registerJobForm.get('title').hasError('required')" class="alert-danger alert">
+      <div *ngIf="registerJobForm.get('title').hasError('required')" class="alert-danger alert" >
         Title field is required
       </div>
       <div *ngIf="registerJobForm.get('title').hasError('minlength')" class="alert-danger alert">
@@ -31,7 +31,7 @@
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">Organization:</label>
     <div class="col-sm-7">
-      <input formControlName="organization" class="form-control" placeholder="National Squirrel University">
+      <input formControlName="organization" class="form-control" placeholder="National Squirrel University" maxLength="50">
     </div>
     </div>
     <div *ngIf="registerJobForm.get('organization').touched">
@@ -47,7 +47,7 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">City/city*</label>
       <div class="col-sm-7">
-        <input formControlName="city" class="form-control" placeholder="Vilnius">
+        <input formControlName="city" class="form-control" placeholder="Vilnius" maxLength="50">
       </div>
     </div>
     <div *ngIf="registerJobForm.get('city').touched">
@@ -71,7 +71,7 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Email*</label>
       <div class="col-sm-7">
-        <input formControlName="email" class="form-control" placeholder="mcsquirrel@gmail.com">
+        <input formControlName="email" class="form-control" placeholder="mcsquirrel@gmail.com" maxLength="50">
       </div>
     </div>
     <div *ngIf="registerJobForm.get('email').touched">
@@ -86,14 +86,14 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Contact person*</label>
       <div class="col-sm-7">
-        <input formControlName="contactPerson" class="form-control" placeholder="Name Surname">
+        <input formControlName="contactPerson" class="form-control" placeholder="Name Surname" maxLength="50">
       </div>
     </div>
     <div *ngIf="registerJobForm.get('contactPerson').touched">
       <div *ngIf="registerJobForm.get('contactPerson').hasError('required')" class="alert-danger alert">
         Contact person field is required
       </div>
-      <div *ngIf="registerJobForm.get('contactPerson').hasError('name')">
+      <div *ngIf="registerJobForm.get('contactPerson').hasError(['name','pattern'])">
         Valid name is required
       </div>
     </div>
@@ -101,7 +101,7 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Phone number*</label>
       <div class="col-sm-7">
-        <input formControlName="phoneNumber" class="form-control" placeholder="+37060000000">
+        <input formControlName="phoneNumber" class="form-control" placeholder="+37060000000" maxLength="50">
       </div>
     </div>
     <div *ngIf="registerJobForm.get('phoneNumber').touched">
@@ -117,9 +117,13 @@
     <h1 class="h1-padding">Description</h1>
 
 
-      <div class="form-group">
-        <textarea formControlName="description" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Describe what is this project about"></textarea >
+      <div class="form-group row">
+        <textarea formControlName="description"  #incidentDescription class="form-control col-md-9" id="exampleFormControlTextarea1" rows="4" placeholder="Describe what is this project about" maxLength="500"></textarea >
+        <small class="col-md char-count">
+          {{500 - incidentDescription.value.length}}/500
+        </small>
       </div>
+
     <div *ngIf="registerJobForm.get('description').touched">
       <div *ngIf="registerJobForm.get('description').hasError('maxlength')" class="alert-danger alert">
         Description field is too long
@@ -131,7 +135,7 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Tags:</label>
       <div class="col-sm-7">
-        <input formControlName="tags" class="form-control" placeholder="#happydays">
+        <input formControlName="tags" class="form-control" placeholder="#happydays" maxLength="100">
       </div>
     </div>
     <div *ngIf="registerJobForm.get('tags').touched">

@@ -26,9 +26,9 @@ export class RegisterDeedComponent implements OnInit {
     this.registerJobForm = this.formBuilder.group({
       title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
       organization: ['', [Validators.minLength(5), Validators.maxLength(50)]],
-      city: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern('^[A-Za-z ]+$')]],
+      city: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern('[^\\x00-\\x7F]*[a-zA-Z\\s]*')]],
       email: ['', [Validators.required, Validators.email]],
-      contactPerson: ['', [Validators.required]],
+      contactPerson: ['', [Validators.required, Validators.pattern('[^\\x00-\\x7F]*[a-zA-Z\\s]*')]],
       phoneNumber: ['', [Validators.required, Validators.pattern('^\\+370[0-9]{8}')]],
       description: ['', [Validators.maxLength(500)]],
       // hastags pasidometi del validacijos
