@@ -10,6 +10,7 @@ import {Deed} from '../models/deed';
 export class GoodDeedsComponent implements OnInit {
   deeds: Deed[];
   itemsPerPage = 5;
+  p: number;
 
   constructor(private deedService: DeedService) {
   }
