@@ -4,8 +4,6 @@
   <h1 class="text-center text-white display-2">A list of Good deeds</h1>
 </div>
 
-<p #myname>test paragraph</p>
-
 <div class="container button-class-div">
   <button class="btn btn-danger button-text " routerLink="/register-deed">Add a deed</button>
 </div>
@@ -22,12 +20,27 @@
       <div class="col-3"><h2 class="display-6 header-class small-size ">Title</h2></div>
       <div class="col-2"><h2 class="display-6 header-class ">Date</h2></div>
       <div class="col-2"><h2 class="display-6 header-class ">City</h2></div>
-      <div class="col-2"><h2 class="display-6 header-class ">Max people</h2></div>
+      <div class="col-2"><h2 class="display-6 header-class ">People</h2></div>
       <div class="col-1"></div>
     </div>
   </div>
 </div>
 
-
-
-<app-good-deeds-details [deed]="deed" *ngFor="let deed of deed"></app-good-deeds-details>
+<app-good-deeds-details [deed]="deed"
+                        *ngFor="let deed of deeds | paginate: {itemsPerPage: itemsPerPage, currentPage: p}">
+</app-good-deeds-details>
+<div class="container align-content-end pagination-div">
+  <div class="d-flex justify-content-end">
+    <div>
+      <pagination-controls *ngIf="isListReady===true" class="pagination-style" (pageChange)="p =$event"></pagination-controls>
+    </div>
+    <div>
+      <select *ngIf="isListReady===true" (change)="showItems($event.target.value)">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+      </select>
+    </div>
+  </div>
+</div>

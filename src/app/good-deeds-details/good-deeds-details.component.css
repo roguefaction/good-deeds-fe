@@ -17,11 +17,12 @@
 .small-size-screen{
   display: none;
 }
-
+.from-1000{
+  display: none;
+}
 .grey-coloring{
   background-color: rgba(0,0,0,0.02);
 }
-
 @media only screen and (max-width: 1000px){
   .small-size-screen{
     display: inline-block;
@@ -33,9 +34,13 @@
     margin-left: 0px;
     margin-right: 0px;
   }
+  .from-1000{
+    display: inline-block;
+  }
+  .till-1000{
+    display: none;
+  }
 }
-
-
 .cursor-class{
   cursor: pointer;
 }
@@ -61,6 +66,9 @@
   top:0;
   width:100%;
   z-index:100;
+}
+.pagination-div{
+  margin-top: 10px;
 }
 
 

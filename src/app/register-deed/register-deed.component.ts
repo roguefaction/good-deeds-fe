@@ -13,9 +13,9 @@ import {Router} from '@angular/router';
 })
 export class RegisterDeedComponent implements OnInit {
 
-  registerJobForm: FormGroup;
+  registerDeedForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private jobService: DeedService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private deedService: DeedService, private router: Router) {
   }
 
   ngOnInit() {
@@ -23,11 +23,11 @@ export class RegisterDeedComponent implements OnInit {
   }
 
   createForm() {
-    this.registerJobForm = this.formBuilder.group({
+    this.registerDeedForm = this.formBuilder.group({
       title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
       organization: ['', [Validators.minLength(5), Validators.maxLength(50)]],
       city: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50),
-        Validators.pattern('[^\\x00-\\x7F]*[a-zA-Z\\s]*')]],
+        Validators.pattern('([^\x00-\x7F]*[a-zA-Z\s]*)*')]],
       date: ['', [Validators.required]],
       maxPeople: ['', [Validators.pattern('^[0-9]*')]],
       email: ['', [Validators.required, Validators.email]],
@@ -39,15 +39,14 @@ export class RegisterDeedComponent implements OnInit {
       //  /#(\w*[0-9a-zA-Z]+\w*[0-9a-zA-Z])/g
     });
   }
-
   submitForm() {
 
-    if (this.registerJobForm.invalid) {
-      console.log(this.registerJobForm);
-      this.markFormGroupTouched(this.registerJobForm);
+    if (this.registerDeedForm.invalid) {
+      console.log(this.registerDeedForm);
+      this.markFormGroupTouched(this.registerDeedForm);
       return;
     }
-    this.addJob(this.registerJobForm.value);
+    this.addDeed(this.registerDeedForm.value);
   }
 
   private markFormGroupTouched(formGroup: FormGroup) {
@@ -60,8 +59,8 @@ export class RegisterDeedComponent implements OnInit {
     });
   }
 
-  addJob(deed: Deed) {
-    this.jobService.addDeed(deed).subscribe(
+  addDeed(deed: Deed) {
+    this.deedService.addDeed(deed).subscribe(
       data => {
         console.log('Succesfully Added deed');
       },

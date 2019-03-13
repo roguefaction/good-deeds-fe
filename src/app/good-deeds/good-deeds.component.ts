@@ -8,25 +8,24 @@ import {Deed} from '../models/deed';
   styleUrls: ['./good-deeds.component.css']
 })
 export class GoodDeedsComponent implements OnInit, AfterViewInit {
-  deed: Deed[];
-  constructor(private jobService: DeedService) {
+  deeds: Deed[];
+  itemsPerPage = 5;
+  p: number;
+  constructor(private deedService: DeedService) {
   }
 
   isListReady: boolean;
 
   ngOnInit() {
     this.isListReady = false;
-    this.getJobs();
+    this.getDeeds();
 
   }
-  @ViewChild('myname') testElement1 : ElementRef;
 
+  sortByDate() {
+    this.deeds.sort();
+  }
   ngAfterViewInit(): void {
-    //console.log("afterinit");
-    setTimeout(() => {
-      //console.log("afterinit 1 sec");
-      //console.log('test value: ' + this.testElement1.nativeElement.innerText);
-    }, 1000);
   }
 
   scroll(el: HTMLElement){
@@ -34,11 +33,11 @@ export class GoodDeedsComponent implements OnInit, AfterViewInit {
   }
 
 
-  getJobs() {
-    this.jobService.getDeeds().subscribe(
-      jobs => {
-        console.log(jobs);
-        this.deed = jobs;
+  getDeeds() {
+    this.deedService.getDeeds().subscribe(
+      deeds => {
+        console.log(deeds);
+        this.deeds = deeds;
       },
       error1 => {
         console.log('error');
@@ -49,4 +48,9 @@ export class GoodDeedsComponent implements OnInit, AfterViewInit {
       }
     );
   }
+  showItems(value) {
+    this.itemsPerPage = value;
+
+  }
+
 }

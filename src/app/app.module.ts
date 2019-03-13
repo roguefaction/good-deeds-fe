@@ -12,6 +12,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HttpClientModule} from '@angular/common/http';
 import {GoodDeedsDetailsComponent} from './good-deeds-details/good-deeds-details.component';
 import {RegisterDeedComponent} from './register-deed/register-deed.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { CalendarComponent } from './calendar/calendar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
@@ -36,6 +37,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     FormsModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
+    NgxPaginationModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     CalendarModule.forRoot({
