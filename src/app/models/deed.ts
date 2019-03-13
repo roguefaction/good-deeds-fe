@@ -9,6 +9,6 @@ export interface Deed {
   currentPeople: number;
   description: string;
   tags: string;
-  deedDate: string;
+  date: string;
   isExpanded: boolean;
 }

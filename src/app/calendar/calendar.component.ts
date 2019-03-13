@@ -112,7 +112,7 @@ export class CalendarComponent {
     this.deeds.forEach( (deed) => {
 
       this.events.push({
-        start: new Date(deed.deedDate),
+        start: new Date(deed.date),
         title: deed.title,
         color: colors.red,
         actions: this.actions,
