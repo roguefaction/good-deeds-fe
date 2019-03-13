@@ -58,9 +58,18 @@
 .style-class{
   display: none;
 }
-
-
-
+.caret{
+  vertical-align: center;
+  horiz-align: center;
+  max-width: 1rem;
+  max-height: 1rem;
+}
+.caret-up{
+  vertical-align: center;
+  horiz-align: center;
+  max-width: 1.8rem;
+  max-height: 1.8rem;
+}
 @media only screen and (max-width: 1000px){
   .style-class{
     display: inline-block;

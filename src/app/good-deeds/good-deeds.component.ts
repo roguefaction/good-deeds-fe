@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DeedService} from '../services/deed.service';
 import {Deed} from '../models/deed';
+import { sortBy } from 'sort-by-typescript';
 
 @Component({
   selector: 'app-good-deeds',
@@ -11,6 +12,10 @@ export class GoodDeedsComponent implements OnInit {
   deeds: Deed[];
   itemsPerPage = 5;
   p: number;
+  isTitleSorted = false;
+  isCitySorted = false;
+  isPeopleSorted = false;
+  isDateSorted = false;
 
   constructor(private deedService: DeedService) {
   }
@@ -23,16 +28,11 @@ export class GoodDeedsComponent implements OnInit {
 
   }
 
-  sortByDate() {
-    this.deeds.sort();
-  }
-
-
   getDeeds() {
     this.deedService.getDeeds().subscribe(
       deeds => {
         console.log(deeds);
-        this.deeds = deeds;
+        this.deeds = deeds.sort(sortBy('date'));
       },
       error1 => {
         console.log('error');
@@ -48,4 +48,40 @@ export class GoodDeedsComponent implements OnInit {
 
   }
 
+  sortByCity() {
+    if (this.isCitySorted === false) {
+      this.deeds = this.deeds.sort(sortBy('city^'));
+      this.isCitySorted = true;
+    }else {
+      this.deeds = this.deeds.sort(sortBy('-city^'));
+      this.isCitySorted = false;
+    }
+  }
+  sortByDate() {
+    if (this.isDateSorted === false) {
+      this.deeds = this.deeds.sort(sortBy('-date'));
+      this.isDateSorted = true;
+    }else {
+      this.deeds = this.deeds.sort(sortBy('date'));
+      this.isDateSorted = false;
+    }
+  }
+  sortByPeople() {
+    if (this.isPeopleSorted === false) {
+      this.deeds = this.deeds.sort(sortBy('maxPeople^'));
+      this.isPeopleSorted = true;
+    }else {
+      this.deeds = this.deeds.sort(sortBy('-maxPeople^'));
+      this.isPeopleSorted = false;
+    }
+  }
+  sortByTitle() {
+    if (this.isTitleSorted === false) {
+      this.deeds = this.deeds.sort(sortBy('title^'));
+      this.isTitleSorted = true;
+    }else {
+      this.deeds = this.deeds.sort(sortBy('-title^'));
+      this.isTitleSorted = false;
+    }
+  }
 }
