@@ -1,6 +1,5 @@
 import {Component, Input, OnInit, ElementRef, Renderer2, ViewChild, AfterViewInit} from '@angular/core';
 import {DeedService} from '../services/deed.service';
-import {element} from 'protractor';
 
 
 @Component({
