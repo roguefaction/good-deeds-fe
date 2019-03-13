@@ -4,6 +4,8 @@
   <h1 class="text-center text-white display-2">A list of Good deeds</h1>
 </div>
 
+<p #myname>test paragraph</p>
+
 <div class="container button-class-div">
   <button class="btn btn-danger button-text " routerLink="/register-deed">Add a deed</button>
 </div>
@@ -27,5 +29,5 @@
 </div>
 
 
-<app-good-deeds-details [deed]="deed" *ngFor="let deed of deed"></app-good-deeds-details>
 
+<app-good-deeds-details [deed]="deed" *ngFor="let deed of deed"></app-good-deeds-details>

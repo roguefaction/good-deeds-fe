@@ -1,4 +1,4 @@
-<div class="container cursor-class" #target>
+<div class="container cursor-class">
   <div class="accordion">
     <div class="card">
       <div class="bg-table card-header row accordion-style d-flex " (click)="collapseAbout()">
@@ -9,7 +9,7 @@
                *ngIf="collapseOpen" alt="caret.png">
         </div>
         <div class="col-3 on-770">
-        <h5 class="mb-0 header-class text-dark style-on-small-screen">
+        <h5 #target class="mb-0 header-class text-dark style-on-small-screen">
           {{deed.title}}
         </h5>
       </div>
