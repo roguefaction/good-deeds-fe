@@ -14,6 +14,7 @@ import {Router} from '@angular/router';
 export class RegisterDeedComponent implements OnInit {
 
   registerDeedForm: FormGroup;
+  httpStatus: string;
 
   constructor(private formBuilder: FormBuilder, private deedService: DeedService, private router: Router) {
   }
@@ -65,7 +66,8 @@ export class RegisterDeedComponent implements OnInit {
         console.log('Succesfully Added deed');
       },
       ErrorResponse => {
-        alert(ErrorResponse.error.message);
+        // alert(ErrorResponse.error.message);
+        this.httpStatus = ErrorResponse.error.message;
       },
       () => {
         console.log('Operation complete');

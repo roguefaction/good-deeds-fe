@@ -177,6 +177,9 @@
         <button type="submit" class="btn btn-primary">Register</button>
       </div>
     </div>
+    <div *ngIf="httpStatus" class="alert-danger alert">
+      <p [innerText]="httpStatus"></p>
+    </div>
   </form>
 
 </div>
