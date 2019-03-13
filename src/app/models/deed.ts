@@ -11,5 +11,4 @@ export interface Deed {
   tags: string;
   date: string;
   isExpanded: boolean;
-
 }

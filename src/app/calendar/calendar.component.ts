@@ -26,7 +26,6 @@ import {
 import {DeedService} from '../services/deed.service';
 import {Deed} from '../models/deed';
 import {Router} from '@angular/router';
-import {DeedExpandService} from '../services/deed-expand.service';
 
 const colors: any = {
   red: {
@@ -52,7 +51,7 @@ const colors: any = {
 export class CalendarComponent {
   deeds: Deed[];
 
-  constructor(private modal: NgbModal, private deedService: DeedService, private router: Router, private deedExpandService: DeedExpandService) {
+  constructor(private modal: NgbModal, private deedService: DeedService, private router: Router) {
     this.getDeeds();
   }
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
@@ -156,8 +155,8 @@ export class CalendarComponent {
 
   handleEvent(action: string, event: CalendarEvent): void {
     // navigate somewhere
-    console.log('Test click event');
-    this.deedExpandService.newEventHere(event.title);
+    // TODO: call service to set the deed to expand
+    this.deedService.setDeedToExpand(event.title);
     this.router.navigateByUrl('/good-deeds');
   }
 
