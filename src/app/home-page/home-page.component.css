@@ -14,8 +14,16 @@
   background: url('../../assets/images/vintage-rainbow-color-badge.png');
   background-size: cover;
 }
+
 .home-padding{
   padding-right: 60px;
 }
+
+.carousel-style{
+  height: 40rem;
+  width: 100%;
+  object-fit: cover;
+}
+
 
 
