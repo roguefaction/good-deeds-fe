@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
 import {DeedService} from '../services/deed.service';
 import {Deed} from '../models/deed';
 import { sortBy } from 'sort-by-typescript';
@@ -8,7 +8,7 @@ import { sortBy } from 'sort-by-typescript';
   templateUrl: './good-deeds.component.html',
   styleUrls: ['./good-deeds.component.css']
 })
-export class GoodDeedsComponent implements OnInit {
+export class GoodDeedsComponent implements OnInit, AfterViewInit {
   deeds: Deed[];
   itemsPerPage = 5;
   p: number;
@@ -28,14 +28,22 @@ export class GoodDeedsComponent implements OnInit {
 
   }
 
+  ngAfterViewInit(): void {
+  }
+
+  scroll(el: HTMLElement){
+    el.scrollIntoView();
+  }
+
+
   getDeeds() {
     this.deedService.getDeeds().subscribe(
       deeds => {
         console.log(deeds);
         this.deeds = deeds;
       },
-      error1 => {
-        console.log('error');
+      ErrorResponse => {
+        alert(ErrorResponse.error.message);
       },
       () => {
         console.log('completed');
