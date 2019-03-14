@@ -52,7 +52,7 @@ export class CalendarComponent {
   deeds: Deed[];
 
   constructor(private modal: NgbModal, private deedService: DeedService, private router: Router) {
-    this.getDeeds();
+    this.getCalendarDeeds();
   }
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
@@ -92,8 +92,8 @@ export class CalendarComponent {
 
   newEvent: CalendarEvent;
 
-  getDeeds() {
-    this.deedService.getDeeds().subscribe(
+  getCalendarDeeds() {
+    this.deedService.getCalendarDeeds().subscribe(
       deeds => {
         console.log(deeds);
         this.deeds = deeds;
@@ -153,11 +153,17 @@ export class CalendarComponent {
     this.refresh.next();
   }
 
+  eventDate: Date;
+
   handleEvent(action: string, event: CalendarEvent): void {
-    // navigate somewhere
-    // TODO: call service to set the deed to expand
     this.deedService.setDeedToExpand(event.title);
-    this.router.navigateByUrl('/good-deeds');
+    this.eventDate = new Date(event.start);
+    console.log(this.eventDate.getTime() + '- event, now - ' + Date.now());
+    if(this.eventDate.getDate() >= new Date(Date.now()).getDate()) {
+      this.router.navigateByUrl('/good-deeds');
+    } else {
+      // TODO: show something if event has already passed
+    }
   }
 
   addEvent(): void {

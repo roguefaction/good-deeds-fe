@@ -15,6 +15,10 @@ export class DeedService {
   }
 
   getDeeds(): Observable<Deed[]> {
+    return this.http.get<Deed[]>(`https://calm-waters-93672.herokuapp.com/allupcomingdeeds`);
+  }
+
+  getCalendarDeeds(): Observable<Deed[]> {
     return this.http.get<Deed[]>(`https://calm-waters-93672.herokuapp.com/deeds`);
   }
 
@@ -26,7 +30,6 @@ export class DeedService {
   addDeed(deed: Deed) {
     return this.http.post('https://calm-waters-93672.herokuapp.com/deed', deed);
   }
-  // TODO: add service method to set and fetch the deed to expand
   setDeedToExpand(title: string) {
     this.deedToExpand = title;
   }
