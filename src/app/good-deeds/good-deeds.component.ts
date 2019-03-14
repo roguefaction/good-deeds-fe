@@ -28,9 +28,6 @@ export class GoodDeedsComponent implements OnInit, AfterViewInit {
 
   }
 
-  sortByDate() {
-    this.deeds.sort();
-  }
   ngAfterViewInit(): void {
   }
 
