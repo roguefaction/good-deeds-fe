@@ -143,13 +143,13 @@
     <h1 class="h1-padding">Description</h1>
 
 
-    <div class="form-group row">
-      <textarea formControlName="description" #incidentDescription class="form-control col-md-9"
+    <div class="form-group flex-column row">
+      <div><textarea formControlName="description" #incidentDescription class="form-control col-md-9"
                 id="exampleFormControlTextarea1" rows="4" placeholder="Describe what is this project about"
-                maxLength="500"></textarea>
-      <small class="col-md char-count">
+                     maxLength="500"></textarea></div>
+      <div><small class="col-md char-count">
         {{500 - incidentDescription.value.length}}/500
-      </small>
+      </small></div>
     </div>
 
     <div *ngIf="registerDeedForm.get('description').touched">
