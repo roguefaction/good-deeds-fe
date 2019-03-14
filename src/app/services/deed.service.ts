@@ -8,7 +8,10 @@ import {Deed} from '../models/deed';
 })
 export class DeedService {
 
+  deedToExpand: string;
+
   constructor(private http: HttpClient) {
+    console.log(this.deedToExpand);
   }
 
   getDeeds(): Observable<Deed[]> {
@@ -22,6 +25,13 @@ export class DeedService {
 
   addDeed(deed: Deed) {
     return this.http.post('https://calm-waters-93672.herokuapp.com/deed', deed);
+  }
+  // TODO: add service method to set and fetch the deed to expand
+  setDeedToExpand(title: string) {
+    this.deedToExpand = title;
+  }
+  getDeedToExpand() {
+    return this.deedToExpand;
   }
 
 }

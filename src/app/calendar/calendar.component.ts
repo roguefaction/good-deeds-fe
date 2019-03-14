@@ -23,6 +23,9 @@ import {
   CalendarEventTimesChangedEvent,
   CalendarView
 } from 'angular-calendar';
+import {DeedService} from '../services/deed.service';
+import {Deed} from '../models/deed';
+import {Router} from '@angular/router';
 
 const colors: any = {
   red: {
@@ -46,7 +49,11 @@ const colors: any = {
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent {
+  deeds: Deed[];
 
+  constructor(private modal: NgbModal, private deedService: DeedService, private router: Router) {
+    this.getDeeds();
+  }
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
   view: CalendarView = CalendarView.Month;
@@ -76,53 +83,50 @@ export class CalendarComponent {
     }
   ];
 
+
   refresh: Subject<any> = new Subject();
 
-  events: CalendarEvent[] = [
-    {
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
-      title: 'A 3 day event',
-      color: colors.red,
-      actions: this.actions,
-      allDay: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      draggable: true
-    },
-    {
-      start: startOfDay(new Date()),
-      title: 'An event with no end date',
-      color: colors.yellow,
-      actions: this.actions
-    },
-    {
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      title: 'A long event that spans 2 months',
-      color: colors.blue,
-      allDay: true
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: new Date(),
-      title: 'A draggable and resizable event',
-      color: colors.yellow,
-      actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      draggable: true
-    }
-  ];
+  events: CalendarEvent[] = [];
 
   activeDayIsOpen: boolean = true;
 
-  constructor(private modal: NgbModal) {
+  newEvent: CalendarEvent;
+
+  getDeeds() {
+    this.deedService.getDeeds().subscribe(
+      deeds => {
+        console.log(deeds);
+        this.deeds = deeds;
+        this.loadEvents(this.deeds);
+      },
+      error1 => {
+        console.log('error');
+      },
+      () => {
+        console.log('completed');
+      }
+    );
   }
+
+  loadEvents(deeds: Deed[]){
+    this.deeds.forEach( (deed) => {
+
+      this.events.push({
+        start: new Date(deed.date),
+        title: deed.title,
+        color: colors.red,
+        actions: this.actions,
+        allDay: true,
+        resizable: {
+          beforeStart: true,
+          afterEnd: true
+        },
+        draggable: true
+      });
+    });
+    this.refresh.next();
+  }
+
 
   dayClicked({date, events}: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
@@ -150,8 +154,10 @@ export class CalendarComponent {
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
-    this.modalData = {event, action};
-    this.modal.open(this.modalContent, {size: 'lg'});
+    // navigate somewhere
+    // TODO: call service to set the deed to expand
+    this.deedService.setDeedToExpand(event.title);
+    this.router.navigateByUrl('/good-deeds');
   }
 
   addEvent(): void {
