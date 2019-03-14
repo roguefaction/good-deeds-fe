@@ -1,5 +1,6 @@
 import {Component, Input, OnInit, ElementRef, Renderer2, ViewChild, AfterViewInit} from '@angular/core';
 import {DeedService} from '../services/deed.service';
+import {element} from 'protractor';
 
 
 @Component({
@@ -22,8 +23,8 @@ export class GoodDeedsDetailsComponent implements OnInit, AfterViewInit {
       this.collapseAbout();
       this.deedService.setDeedToExpand(undefined);
       console.log('We have expanded the deed!');
-        console.log('target element text:' + this.targetElement.nativeElement.innerText);
-        this.targetElement.nativeElement.scrollIntoView({block: 'start', inline: 'nearest', behavior: 'smooth'});
+      console.log('target element text:' + this.targetElement.nativeElement.innerText);
+      this.targetElement.nativeElement.scrollIntoView({block: 'start', inline: 'nearest', behavior: 'smooth'});
 
 
     }

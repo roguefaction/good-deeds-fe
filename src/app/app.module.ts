@@ -39,7 +39,6 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
@@ -49,6 +48,5 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
   providers: [],
   bootstrap: [AppComponent]
 })
-
 export class AppModule {
 }
