@@ -29,7 +29,7 @@
 }
 @media only screen and (max-width: 1000px){
   .small-size-screen{
-    display: inline-block;
+    display: block;
   }
   .not-display-small{
     display: none;
