@@ -12,11 +12,11 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Title*</label>
       <div class="col-sm-7">
-        <input formControlName="title" class="form-control"  placeholder="Save the squirrels" maxLength="50">
+        <input formControlName="title" class="form-control" placeholder="Save the squirrels" maxLength="50">
       </div>
     </div>
     <div *ngIf="registerDeedForm.get('title').touched">
-      <div *ngIf="registerDeedForm.get('title').hasError('required')" class="alert-danger alert" >
+      <div *ngIf="registerDeedForm.get('title').hasError('required')" class="alert-danger alert">
         Title field is required
       </div>
       <div *ngIf="registerDeedForm.get('title').hasError('minlength')" class="alert-danger alert">
@@ -29,10 +29,11 @@
     </div>
 
     <div class="form-group row">
-    <label class="col-sm-2 col-form-label">Organization:</label>
-    <div class="col-sm-7">
-      <input formControlName="organization" class="form-control" placeholder="National Squirrel University" maxLength="50">
-    </div>
+      <label class="col-sm-2 col-form-label">Organization:</label>
+      <div class="col-sm-7">
+        <input formControlName="organization" class="form-control" placeholder="National Squirrel University"
+               maxLength="50">
+      </div>
     </div>
     <div *ngIf="registerDeedForm.get('organization').touched">
       <div *ngIf="registerDeedForm.get('organization').hasError('minlength')" class="alert-danger alert">
@@ -69,7 +70,7 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Date*</label>
       <div class="col-sm-7">
-        <input  type="date" formControlName="date" class="form-control" placeholder="2010-10-10">
+        <input type="date" formControlName="date" class="form-control" placeholder="2010-10-10">
       </div>
     </div>
     <div *ngIf="registerDeedForm.get('date').touched">
@@ -82,7 +83,7 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Max People</label>
       <div class="col-sm-7">
-        <input formControlName="maxPeople" class="form-control">
+        <input formControlName="maxPeople" class="form-control" maxlength="8">
       </div>
     </div>
     <div *ngIf="registerDeedForm.get('maxPeople').touched">
@@ -142,19 +143,20 @@
     <h1 class="h1-padding">Description</h1>
 
 
-      <div class="form-group row">
-        <textarea formControlName="description"  #incidentDescription class="form-control col-md-9" id="exampleFormControlTextarea1" rows="4" placeholder="Describe what is this project about" maxLength="500"></textarea >
-        <small class="col-md char-count">
-          {{500 - incidentDescription.value.length}}/500
-        </small>
-      </div>
+    <div class="form-group row">
+      <textarea formControlName="description" #incidentDescription class="form-control col-md-9"
+                id="exampleFormControlTextarea1" rows="4" placeholder="Describe what is this project about"
+                maxLength="500"></textarea>
+      <small class="col-md char-count">
+        {{500 - incidentDescription.value.length}}/500
+      </small>
+    </div>
 
     <div *ngIf="registerDeedForm.get('description').touched">
       <div *ngIf="registerDeedForm.get('description').hasError('maxlength')" class="alert-danger alert">
         Description field is too long
       </div>
     </div>
-
 
 
     <div class="form-group row">
