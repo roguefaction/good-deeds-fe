@@ -63,14 +63,6 @@
 .style-class{
   display: none;
 }
-.caret-up{
-  vertical-align: center;
-  horiz-align: center;
-  max-width: 1.8rem;
-  max-height: 1.8rem;
-  width: 25%;
-  height: 25%;
-}
 .caret{
   vertical-align: center;
   horiz-align: center;
