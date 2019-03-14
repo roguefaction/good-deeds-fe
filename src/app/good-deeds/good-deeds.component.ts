@@ -32,6 +32,7 @@ export class GoodDeedsComponent implements OnInit {
     this.deedService.getDeeds().subscribe(
       deeds => {
         console.log(deeds);
+        this.deeds = deeds;
       },
       error1 => {
         console.log('error');
