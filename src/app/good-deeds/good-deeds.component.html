@@ -17,10 +17,31 @@
   <div class="card bg-table-header container">
     <div class="row wider text-white">
       <div class="col-1"></div>
-      <div class="col-3"><h2 class="display-6 header-class small-size ">Title</h2></div>
-      <div class="col-2"><h2 class="display-6 header-class ">Date</h2></div>
-      <div class="col-2"><h2 class="display-6 header-class ">City</h2></div>
-      <div class="col-2"><h2 class="display-6 header-class ">People</h2></div>
+
+      <div class="col-3" (click)="sortByTitle()"><h2 class="display-6 header-class small-size">Title
+        <img *ngIf="isTitleSorted===true" class="mb-0 header-class text-dark caret small-size"
+             src="../../assets/images/sort-arrow-up.png">
+        <img *ngIf="isTitleSorted===false" class="mb-0 header-class text-dark caret small-size"
+             src="../../assets/images/sort-arrow-down.png"></h2>
+      </div>
+
+      <div class="col-2" (click)="sortByDate()"><h2 class="display-6 header-class ">Date
+        <img *ngIf="isDateSorted===true" class="mb-0 header-class text-dark caret"
+             src="../../assets/images/sort-arrow-up.png">
+        <img *ngIf="isDateSorted===false" class="mb-0 header-class text-dark caret"
+             src="../../assets/images/sort-arrow-down.png"></h2></div>
+
+      <div class="col-2" (click)="sortByCity()"><h2 class="display-6 header-class ">City
+        <img *ngIf="isCitySorted===true" class="mb-0 header-class text-dark caret"
+             src="../../assets/images/sort-arrow-up.png">
+        <img *ngIf="isCitySorted===false" class="mb-0 header-class text-dark caret"
+             src="../../assets/images/sort-arrow-down.png"></h2></div>
+
+      <div class="col-2" (click)="sortByPeople()"><h2 class="display-6 header-class ">People
+        <img *ngIf="isPeopleSorted===true" class="mb-0 header-class text-dark caret"
+             src="../../assets/images/sort-arrow-up.png">
+        <img *ngIf="isPeopleSorted===false" class="mb-0 header-class text-dark caret"
+             src="../../assets/images/sort-arrow-down.png"></h2></div>
       <div class="col-1"></div>
     </div>
   </div>
@@ -31,10 +52,11 @@
 </app-good-deeds-details>
 <div class="container align-content-end pagination-div">
   <div class="d-flex justify-content-end">
-    <div>
-      <pagination-controls *ngIf="isListReady===true" class="pagination-style" (pageChange)="p =$event"></pagination-controls>
+    <div class = "spacing">
+      <pagination-controls *ngIf="isListReady===true" class="pagination-style"
+                           (pageChange)="p =$event"></pagination-controls>
     </div>
-    <div>
+    <div class="spacing">
       <select *ngIf="isListReady===true" (change)="showItems($event.target.value)">
         <option value="5">5</option>
         <option value="10">10</option>
