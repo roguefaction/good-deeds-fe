@@ -17,28 +17,28 @@
       <div class="col-05"></div>
 
       <div class="col-4" (click)="sortByTitle()"><h1 class="display-6 header-class small-size">Title
-        <img *ngIf="isTitleSorted===true" class="mb-0 header-class text-dark caret small-size"
+        <img *ngIf="isTitleSorted" class="mb-0 header-class text-dark caret small-size"
              src="../../assets/images/sort-arrow-up.png">
-        <img *ngIf="isTitleSorted===false" class="mb-0 header-class text-dark caret small-size"
+        <img *ngIf="!isTitleSorted" class="mb-0 header-class text-dark caret small-size"
              src="../../assets/images/sort-arrow-down.png"></h1>
       </div>
 
-      <div class="col-25" (click)="sortByDate()"><h1 class="display-6 header-class ">Date
-        <img *ngIf="isDateSorted===true" class="mb-0 header-class text-dark caret"
+      <div class="col-25" (click)="sortByDate()"><h1 class="display-6 header-class">Date
+        <img *ngIf="isDateSorted" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-up.png">
-        <img *ngIf="isDateSorted===false" class="mb-0 header-class text-dark caret"
+        <img *ngIf="!isDateSorted" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-down.png"></h1></div>
 
       <div class="col-2" (click)="sortByCity()"><h1 class="display-6 header-class city-margin">City
-        <img *ngIf="isCitySorted===true" class="mb-0 header-class text-dark caret"
+        <img *ngIf="isCitySorted" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-up.png">
-        <img *ngIf="isCitySorted===false" class="mb-0 header-class text-dark caret"
+        <img *ngIf="!isCitySorted" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-down.png"></h1></div>
 
       <div class="col-2" (click)="sortByPeople()"><h1 class="display-6 header-class ">People
-        <img *ngIf="isPeopleSorted===true" class="mb-0 header-class text-dark caret"
+        <img *ngIf="isPeopleSorted" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-up.png">
-        <img *ngIf="isPeopleSorted===false" class="mb-0 header-class text-dark caret"
+        <img *ngIf="!isPeopleSorted" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-down.png"></h1></div>
       <div class="col-1"></div>
     </div>
@@ -51,11 +51,11 @@
 <div class="container align-content-end pagination-div">
   <div class="d-flex justify-content-end">
     <div class = "spacing">
-      <pagination-controls *ngIf="isListReady===true" class="pagination-style"
+      <pagination-controls *ngIf="isListReady" class="pagination-style"
                            (pageChange)="p =$event"></pagination-controls>
     </div>
     <div class="spacing">
-      <select *ngIf="isListReady===true" (change)="showItems($event.target.value)">
+      <select *ngIf="isListReady" (change)="showItems($event.target.value)">
         <option value="5">5</option>
         <option value="10">10</option>
         <option value="15">15</option>

@@ -1,7 +1,7 @@
 <div class="container cursor-class">
   <div class="accordion">
     <div class="card">
-      <div class="bg-table card-header row accordion-style d-flex from-400 " (click)="collapseAbout()">
+      <div class="bg-table card-header row grey-coloring d-flex from-400 " (click)="collapseAbout()">
         <div class="col-05">
           <img class="mb-0 header-class text-dark caret" src="../../assets/images/caret-down-small-dark.svg"
                *ngIf="!collapseOpen" alt="caret.png">
@@ -21,7 +21,7 @@
           </h5>
         </div>
 
-        <div class="col-2 not-display-small">
+        <div class="col-25 not-display-small">
           <h5 class="mb-0 header-class text-dark ">
             {{deed.date}}
           </h5>
@@ -44,9 +44,9 @@
         </div>
       </div>
 
-      <div class="collapse collapse-style card grey-coloring" [ngClass]="{ 'show': collapseOpen }">
+      <div class="collapse collapse-style card collapse-style" [ngClass]="{ 'show': collapseOpen }">
         <div class="card-body">
-          <p class="container display-6">Organization: </p>
+          <p class="container display-6">Organization:</p>
           <p class="p">{{deed.organization}}</p>
           <p class="container display-6 small-size-screen">City: </p>
           <p class="p small-size-screen">{{deed.city}}</p>
