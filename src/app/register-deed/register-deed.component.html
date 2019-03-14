@@ -134,7 +134,7 @@
         Phone number is required
       </div>
 
-      <div *ngIf="registerDeedForm.get('phoneNumber').hasError('pattern')" class="alert-danger alert">
+      <div *ngIf="registerDeedForm.get('phoneNumber').hasError('pattern')"{{}}  class="alert-danger alert">
         Phone number must be valid
       </div>
     </div>
@@ -176,6 +176,9 @@
       <div class="col-sm-7">
         <button type="submit" class="btn btn-primary">Register</button>
       </div>
+    </div>
+    <div *ngIf="httpStatus" class="alert-danger alert">
+      <p [innerText]="httpStatus"></p>
     </div>
   </form>
 

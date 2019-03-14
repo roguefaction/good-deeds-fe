@@ -42,8 +42,8 @@ export class GoodDeedsComponent implements OnInit, AfterViewInit {
         console.log(deeds);
         this.deeds = deeds;
       },
-      error1 => {
-        console.log('error');
+      ErrorResponse => {
+        alert(ErrorResponse.error.message);
       },
       () => {
         console.log('completed');
