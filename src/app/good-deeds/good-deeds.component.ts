@@ -32,7 +32,6 @@ export class GoodDeedsComponent implements OnInit {
     this.deedService.getDeeds().subscribe(
       deeds => {
         console.log(deeds);
-        this.deeds = deeds.sort(sortBy('date'));
       },
       error1 => {
         console.log('error');
