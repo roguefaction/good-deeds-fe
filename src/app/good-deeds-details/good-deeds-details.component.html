@@ -1,29 +1,22 @@
 <div class="container cursor-class">
   <div class="accordion">
     <div class="card">
-      <div class="bg-table card-header row accordion-style d-flex from-400 " (click)="collapseAbout()">
+      <div class="bg-table card-header row accordion-style d-flex " (click)="collapseAbout()">
         <div class="col-1">
           <img class="mb-0 header-class text-dark caret" src="../../assets/images/caret-down-small-dark.svg"
-               *ngIf="collapseOpen==false" alt="caret.png">
+               *ngIf="!collapseOpen" alt="caret.png">
           <img class="mb-0 header-class text-dark caret-up" src="../../assets/images/caret_up.png"
-               *ngIf="collapseOpen==true" alt="caret.png">
+               *ngIf="collapseOpen" alt="caret.png">
         </div>
-
-        <div class="col-3 till-1000">
-        <h5 #target class="mb-0 header-class text-dark style-on-small-screen">
-          {{deed.title}}
-        </h5>
-      </div>
-
-        <div class="col-7 from-1000 container">
+        <div class="col-3 on-770">
           <h5 #target class="mb-0 header-class text-dark style-on-small-screen">
             {{deed.title}}
           </h5>
         </div>
-
         <div class="col-2 not-display-small">
           <h5 class="mb-0 header-class text-dark ">
             {{deed.date}}
+            {{collapseOpen}}
           </h5>
         </div>
         <div class="col-2 not-display-small">
@@ -36,10 +29,7 @@
             0/{{deed.maxPeople}}
           </h5>
         </div>
-        <div class="col-1 till-1000">
-          <button class="btn btn-success bg-btn apply-button">Apply</button>
-        </div>
-        <div class="col-4 from-1000 container">
+        <div class="col-1">
           <button class="btn btn-success bg-btn apply-button">Apply</button>
         </div>
       </div>
