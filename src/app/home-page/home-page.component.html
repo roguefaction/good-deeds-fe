@@ -7,9 +7,9 @@
     <div *ngFor="let image of images; let i = index" class="slider">
       <ng-template ngbSlide>
         <img [src]="image"  [alt]="image" class="carousel-style">
-        <div class="carousel-caption" [(ngModel)]="deeds[i]" ngDefaultControl>
-          <h1>{{deeds[i].title}}</h1>
-          <p>{{deeds[i].date}}</p>
+        <div class="carousel-caption-edit" [(ngModel)]="deeds[i]" ngDefaultControl>
+          <h1 class="carousel-text">{{deeds[i].title}}</h1>
+          <p class="carousel-text-secondary">{{deeds[i].date}}</p>
         </div>
       </ng-template>
     </div>
