@@ -37,16 +37,16 @@
           </h5>
         </div>
         <div class="col-1 till-1000">
-          <button class="btn btn-green bg-btn apply-button">Apply</button>
+          <button class="btn btn-green btn-success bg-btn apply-button" disabled>Apply</button>
         </div>
         <div class="col-4 from-1000 container">
-          <button class="btn btn-success bg-btn apply-button">Apply</button>
+          <button class="btn btn-success btn-green bg-btn apply-button" disabled>Apply</button>
         </div>
       </div>
 
       <div class="collapse collapse-style card collapse-style" [ngClass]="{ 'show': collapseOpen }">
         <div class="card-body">
-          <p class="container display-6">Organization:</p>
+          <p class="container display-6">Organization: </p>
           <p class="p">{{deed.organization}}</p>
           <p class="container display-6 small-size-screen">City: </p>
           <p class="p small-size-screen">{{deed.city}}</p>

@@ -62,6 +62,9 @@
 .style-class{
   display: none;
 }
+.btn:hover{
+  color: #fff;
+}
 .caret{
   vertical-align: center;
   horiz-align: center;

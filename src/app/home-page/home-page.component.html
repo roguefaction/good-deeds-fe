@@ -1,8 +1,21 @@
-
-<div class="jumbotron landing-image">
-  <h1 class="text-center text-white display-2">Welcome to Good Deeds</h1>
+<div *ngIf="!isListReady" class="d-flex justify-content-center text-danger" role="status">
+  <div class="spinner-border" role="status"></div>
 </div>
+<div *ngIf="isListReady">
+  <ngb-carousel interval="5000">
 
+    <div *ngFor="let image of images; let i = index" class="slider">
+      <ng-template ngbSlide>
+        <img [src]="image"  [alt]="image" class="carousel-style">
+        <div class="carousel-caption-edit" [(ngModel)]="deeds[i]" ngDefaultControl>
+          <h1 class="carousel-text">{{deeds[i].title}}</h1>
+          <p class="carousel-text-secondary">{{deeds[i].date}}</p>
+        </div>
+      </ng-template>
+    </div>
+
+  </ngb-carousel>
+</div>
 
 <div class="container">
   <div class="row">
@@ -13,6 +26,7 @@
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum quis velit quis vestibulum.
     </p>
   </div>
+
   <div class="col-12 col-md-4 home-padding">
     <h1 class="text-center"><img class="m-3" src="../../assets/images/icons8-place-marker-64.png"></h1>
     <p>
