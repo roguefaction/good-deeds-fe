@@ -52,7 +52,7 @@ export class GoodDeedsComponent implements OnInit {
     if (this.isCitySorted === false) {
       this.deeds = this.deeds.sort(sortBy('city^'));
       this.isCitySorted = true;
-    }else {
+    } else {
       this.deeds = this.deeds.sort(sortBy('-city^'));
       this.isCitySorted = false;
     }
@@ -61,7 +61,7 @@ export class GoodDeedsComponent implements OnInit {
     if (this.isDateSorted === false) {
       this.deeds = this.deeds.sort(sortBy('-date'));
       this.isDateSorted = true;
-    }else {
+    } else {
       this.deeds = this.deeds.sort(sortBy('date'));
       this.isDateSorted = false;
     }
@@ -70,7 +70,7 @@ export class GoodDeedsComponent implements OnInit {
     if (this.isPeopleSorted === false) {
       this.deeds = this.deeds.sort(sortBy('maxPeople^'));
       this.isPeopleSorted = true;
-    }else {
+    } else {
       this.deeds = this.deeds.sort(sortBy('-maxPeople^'));
       this.isPeopleSorted = false;
     }
@@ -79,7 +79,7 @@ export class GoodDeedsComponent implements OnInit {
     if (this.isTitleSorted === false) {
       this.deeds = this.deeds.sort(sortBy('title^'));
       this.isTitleSorted = true;
-    }else {
+    } else {
       this.deeds = this.deeds.sort(sortBy('-title^'));
       this.isTitleSorted = false;
     }

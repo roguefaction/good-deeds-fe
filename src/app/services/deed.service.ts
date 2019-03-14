@@ -12,7 +12,7 @@ export class DeedService {
   }
 
   getDeeds(): Observable<Deed[]> {
-    return this.http.get<Deed[]>(`https://calm-waters-93672.herokuapp.com/deeds`);
+    return this.http.get<Deed[]>(`https://calm-waters-93672.herokuapp.com/allupcomingdeeds`);
   }
 
   createAuthorizationHeader(headers: HttpHeaders) {

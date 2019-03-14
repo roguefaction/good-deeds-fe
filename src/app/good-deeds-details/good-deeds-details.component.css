@@ -11,7 +11,7 @@
   background-color: ghostwhite;
 }
 .button-text{
-  font-size: 2.5vh;
+  font-size: 1.5vh;
   vertical-align: middle;
 }
 .small-size-screen{
@@ -22,6 +22,9 @@
 }
 .grey-coloring{
   background-color: rgba(0,0,0,0.02);
+}
+.apply-button{
+  padding: 3px;
 }
 @media only screen and (max-width: 1000px){
   .small-size-screen{
@@ -49,15 +52,15 @@
 .caret{
   vertical-align: center;
   horiz-align: center;
-  max-width: 1rem;
-  max-height: 1rem;
+  max-width: 0.8rem;
+  max-height: 0.8rem;
 }
 
 .caret-up{
   vertical-align: center;
   horiz-align: center;
-  max-width: 1.8rem;
-  max-height: 1.8rem;
+  max-width: 1.6rem;
+  max-height: 1.6rem;
 }
 
 .fixedElement {

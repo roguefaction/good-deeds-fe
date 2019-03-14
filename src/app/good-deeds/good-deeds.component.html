@@ -1,13 +1,11 @@
 <!--<div class="container component-header"><h1>Good deeds lives here:</h1></div>-->
 
 <div class="jumbotron title-image">
-  <h1 class="text-center text-white display-2">A list of Good deeds</h1>
+  <h1 class="text-center text-white display-2">Good deeds</h1>
 </div>
-
-<div class="container button-class-div">
-  <button class="btn btn-danger button-text " routerLink="/register-deed">Add a deed</button>
+<div class="container button-style d-flex justify-content-end">
+  <button class="btn btn-orange btn-text" routerLink="/register-deed"><h5>Add a deed</h5></button>
 </div>
-
 <div *ngIf="!isListReady" class="d-flex justify-content-center text-danger" role="status">
   <div class="spinner-border" role="status"></div>
 </div>
@@ -16,32 +14,32 @@
 <div class="container" *ngIf="isListReady===true">
   <div class="card bg-table-header container">
     <div class="row wider text-white">
-      <div class="col-1"></div>
+      <div class="col-05"></div>
 
-      <div class="col-3" (click)="sortByTitle()"><h2 class="display-6 header-class small-size">Title
+      <div class="col-4" (click)="sortByTitle()"><h1 class="display-6 header-class small-size">Title
         <img *ngIf="isTitleSorted===true" class="mb-0 header-class text-dark caret small-size"
              src="../../assets/images/sort-arrow-up.png">
         <img *ngIf="isTitleSorted===false" class="mb-0 header-class text-dark caret small-size"
-             src="../../assets/images/sort-arrow-down.png"></h2>
+             src="../../assets/images/sort-arrow-down.png"></h1>
       </div>
 
-      <div class="col-2" (click)="sortByDate()"><h2 class="display-6 header-class ">Date
+      <div class="col-25" (click)="sortByDate()"><h1 class="display-6 header-class ">Date
         <img *ngIf="isDateSorted===true" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-up.png">
         <img *ngIf="isDateSorted===false" class="mb-0 header-class text-dark caret"
-             src="../../assets/images/sort-arrow-down.png"></h2></div>
+             src="../../assets/images/sort-arrow-down.png"></h1></div>
 
-      <div class="col-2" (click)="sortByCity()"><h2 class="display-6 header-class ">City
+      <div class="col-2" (click)="sortByCity()"><h1 class="display-6 header-class city-margin">City
         <img *ngIf="isCitySorted===true" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-up.png">
         <img *ngIf="isCitySorted===false" class="mb-0 header-class text-dark caret"
-             src="../../assets/images/sort-arrow-down.png"></h2></div>
+             src="../../assets/images/sort-arrow-down.png"></h1></div>
 
-      <div class="col-2" (click)="sortByPeople()"><h2 class="display-6 header-class ">People
+      <div class="col-2" (click)="sortByPeople()"><h1 class="display-6 header-class ">People
         <img *ngIf="isPeopleSorted===true" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-up.png">
         <img *ngIf="isPeopleSorted===false" class="mb-0 header-class text-dark caret"
-             src="../../assets/images/sort-arrow-down.png"></h2></div>
+             src="../../assets/images/sort-arrow-down.png"></h1></div>
       <div class="col-1"></div>
     </div>
   </div>
