@@ -15,7 +15,16 @@
   background-size: cover;
 }
 
-
 .char-count{
  color: grey;
+}
+
+.jumboclass{
+  height: 3rem;
+  background: url('../../assets/images/vintage-rainbow-color-badge.png');
+  background-size: cover;
+}
+
+.padding-class{
+  margin-bottom: 2rem;
 }
