@@ -8,17 +8,19 @@ import {Deed} from '../models/deed';
 })
 export class DeedService {
 
-  deedToExpand: string;
+  private deedToExpand: string;
+  private currentPage: number;
+  private deedList: Deed[];
 
   constructor(private http: HttpClient) {
-    console.log(this.deedToExpand);
+    this.currentPage = 1;
   }
 
-  getDeeds(): Observable<Deed[]> {
+  getUpcomingDeeds(): Observable<Deed[]> {
     return this.http.get<Deed[]>(`https://calm-waters-93672.herokuapp.com/allupcomingdeeds`);
   }
 
-  getCalendarDeeds(): Observable<Deed[]> {
+  getAllDeeds(): Observable<Deed[]> {
     return this.http.get<Deed[]>(`https://calm-waters-93672.herokuapp.com/deeds`);
   }
 
@@ -36,5 +38,12 @@ export class DeedService {
   getDeedToExpand() {
     return this.deedToExpand;
   }
+  getPage() {
+    return this.currentPage;
+  }
+  setPage(page: number) {
+    this.currentPage = page;
+  }
+
 
 }

@@ -10,7 +10,7 @@ import {Deed} from '../models/deed';
 export class GoodDeedsComponent implements OnInit, AfterViewInit {
   deeds: Deed[];
   itemsPerPage = 5;
-  p: number;
+  currentPage: number;
   constructor(private deedService: DeedService) {
   }
 
@@ -20,12 +20,33 @@ export class GoodDeedsComponent implements OnInit, AfterViewInit {
     this.isListReady = false;
     this.getDeeds();
 
+
   }
 
   sortByDate() {
     this.deeds.sort();
   }
   ngAfterViewInit(): void {
+
+    setTimeout( () => {
+      this.currentPage = 1;
+      if (this.deedService.getPage() !== 0) {
+        console.log('setting page, old page: ' + this.currentPage + ', new page: ' + this.deedService.getPage());
+        this.currentPage = this.deedService.getPage();
+        this.deedService.setPage(0);
+      } else {
+        console.log('NOT SETTING NEW PAGE');
+      }
+    }, 500 );
+
+
+  }
+
+  first(){
+    this.currentPage = 0;
+  }
+  second(){
+    this.currentPage = 2;
   }
 
   scroll(el: HTMLElement){
@@ -34,7 +55,7 @@ export class GoodDeedsComponent implements OnInit, AfterViewInit {
 
 
   getDeeds() {
-    this.deedService.getDeeds().subscribe(
+    this.deedService.getUpcomingDeeds().subscribe(
       deeds => {
         console.log(deeds);
         this.deeds = deeds;

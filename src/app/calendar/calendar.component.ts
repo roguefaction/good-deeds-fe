@@ -93,7 +93,7 @@ export class CalendarComponent {
   newEvent: CalendarEvent;
 
   getCalendarDeeds() {
-    this.deedService.getCalendarDeeds().subscribe(
+    this.deedService.getAllDeeds().subscribe(
       deeds => {
         console.log(deeds);
         this.deeds = deeds;
@@ -157,13 +157,31 @@ export class CalendarComponent {
 
   handleEvent(action: string, event: CalendarEvent): void {
     this.deedService.setDeedToExpand(event.title);
-    this.eventDate = new Date(event.start);
-    console.log(this.eventDate.getTime() + '- event, now - ' + Date.now());
-    if(this.eventDate.getDate() >= new Date(Date.now()).getDate()) {
+    let today = new Date();
+    today.setHours(0);
+    today.setMinutes(0);
+    if( event.start >= today ) {
+      console.log(event.title + ' - event is in the future')
+      this.setPageOfDeedInService(event.title);
       this.router.navigateByUrl('/good-deeds');
     } else {
+      console.log(event.title + ' - event is in the past');
       // TODO: show something if event has already passed
     }
+  }
+
+  setPageOfDeedInService(titleToSearch: string){
+    this.deedService.getUpcomingDeeds().subscribe(
+      deeds => {
+        for(let deed of deeds){
+          if(deed.title === titleToSearch){
+            let page = deeds.indexOf(deed) / 5 + 1;
+            page = Math.trunc(page);
+            this.deedService.setPage(page);
+          }
+        }
+      }
+    );
   }
 
   addEvent(): void {

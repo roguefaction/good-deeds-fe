@@ -27,20 +27,21 @@
 </div>
 
 <app-good-deeds-details [deed]="deed"
-                        *ngFor="let deed of deeds | paginate: {itemsPerPage: itemsPerPage, currentPage: p}">
+                        *ngFor="let deed of deeds | paginate: {itemsPerPage: itemsPerPage, currentPage: currentPage}">
 </app-good-deeds-details>
 <div class="container align-content-end pagination-div">
   <div class="d-flex justify-content-end">
     <div>
-      <pagination-controls *ngIf="isListReady===true" class="pagination-style" (pageChange)="p =$event"></pagination-controls>
+      <pagination-controls *ngIf="isListReady===true" class="pagination-style" (pageChange)="currentPage =$event"></pagination-controls>
     </div>
+    <button (click)="first()">go to first page</button>
+    <button (click)="second()">go to second page</button>
     <div>
       <select *ngIf="isListReady===true" (change)="showItems($event.target.value)">
         <option value="5">5</option>
         <option value="10">10</option>
         <option value="15">15</option>
         <option value="20">20</option>
-
       </select>
     </div>
   </div>
