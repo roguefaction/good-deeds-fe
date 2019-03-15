@@ -45,8 +45,4 @@ export class DeedService {
   }
 
 
-  getUpcomingDeeds(): Observable<Deed[]> {
-    return this.http.get<Deed[]>('https://calm-waters-93672.herokuapp.com/upcomingdeeds');
-  }
-
 }
