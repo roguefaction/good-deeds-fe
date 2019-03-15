@@ -1,13 +1,11 @@
 <!--<div class="container component-header"><h1>Good deeds lives here:</h1></div>-->
 
 <div class="jumbotron title-image">
-  <h1 class="text-center text-white display-2">A list of Good deeds</h1>
+  <h1 class="text-center text-white display-2">Good deeds</h1>
 </div>
-
-<div class="container button-class-div">
-  <button class="btn btn-danger button-text " routerLink="/register-deed">Add a deed</button>
+<div *ngIf="isListReady" class="container button-style d-flex justify-content-end">
+  <button class="btn btn-orange" routerLink="/register-deed"><h5>Add a deed</h5></button>
 </div>
-
 <div *ngIf="!isListReady" class="d-flex justify-content-center text-danger" role="status">
   <div class="spinner-border" role="status"></div>
 </div>
@@ -16,11 +14,32 @@
 <div class="container" *ngIf="isListReady===true">
   <div class="card bg-table-header container">
     <div class="row wider text-white">
-      <div class="col-1"></div>
-      <div class="col-3"><h2 class="display-6 header-class small-size ">Title</h2></div>
-      <div class="col-2"><h2 class="display-6 header-class ">Date</h2></div>
-      <div class="col-2"><h2 class="display-6 header-class ">City</h2></div>
-      <div class="col-2"><h2 class="display-6 header-class ">People</h2></div>
+      <div class="col-05"></div>
+
+      <div class="col-4" (click)="sortByTitle()"><h1 class="display-6 header-class small-size">Title
+        <img *ngIf="isTitleSorted" class="mb-0 header-class text-dark caret small-size"
+             src="../../assets/images/sort-arrow-up.png">
+        <img *ngIf="!isTitleSorted" class="mb-0 header-class text-dark caret small-size"
+             src="../../assets/images/sort-arrow-down.png"></h1>
+      </div>
+
+      <div class="col-25" (click)="sortByDate()"><h1 class="display-6 header-class">Date
+        <img *ngIf="isDateSorted" class="mb-0 header-class text-dark caret"
+             src="../../assets/images/sort-arrow-up.png">
+        <img *ngIf="!isDateSorted" class="mb-0 header-class text-dark caret"
+             src="../../assets/images/sort-arrow-down.png"></h1></div>
+
+      <div class="col-2" (click)="sortByCity()"><h1 class="display-6 header-class city-margin">City
+        <img *ngIf="isCitySorted" class="mb-0 header-class text-dark caret"
+             src="../../assets/images/sort-arrow-up.png">
+        <img *ngIf="!isCitySorted" class="mb-0 header-class text-dark caret"
+             src="../../assets/images/sort-arrow-down.png"></h1></div>
+
+      <div class="col-2" (click)="sortByPeople()"><h1 class="display-6 header-class ">People
+        <img *ngIf="isPeopleSorted" class="mb-0 header-class text-dark caret"
+             src="../../assets/images/sort-arrow-up.png">
+        <img *ngIf="!isPeopleSorted" class="mb-0 header-class text-dark caret"
+             src="../../assets/images/sort-arrow-down.png"></h1></div>
       <div class="col-1"></div>
     </div>
   </div>
@@ -32,10 +51,10 @@
 <div class="container align-content-end pagination-div">
   <div class="d-flex justify-content-end">
     <div>
-      <pagination-controls *ngIf="isListReady===true" class="pagination-style" (pageChange)="currentPage =$event"></pagination-controls>
+      <pagination-controls *ngIf="isListReady" class="pagination-style" (pageChange)="currentPage =$event"></pagination-controls>
     </div>
-    <div>
-      <select *ngIf="isListReady===true" (change)="showItems($event.target.value)">
+    <div class="spacing">
+      <select *ngIf="isListReady" (change)="showItems($event.target.value)">
         <option value="5">5</option>
         <option value="10">10</option>
         <option value="15">15</option>

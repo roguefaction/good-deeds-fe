@@ -28,7 +28,6 @@ export class DeedService {
     headers.append('Content-Type', 'application/json');
   }
 
-
   addDeed(deed: Deed) {
     return this.http.post('https://calm-waters-93672.herokuapp.com/deed', deed);
   }
@@ -45,5 +44,9 @@ export class DeedService {
     this.currentPage = page;
   }
 
+
+  getUpcomingDeeds(): Observable<Deed[]> {
+    return this.http.get<Deed[]>('https://calm-waters-93672.herokuapp.com/upcomingdeeds');
+  }
 
 }

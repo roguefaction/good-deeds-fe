@@ -1,19 +1,27 @@
 <div class="container cursor-class">
   <div class="accordion">
     <div class="card">
-      <div class="bg-table card-header row accordion-style d-flex " (click)="collapseAbout()">
-        <div class="col-1">
+      <div class="bg-table card-header row grey-coloring d-flex from-400 " (click)="collapseAbout()">
+        <div class="col-05">
           <img class="mb-0 header-class text-dark caret" src="../../assets/images/caret-down-small-dark.svg"
                *ngIf="!collapseOpen" alt="caret.png">
           <img class="mb-0 header-class text-dark caret-up" src="../../assets/images/caret_up.png"
                *ngIf="collapseOpen" alt="caret.png">
         </div>
-        <div class="col-3 on-770">
+
+        <div class="col-4 till-1000">
+        <h5 #target class="mb-0 header-class text-dark style-on-small-screen">
+          {{deed.title}}
+        </h5>
+      </div>
+
+        <div class="col-7 from-1000 container">
           <h5 #target class="mb-0 header-class text-dark style-on-small-screen">
             {{deed.title}}
           </h5>
         </div>
-        <div class="col-2 not-display-small">
+
+        <div class="col-25 not-display-small">
           <h5 class="mb-0 header-class text-dark ">
             {{deed.date}}
           </h5>
@@ -28,26 +36,29 @@
             0/{{deed.maxPeople}}
           </h5>
         </div>
-        <div class="col-1">
-          <button class="btn btn-success bg-btn apply-button">Apply</button>
+        <div class="col-1 till-1000">
+          <button class="btn btn-green btn-success bg-btn apply-button" disabled>Apply</button>
+        </div>
+        <div class="col-4 from-1000 container">
+          <button class="btn btn-success btn-green bg-btn apply-button" disabled>Apply</button>
         </div>
       </div>
 
-      <div class="collapse collapse-style card grey-coloring" [ngClass]="{ 'show': collapseOpen }">
+      <div class=" collapse collapse-style card collapse-style" [ngClass]="{ 'show': collapseOpen }">
         <div class="card-body">
-          <p class="container display-6">Organization: </p>
+          <p class=" display-7">Organization: </p>
           <p class="p">{{deed.organization}}</p>
-          <p class="container display-6 small-size-screen">City: </p>
+          <p class=" display-7 small-size-screen">City: </p>
           <p class="p small-size-screen">{{deed.city}}</p>
-          <p class="container display-6">Description: </p>
+          <p class=" display-7">Description: </p>
           <p class="p">{{deed.description}}</p>
-          <p class="container display-6 small-size-screen">Participants: </p>
+          <p class=" display-7 small-size-screen">Participants: </p>
           <p class="p small-size-screen">0/{{deed.maxPeople}}</p>
-          <p class="container display-6">Contact person:</p>
+          <p class=" display-7">Contact person:</p>
           <p class="p">{{deed.contactPerson}}</p>
           <p class="p">{{deed.email}}</p>
           <p class="p">{{deed.phoneNumber}}</p>
-          <p class="container display-6">Tags:</p>
+          <p class=" display-7">Tags:</p>
           <p class="p">{{deed.tags}}</p>
         </div>
       </div>

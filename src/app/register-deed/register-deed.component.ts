@@ -14,6 +14,7 @@ import {Router} from '@angular/router';
 export class RegisterDeedComponent implements OnInit {
 
   registerDeedForm: FormGroup;
+  httpStatus: string;
 
   constructor(private formBuilder: FormBuilder, private deedService: DeedService, private router: Router) {
   }
@@ -27,7 +28,7 @@ export class RegisterDeedComponent implements OnInit {
       title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
       organization: ['', [Validators.minLength(5), Validators.maxLength(50)]],
       city: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50),
-        Validators.pattern('([^\x00-\x7F]*[a-zA-Z\s]*)*')]],
+        Validators.pattern('([^\\x00-\\x7F]*[a-zA-Z\\s]*)*')]],
       date: ['', [Validators.required]],
       maxPeople: ['', [Validators.pattern('^[0-9]*')]],
       email: ['', [Validators.required, Validators.email]],
@@ -65,7 +66,8 @@ export class RegisterDeedComponent implements OnInit {
         console.log('Succesfully Added deed');
       },
       ErrorResponse => {
-        alert(ErrorResponse.error.message);
+        // alert(ErrorResponse.error.message);
+        this.httpStatus = ErrorResponse.error.message;
       },
       () => {
         console.log('Operation complete');
