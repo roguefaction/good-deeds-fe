@@ -34,8 +34,6 @@
     <div>
       <pagination-controls *ngIf="isListReady===true" class="pagination-style" (pageChange)="currentPage =$event"></pagination-controls>
     </div>
-    <button (click)="first()">go to first page</button>
-    <button (click)="second()">go to second page</button>
     <div>
       <select *ngIf="isListReady===true" (change)="showItems($event.target.value)">
         <option value="5">5</option>
