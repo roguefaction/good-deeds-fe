@@ -9,7 +9,7 @@
       <ng-template ngbSlide>
         <img [src]="image"  [alt]="image" class="carousel-style">
         <div class="carousel-caption-edit" [(ngModel)]="deeds[i]" ngDefaultControl>
-          <h1 class="carousel-text">{{deeds[i].title}}</h1>
+          <p class="carousel-text">{{deeds[i].title}}</p>
           <p class="carousel-text-secondary">{{deeds[i].date}}</p>
         </div>
       </ng-template>

@@ -41,6 +41,7 @@
 .carousel-text{
   font-size: 5rem;
   padding-bottom: 1rem;
+  word-break: normal;
 }
 
 .carousel-text-secondary{
