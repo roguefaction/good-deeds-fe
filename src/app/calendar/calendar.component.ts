@@ -29,7 +29,7 @@ import {Router} from '@angular/router';
 
 const colors: any = {
   red: {
-    primary: '#ad2121',
+    primary: '#DE5B1E',
     secondary: '#FAE3E3'
   },
   blue: {
@@ -110,7 +110,9 @@ export class CalendarComponent {
 
   loadEvents(deeds: Deed[]){
     this.deeds.forEach( (deed) => {
-
+      // if(new Date(deed.date) < new Date()){
+      //     color:colors.red
+      // }
       this.events.push({
         start: new Date(deed.date),
         title: deed.title,
