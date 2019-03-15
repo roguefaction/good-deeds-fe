@@ -444,6 +444,9 @@ Apache-2.0
  
 
 
+sort-by-typescript
+MIT
+
 tslib
 Apache-2.0
 Apache License
