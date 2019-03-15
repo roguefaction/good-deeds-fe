@@ -121,7 +121,7 @@ export class CalendarComponent {
           beforeStart: true,
           afterEnd: true
         },
-        draggable: true
+        draggable: false
       });
     });
     this.refresh.next();
@@ -162,26 +162,12 @@ export class CalendarComponent {
     today.setMinutes(0);
     if( event.start >= today ) {
       console.log(event.title + ' - event is in the future')
-      this.setPageOfDeedInService(event.title);
+      this.deedService.setPageOfDeed(event.title);
       this.router.navigateByUrl('/good-deeds');
     } else {
       console.log(event.title + ' - event is in the past');
       // TODO: show something if event has already passed
     }
-  }
-
-  setPageOfDeedInService(titleToSearch: string){
-    this.deedService.getUpcomingDeeds().subscribe(
-      deeds => {
-        for(let deed of deeds){
-          if(deed.title === titleToSearch){
-            let page = deeds.indexOf(deed) / 5 + 1;
-            page = Math.trunc(page);
-            this.deedService.setPage(page);
-          }
-        }
-      }
-    );
   }
 
   addEvent(): void {
