@@ -114,11 +114,14 @@ export class CalendarComponent {
 
   loadEvents(deeds: Deed[]) {
     let eventColor = colors.grey;
+    let today = new Date();
+    today.setHours(0);
+    today.setMinutes(0);
     this.deeds.forEach((deed) => {
-      if (new Date(deed.date) >= new Date()) {
-        eventColor = colors.red;
-      } else {
+      if (new Date(deed.date) <= today) {
         eventColor = colors.grey;
+      } else {
+        eventColor = colors.red;
       }
       this.events.push({
         start: new Date(deed.date),
