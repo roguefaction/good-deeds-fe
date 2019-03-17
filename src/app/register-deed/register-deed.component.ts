@@ -70,6 +70,7 @@ export class RegisterDeedComponent implements OnInit {
       ErrorResponse => {
         // alert(ErrorResponse.error.message);
         this.httpStatus = ErrorResponse.error.message;
+        alert(ErrorResponse.error.message);
       },
       () => {
         console.log('Operation complete');
