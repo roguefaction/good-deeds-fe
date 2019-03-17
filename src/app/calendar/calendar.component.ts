@@ -15,8 +15,8 @@ import {
   isSameMonth,
   addHours
 } from 'date-fns';
-import { Subject } from 'rxjs';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {Subject} from 'rxjs';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {
   CalendarEvent,
   CalendarEventAction,
@@ -26,6 +26,7 @@ import {
 import {DeedService} from '../services/deed.service';
 import {Deed} from '../models/deed';
 import {Router} from '@angular/router';
+import {forEach} from '@angular/router/src/utils/collection';
 
 const colors: any = {
   red: {
@@ -39,6 +40,10 @@ const colors: any = {
   yellow: {
     primary: '#e3bc08',
     secondary: '#FDF1BA'
+  },
+  grey: {
+    primary: '#A8A8A8',
+    secondary: '#C8C8C8'
   }
 };
 
@@ -54,6 +59,7 @@ export class CalendarComponent {
   constructor(private modal: NgbModal, private deedService: DeedService, private router: Router) {
     this.getCalendarDeeds();
   }
+
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
   view: CalendarView = CalendarView.Month;
@@ -108,15 +114,18 @@ export class CalendarComponent {
     );
   }
 
-  loadEvents(deeds: Deed[]){
-    this.deeds.forEach( (deed) => {
-      // if(new Date(deed.date) < new Date()){
-      //     color:colors.red
-      // }
+  loadEvents(deeds: Deed[]) {
+    let eventColor = colors.grey;
+    this.deeds.forEach((deed) => {
+      if (new Date(deed.date) >= new Date()) {
+        eventColor = colors.red;
+      } else {
+        eventColor = colors.grey;
+      }
       this.events.push({
         start: new Date(deed.date),
         title: deed.title,
-        color: colors.red,
+        color: eventColor,
         actions: this.actions,
         allDay: true,
         resizable: {
@@ -162,7 +171,7 @@ export class CalendarComponent {
     let today = new Date();
     today.setHours(0);
     today.setMinutes(0);
-    if( event.start >= today ) {
+    if (event.start >= today) {
       console.log(event.title + ' - event is in the future')
       this.setPageOfDeedInService(event.title);
       this.router.navigateByUrl('/good-deeds');
@@ -172,11 +181,11 @@ export class CalendarComponent {
     }
   }
 
-  setPageOfDeedInService(titleToSearch: string){
+  setPageOfDeedInService(titleToSearch: string) {
     this.deedService.getUpcomingDeeds().subscribe(
       deeds => {
-        for(let deed of deeds){
-          if(deed.title === titleToSearch){
+        for (let deed of deeds) {
+          if (deed.title === titleToSearch) {
             let page = deeds.indexOf(deed) / 5 + 1;
             page = Math.trunc(page);
             this.deedService.setPage(page);
