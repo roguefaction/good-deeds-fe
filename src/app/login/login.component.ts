@@ -3,14 +3,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-// import { AuthenticationService } from '@/_services';
-@Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
-})
+import { AuthenticationService } from '../services/authentication.service';
 
-  export class LoginComponent implements OnInit {
+@Component({ templateUrl: 'login.component.html' })
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
@@ -20,21 +16,21 @@ import { first } from 'rxjs/operators';
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
-    // private authenticationService: AuthenticationService
+    private router: Router,
+    private authenticationService: AuthenticationService
   ) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required]
     });
-
-    // // reset login status
-    // this.authenticationService.logout();
-    //
-    // // get return url from route parameters or default to '/'
-    // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    // reset login status
+    this.authenticationService.logout();
+    localStorage.removeItem('currentUser');
+    localStorage.clear();
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   // convenience getter for easy access to form fields
@@ -45,19 +41,21 @@ import { first } from 'rxjs/operators';
 
     // stop here if form is invalid
     if (this.loginForm.invalid) {
+      console.log('form invalid');
       return;
     }
 
     this.loading = true;
-    // this.authenticationService.login(this.f.username.value, this.f.password.value)
-    //   .pipe(first())
-    //   .subscribe(
-    //     data => {
-    //       this.router.navigate([this.returnUrl]);
-    //     },
-    //     error => {
-    //       this.error = error;
-    //       this.loading = false;
-    //     });
+    this.authenticationService.login(this.f.email.value, this.f.password.value)
+      .pipe(first())
+      .subscribe(
+        data => {
+          console.log('welcome, ' + this.f.email.value);
+          this.router.navigate(['/home-page']);
+        },
+        ErrorMessage => {
+          //this.error = ErrorMessage;
+          console.log('error happened');
+        });
   }
 }
