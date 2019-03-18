@@ -8,6 +8,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {RegisterDeedComponent} from './register-deed/register-deed.component';
 import {CalendarComponent} from './calendar/calendar.component';
 import {LoginComponent} from './login/login.component';
+import {UserProfileComponent} from './user-profile/user-profile.component';
 
 // @ts-ignore
 // @ts-ignore
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'register-deed', component: RegisterDeedComponent},
   {path: 'calendar', component: CalendarComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'user-profile', component: UserProfileComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ];
