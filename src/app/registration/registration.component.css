@@ -1,0 +1,27 @@
+.jumboclass{
+  height: 3rem;
+  background: url('../../assets/images/vintage-rainbow-color-badge.png');
+  background-size: cover;
+}
+
+.padding-class{
+  margin-bottom: 1rem;
+}
+.text-danger{
+   padding-top: 0px;
+   border-top: 0px;
+ }
+
+.register-border{
+  border-top: 20px;
+}
+.h1-padding{
+  padding-bottom: 40px;
+}
+.validation-message{
+  padding-left: 16%;
+  padding-bottom: 3%;
+}
+.input-margin{
+  margin-top: 15px;
+}
