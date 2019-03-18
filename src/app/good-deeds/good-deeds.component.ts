@@ -16,6 +16,7 @@ export class GoodDeedsComponent implements OnInit, AfterViewInit {
   isCitySorted = false;
   isPeopleSorted = false;
   isDateSorted = false;
+  isRowSorted = false;
 
   constructor(private deedService: DeedService) {
   }
@@ -69,8 +70,12 @@ export class GoodDeedsComponent implements OnInit, AfterViewInit {
     if (this.isCitySorted === false) {
       this.deeds = this.deeds.sort(sortBy('city^'));
       this.isCitySorted = true;
+      this.isTitleSorted = false;
+      this.isPeopleSorted = false;
+      this.isDateSorted = false;
+      this.isRowSorted = false;
     } else {
-      this.deeds = this.deeds.sort(sortBy('-city^'));
+      this.deeds = this.deeds.sort(sortBy('date'));
       this.isCitySorted = false;
     }
   }
@@ -78,6 +83,10 @@ export class GoodDeedsComponent implements OnInit, AfterViewInit {
     if (this.isDateSorted === false) {
       this.deeds = this.deeds.sort(sortBy('-date'));
       this.isDateSorted = true;
+      this.isCitySorted = false;
+      this.isTitleSorted = false;
+      this.isPeopleSorted = false;
+      this.isRowSorted = false;
     } else {
       this.deeds = this.deeds.sort(sortBy('date'));
       this.isDateSorted = false;
@@ -87,8 +96,12 @@ export class GoodDeedsComponent implements OnInit, AfterViewInit {
     if (this.isPeopleSorted === false) {
       this.deeds = this.deeds.sort(sortBy('maxPeople^'));
       this.isPeopleSorted = true;
+      this.isDateSorted = false;
+      this.isCitySorted = false;
+      this.isTitleSorted = false;
+      this.isRowSorted = false;
     } else {
-      this.deeds = this.deeds.sort(sortBy('-maxPeople^'));
+      this.deeds = this.deeds.sort(sortBy('date^'));
       this.isPeopleSorted = false;
     }
   }
@@ -96,8 +109,12 @@ export class GoodDeedsComponent implements OnInit, AfterViewInit {
     if (this.isTitleSorted === false) {
       this.deeds = this.deeds.sort(sortBy('title^'));
       this.isTitleSorted = true;
+      this.isPeopleSorted = false;
+      this.isDateSorted = false;
+      this.isCitySorted = false;
+      this.isRowSorted = false;
     } else {
-      this.deeds = this.deeds.sort(sortBy('-title^'));
+      this.deeds = this.deeds.sort(sortBy('date^'));
       this.isTitleSorted = false;
     }
   }

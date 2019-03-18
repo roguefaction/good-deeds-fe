@@ -54,6 +54,7 @@ const colors: any = {
 })
 export class CalendarComponent {
   deeds: Deed[];
+  isCalendarReady: boolean;
 
   constructor(private modal: NgbModal, private deedService: DeedService, private router: Router) {
     this.getCalendarDeeds();
@@ -108,6 +109,7 @@ export class CalendarComponent {
       },
       () => {
         console.log('completed');
+        this.isCalendarReady = true;
       }
     );
   }
@@ -209,6 +211,7 @@ export class CalendarComponent {
       }
     });
     this.refresh.next();
+    this.isCalendarReady = true;
 
   }
 
