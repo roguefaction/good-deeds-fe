@@ -7,11 +7,13 @@ import {GalleryComponent} from './gallery/gallery.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {RegisterDeedComponent} from './register-deed/register-deed.component';
 import {CalendarComponent} from './calendar/calendar.component';
+import {RegistrationComponent} from './registration/registration.component';
 
 // @ts-ignore
 // @ts-ignore
 const routes: Routes = [
   {path: 'home', component: HomePageComponent},
+  {path: 'user-registration', component: RegistrationComponent},
   {path: 'good-deeds', component: GoodDeedsComponent},
   {path: 'success-stories', component: SuccessStoriesComponent},
   {path: 'gallery', component: GalleryComponent},
