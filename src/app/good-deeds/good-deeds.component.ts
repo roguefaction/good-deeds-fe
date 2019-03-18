@@ -25,8 +25,6 @@ export class GoodDeedsComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.isListReady = false;
     this.getDeeds();
-
-
   }
 
   ngAfterViewInit(): void {
@@ -42,20 +40,11 @@ export class GoodDeedsComponent implements OnInit, AfterViewInit {
       }
     }, 500 );
 
-
   }
 
-  first(){
-    this.currentPage = 0;
-  }
-  second(){
-    this.currentPage = 2;
-  }
-
-  scroll(el: HTMLElement){
+  scroll(el: HTMLElement) {
     el.scrollIntoView();
   }
-
 
   getDeeds() {
     this.deedService.getUpcomingDeeds().subscribe(
@@ -74,7 +63,6 @@ export class GoodDeedsComponent implements OnInit, AfterViewInit {
   }
   showItems(value) {
     this.itemsPerPage = value;
-
   }
 
   sortByCity() {

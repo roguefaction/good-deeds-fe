@@ -64,10 +64,13 @@ export class RegisterDeedComponent implements OnInit {
     this.deedService.addDeed(deed).subscribe(
       data => {
         console.log('Succesfully Added deed');
+        this.deedService.setPageOfDeed(deed.title);
+        this.deedService.setDeedToExpand(deed.title);
       },
       ErrorResponse => {
         // alert(ErrorResponse.error.message);
         this.httpStatus = ErrorResponse.error.message;
+        alert(ErrorResponse.error.message);
       },
       () => {
         console.log('Operation complete');

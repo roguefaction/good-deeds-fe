@@ -46,11 +46,11 @@
 
       <div class=" collapse collapse-style card collapse-style" [ngClass]="{ 'show': collapseOpen }">
         <div class="card-body">
-          <p class=" display-6">Organization: </p>
+          <p *ngIf="deed.organization" class=" display-6">Organization: </p>
           <p class="p">{{deed.organization}}</p>
           <p class=" display-6 small-size-screen">City: </p>
           <p class="p small-size-screen">{{deed.city}}</p>
-          <p class=" display-6">Description: </p>
+          <p *ngIf="deed.description" class=" display-6">Description: </p>
           <p class="p">{{deed.description}}</p>
           <p class=" display-6 small-size-screen">Participants: </p>
           <p class="p small-size-screen">0/{{deed.maxPeople}}</p>
@@ -58,7 +58,6 @@
           <p class="p">{{deed.contactPerson}}</p>
           <p class="p">{{deed.email}}</p>
           <p class="p">{{deed.phoneNumber}}</p>
-          <p class=" display-6">Tags:</p>
           <p class="p">{{deed.tags}}</p>
         </div>
       </div>

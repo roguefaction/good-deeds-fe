@@ -29,7 +29,7 @@ import {Router} from '@angular/router';
 
 const colors: any = {
   red: {
-    primary: '#ad2121',
+    primary: '#DE5B1E',
     secondary: '#FAE3E3'
   },
   blue: {
@@ -39,6 +39,10 @@ const colors: any = {
   yellow: {
     primary: '#e3bc08',
     secondary: '#FDF1BA'
+  },
+  grey: {
+    primary: '#A8A8A8',
+    secondary: '#C8C8C8'
   }
 };
 
@@ -108,20 +112,28 @@ export class CalendarComponent {
     );
   }
 
-  loadEvents(deeds: Deed[]){
-    this.deeds.forEach( (deed) => {
-
+  loadEvents(deeds: Deed[]) {
+    let eventColor = colors.grey;
+    let today = new Date();
+    today.setHours(0);
+    today.setMinutes(0);
+    this.deeds.forEach((deed) => {
+      if (new Date(deed.date) <= today) {
+        eventColor = colors.grey;
+      } else {
+        eventColor = colors.red;
+      }
       this.events.push({
         start: new Date(deed.date),
         title: deed.title,
-        color: colors.red,
+        color: eventColor,
         actions: this.actions,
         allDay: true,
         resizable: {
           beforeStart: true,
           afterEnd: true
         },
-        draggable: true
+        draggable: false
       });
     });
     this.refresh.next();
@@ -160,9 +172,9 @@ export class CalendarComponent {
     let today = new Date();
     today.setHours(0);
     today.setMinutes(0);
-    if( event.start >= today ) {
+    if (event.start >= today) {
       console.log(event.title + ' - event is in the future')
-      this.setPageOfDeedInService(event.title);
+      this.deedService.setPageOfDeed(event.title);
       this.router.navigateByUrl('/good-deeds');
     } else {
       console.log(event.title + ' - event is in the past');
@@ -170,11 +182,11 @@ export class CalendarComponent {
     }
   }
 
-  setPageOfDeedInService(titleToSearch: string){
+  setPageOfDeedInService(titleToSearch: string) {
     this.deedService.getUpcomingDeeds().subscribe(
       deeds => {
-        for(let deed of deeds){
-          if(deed.title === titleToSearch){
+        for (let deed of deeds) {
+          if (deed.title === titleToSearch) {
             let page = deeds.indexOf(deed) / 5 + 1;
             page = Math.trunc(page);
             this.deedService.setPage(page);

@@ -44,5 +44,19 @@ export class DeedService {
     this.currentPage = page;
   }
 
+  setPageOfDeed(titleToSearch: string){
+    this.getUpcomingDeeds().subscribe(
+      deeds => {
+        for (let deed of deeds) {
+          if (deed.title === titleToSearch){
+            let page = deeds.indexOf(deed) / 5 + 1;
+            page = Math.trunc(page);
+            this.setPage(page);
+          }
+        }
+      }
+    );
+  }
+
 
 }
