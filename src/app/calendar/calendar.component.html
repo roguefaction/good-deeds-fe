@@ -1,6 +1,6 @@
 <div class="jumboclass padding-class"></div>
 
-<div class="container">
+<div  class="container">
 
 <ng-template #modalContent let-close="close">
   <div class="modal-header">
@@ -26,11 +26,11 @@
   </div>
 </ng-template>
 
-<div class="row text-center">
+<div class="d-flex flex-row-reverse text-center">
   <div class="col-md-4">
     <div class="btn-group">
       <div
-        class="btn btn-primary"
+        class="btn btn-orange"
         mwlCalendarPreviousView
         [view]="view"
         [(viewDate)]="viewDate"
@@ -39,14 +39,14 @@
         Previous
       </div>
       <div
-        class="btn btn-outline-secondary"
+        class="btn btn-outline-warning"
         mwlCalendarToday
         [(viewDate)]="viewDate"
       >
         Today
       </div>
       <div
-        class="btn btn-primary"
+        class="btn btn-orange"
         mwlCalendarNextView
         [view]="view"
         [(viewDate)]="viewDate"
