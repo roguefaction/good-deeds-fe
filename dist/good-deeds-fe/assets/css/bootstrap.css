@@ -439,12 +439,6 @@ h6, .h6 {
   line-height: 1.2;
   margin: 20px;
 }
-.display-7 {
-  font-size: 1rem;
-  font-weight: 200;
-  line-height: 0.8;
-  margin: 10px;
-}
 
 hr {
   margin-top: 1rem;
@@ -6606,7 +6600,7 @@ button.bg-info:focus {
   background-color: whitesmoke !important;
 }
 .bg-btn{
-  background-color: forestgreen;
+  background-color: #6AA427;
 }
 
 a.bg-warning:hover, a.bg-warning:focus,
