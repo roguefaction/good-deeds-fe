@@ -1,0 +1,35 @@
+form {
+  padding-top: 10%;
+}
+
+h1 {
+  padding-bottom: 3%;
+  padding-left: 5%;
+}
+
+label {
+  padding-left: 5%;
+}
+
+p {
+  margin-left: 4%;
+}
+
+a {
+  padding-left: 5px;
+  color: rgb(222 91 30);
+}
+
+.btn {
+ margin-left: 5%;
+}
+
+/*MAN GEDA UZ SITA "KODA"*/
+
+.jumboclass{
+  height: 3rem;
+  background: url('../../assets/images/vintage-rainbow-color-badge.png');
+  background-size: cover;
+}
+
+

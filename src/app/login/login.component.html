@@ -1,61 +1,41 @@
-<!--<div class="container">-->
 
-  <!--<form class="form-padding" [formGroup]="loginForm" (ngSubmit)="submitForm()">-->
-
-
-<!--<h2>Login</h2>-->
-  <!--<div class="form-group row">-->
-    <!--<label class="col-sm-2 col-form-label">Username</label>-->
-    <!--<div class="col-sm-7">-->
-      <!--<input formControlName="username" class="form-control">-->
-    <!--</div>-->
-  <!--</div>-->
-
-    <!--<div *ngIf="loginForm.get('title').touched">-->
-
-    <!--<small *ngIf="loginForm.get('title').hasError('required')" class="validation-message text-danger">-->
-      <!--Please enter email-->
-    <!--</small>-->
-  <!--</div>-->
-
-  <!--<div class="form-group row">-->
-    <!--<label class="col-sm-2 col-form-label">Password</label>-->
-    <!--<div class="col-sm-7">-->
-      <!--<input formControlName="password" class="form-control">-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--<div *ngIf="loginForm.get('password').touched">-->
-    <!--<small *ngIf="loginForm.get('password').hasError('required')" class=" validation-message text-danger">-->
-      <!--Please enter password-->
-    <!--</small>-->
-  <!--</div>-->
-
-  <!--</form>-->
-<!--</div>-->
+<div class="jumboclass padding-class"></div>
 
 
 <div class="container">
 
-  <h2>Login</h2>
+  <div>
+
+  </div>
+
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-        <div *ngIf="f.email.errors.required">Username is required</div>
+    <h1 class="row">Login</h1>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-4">
+        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+        </div>
       </div>
+
     </div>
-    <div class="form-group">
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-4">
       <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
       <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
         <div *ngIf="f.password.errors.required">Password is required</div>
       </div>
     </div>
-    <div class="form-group">
-      <button [disabled]="loading" class="btn btn-primary">Login</button>
+    </div>
+
+    <div class="form-group row">
+      <button [disabled]="loading" class="btn btn-primary btn btn-orange">Login</button>
       <img *ngIf="loading" class="pl-2" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
     </div>
     <div *ngIf="error" class="alert alert-danger">{{error}}</div>
   </form>
 
-  <p>Don't have account ? <a routerLink="/user-registration">Register</a></p>
+  <p class="form-group row">Don't have account ? <a routerLink="/user-registration">Register</a></p>
 </div>
