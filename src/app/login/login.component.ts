@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
+import {Component, OnInit} from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {first} from 'rxjs/operators';
 
-import { AuthenticationService } from '../services/authentication.service';
+import {AuthenticationService} from '../services/authentication.service';
 
-@Component({ templateUrl: 'login.component.html' })
+@Component({templateUrl: 'login.component.html'})
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -34,7 +35,9 @@ export class LoginComponent implements OnInit {
   }
 
   // convenience getter for easy access to form fields
-  get f() { return this.loginForm.controls; }
+  get f() {
+    return this.loginForm.controls;
+  }
 
   onSubmit() {
     this.submitted = true;
@@ -51,11 +54,16 @@ export class LoginComponent implements OnInit {
       .subscribe(
         data => {
           console.log('welcome, ' + this.f.email.value);
-          this.router.navigate(['/home-page']);
+          this.authenticationService.performGet();
+          // this.router.navigate(['/home-page']);
         },
         ErrorMessage => {
-          //this.error = ErrorMessage;
           console.log('error happened');
+        },
+        () => {
+          this.authenticationService.performGet();
+          console.log(this.authenticationService.currentUserObject.email);
         });
+
   }
 }
