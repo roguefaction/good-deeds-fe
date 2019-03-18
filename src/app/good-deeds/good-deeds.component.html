@@ -47,12 +47,12 @@
 <app-good-deeds-details [deed]="deed"
                         *ngFor="let deed of deeds | paginate: {itemsPerPage: itemsPerPage, currentPage: currentPage}">
 </app-good-deeds-details>
-<div class="container align-content-end pagination-div">
+<div class="container align-content-end pagination-div spacing">
   <div class="d-flex justify-content-end">
     <div>
       <pagination-controls *ngIf="isListReady" class="pagination-style" (pageChange)="currentPage =$event"></pagination-controls>
     </div>
-    <div class="spacing">
+    <div>
       <select *ngIf="isListReady" (change)="showItems($event.target.value)">
         <option value="5">5</option>
         <option value="10">10</option>
