@@ -13,33 +13,33 @@
       </div>
     </div>
     <div *ngIf="registerDeedForm.get('title').touched">
-      <div *ngIf="registerDeedForm.get('title').hasError('required')" class="alert-danger alert">
+      <small *ngIf="registerDeedForm.get('title').hasError('required')" class="validation-message text-danger">
         Please enter title
-      </div>
-      <div *ngIf="registerDeedForm.get('title').hasError('minlength')" class="alert-danger alert">
+      </small>
+      <small *ngIf="registerDeedForm.get('title').hasError('minlength')" class="validation-message text-danger">
         Title is too short
-      </div>
+      </small>
 
-      <div *ngIf="registerDeedForm.get('title').hasError('maxlength')" class="alert-danger alert">
+      <small *ngIf="registerDeedForm.get('title').hasError('maxlength')" class="validation-message text-danger">
         Title is too long
-      </div>
+      </small>
     </div>
 
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Organization:</label>
+      <label class="col-sm-2 col-form-label">Organization</label>
       <div class="col-sm-7">
         <input formControlName="organization" class="form-control" placeholder="National Squirrel University"
                maxLength="50">
       </div>
     </div>
     <div *ngIf="registerDeedForm.get('organization').touched">
-      <div *ngIf="registerDeedForm.get('organization').hasError('minlength')" class="alert-danger alert">
+      <small *ngIf="registerDeedForm.get('organization').hasError('minlength')" class=" validation-message text-danger">
         Organization field is too short
-      </div>
+      </small>
 
-      <div *ngIf="registerDeedForm.get('organization').hasError('maxlength')" class="alert-danger alert">
+      <small *ngIf="registerDeedForm.get('organization').hasError('maxlength')" class=" validation-message text-danger">
         Organization field is too long
-      </div>
+      </small>
     </div>
 
     <div class="form-group row">
@@ -49,19 +49,19 @@
       </div>
     </div>
     <div *ngIf="registerDeedForm.get('city').touched">
-      <div *ngIf="registerDeedForm.get('city').hasError('required')" class="alert-danger alert">
+      <small *ngIf="registerDeedForm.get('city').hasError('required')" class=" validation-message text-danger">
         Please enter city
-      </div>
-      <div *ngIf="registerDeedForm.get('city').hasError('minlength')" class="alert-danger alert">
+      </small>
+      <small *ngIf="registerDeedForm.get('city').hasError('minlength')" class=" validation-message text-danger">
         City field is too short
-      </div>
+      </small>
 
-      <div *ngIf="registerDeedForm.get('city').hasError('maxlength')" class="alert-danger alert">
+      <small *ngIf="registerDeedForm.get('city').hasError('maxlength')" class=" validation-message text-danger">
         City field is too long
-      </div>
-      <div *ngIf="registerDeedForm.get('city').hasError('pattern')" class="alert-danger alert">
+      </small>
+      <small *ngIf="registerDeedForm.get('city').hasError('pattern')" class=" validation-message text-danger">
         City must be only letters
-      </div>
+      </small>
     </div>
 
     <div class="form-group row">
@@ -71,9 +71,9 @@
       </div>
     </div>
     <div *ngIf="registerDeedForm.get('date').touched">
-      <div *ngIf="registerDeedForm.get('date').hasError('required')" class="alert-danger alert">
+      <small *ngIf="registerDeedForm.get('date').hasError('required')" class=" validation-message text-danger">
         Please enter date
-      </div>
+      </small>
 
     </div>
 
@@ -84,9 +84,9 @@
       </div>
     </div>
     <div *ngIf="registerDeedForm.get('maxPeople').touched">
-      <div *ngIf="registerDeedForm.get('maxPeople').hasError('pattern')" class="alert-danger alert">
+      <small *ngIf="registerDeedForm.get('maxPeople').hasError('pattern')" class=" validation-message text-danger">
         Maximum value of people must be only numbers
-      </div>
+      </small>
     </div>
 
     <h1 class="h1-padding">Contacts</h1>
@@ -98,12 +98,12 @@
       </div>
     </div>
     <div *ngIf="registerDeedForm.get('email').touched">
-      <div *ngIf="registerDeedForm.get('email').hasError('required')" class="alert-danger alert">
+      <small *ngIf="registerDeedForm.get('email').hasError('required')" class=" validation-message text-danger">
         Please enter email
-      </div>
-      <div *ngIf="registerDeedForm.get('email').hasError('email')" class="alert-danger alert">
+      </small>
+      <small *ngIf="registerDeedForm.get('email').hasError('email')" class=" validation-message text-danger">
         Please enter valid email
-      </div>
+      </small>
     </div>
 
     <div class="form-group row">
@@ -113,12 +113,12 @@
       </div>
     </div>
     <div *ngIf="registerDeedForm.get('contactPerson').touched">
-      <div *ngIf="registerDeedForm.get('contactPerson').hasError('required')" class="alert-danger alert">
+      <small *ngIf="registerDeedForm.get('contactPerson').hasError('required')" class=" validation-message text-danger">
         Please enter contact person
-      </div>
-      <div *ngIf="registerDeedForm.get('contactPerson').hasError(['name','pattern'])">
+      </small>
+      <small *ngIf="registerDeedForm.get('contactPerson').hasError(['name','pattern'])" class="validation-message text-danger">
         Please enter valid contact person name
-      </div>
+      </small>
     </div>
 
     <div class="form-group row">
@@ -128,13 +128,13 @@
       </div>
     </div>
     <div *ngIf="registerDeedForm.get('phoneNumber').touched">
-      <div *ngIf="registerDeedForm.get('phoneNumber').hasError('required')" class="alert-danger alert">
+      <small *ngIf="registerDeedForm.get('phoneNumber').hasError('required')" class=" validation-message text-danger">
         Please enter phone number
-      </div>
+      </small>
 
-      <div *ngIf="registerDeedForm.get('phoneNumber').hasError('pattern')"{{}}  class="alert-danger alert">
+      <small *ngIf="registerDeedForm.get('phoneNumber').hasError('pattern')"{{}}  class=" validation-message text-danger">
         Please enter valid phone number
-      </div>
+      </small>
     </div>
 
     <h1 class="h1-padding">Description</h1>
@@ -150,9 +150,9 @@
     </div>
 
     <div *ngIf="registerDeedForm.get('description').touched">
-      <div *ngIf="registerDeedForm.get('description').hasError('maxlength')" class="alert-danger alert">
+      <small *ngIf="registerDeedForm.get('description').hasError('maxlength')" class=" validation-message text-danger">
         Description field is too long
-      </div>
+      </small>
     </div>
 
 
@@ -163,12 +163,12 @@
       </div>
     </div>
     <div *ngIf="registerDeedForm.get('tags').touched">
-      <div *ngIf="registerDeedForm.get('tags').hasError('maxlength')" class="alert-danger alert">
+      <small *ngIf="registerDeedForm.get('tags').hasError('maxlength')" class=" validation-message text-danger">
         Please enter shorter tags field
-      </div>
-      <div *ngIf="registerDeedForm.get('tags').hasError('pattern')" class="alert-danger alert">
+      </small>
+      <small *ngIf="registerDeedForm.get('tags').hasError('pattern')" class=" validation-message text-danger">
         Please enter tags starting with # symbol
-      </div>
+      </small>
     </div>
 
     <div class="form-group row">
@@ -176,9 +176,10 @@
         <button type="submit" class="btn btn-primary">Register</button>
       </div>
     </div>
-    <div *ngIf="httpStatus" class="alert-danger alert">
+    <small *ngIf="httpStatus" class=" validation-message text-danger">
       <p [innerText]="httpStatus"></p>
-    </div>
+    </small>
   </form>
 
 </div>
+
