@@ -9,7 +9,7 @@ import {GoodDeedsComponent} from './good-deeds/good-deeds.component';
 import {SuccessStoriesComponent} from './success-stories/success-stories.component';
 import {GalleryComponent} from './gallery/gallery.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {GoodDeedsDetailsComponent} from './good-deeds-details/good-deeds-details.component';
 import {RegisterDeedComponent} from './register-deed/register-deed.component';
 import {NgxPaginationModule} from 'ngx-pagination';
@@ -19,6 +19,8 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
+import {JwtInterceptor} from './helpers/jwt.interceptor';
+import {ErrorInterceptor} from './helpers/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,10 @@ import { LoginComponent } from './login/login.component';
       useFactory: adapterFactory
     })
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
