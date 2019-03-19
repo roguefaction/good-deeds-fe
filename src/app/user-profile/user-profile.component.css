@@ -123,4 +123,16 @@
 
 .icon-margin{
   margin-bottom: 2%;
+  margin-bottom: 10px;
+  height: 40px;
+}
+.padding-icon{
+  padding-left: 0px;
+}
+.image-padding{
+  padding-right: 10px;
+  margin-top: 20px;
+}
+.title-margin{
+  margin-top: 2%;
 }

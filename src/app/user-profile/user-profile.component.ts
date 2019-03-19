@@ -20,18 +20,21 @@ export class UserProfileComponent implements OnInit {
   isRowSorted = false;
   userName: string;
   userPhone: string;
+  userEmail: string;
   constructor(private authenticationService: AuthenticationService) {
 
   }
 
   ngOnInit() {
+  this.getUserInfo();
 
   }
 
   getUserInfo() {
-    if (this.authenticationService.currentUserObject !== null ) {
+    if (this.authenticationService.currentUserObject !== undefined ) {
       this.userName = this.authenticationService.currentUserObject.name;
       this.userPhone = this.authenticationService.currentUserObject.phone;
+      this.userEmail = this.authenticationService.currentUserObject.email;
     }
   }
 
