@@ -30,7 +30,6 @@ export class AuthenticationService {
           localStorage.setItem('currentUser', JSON.stringify(user));
           console.log(localStorage.getItem('currentUser'));
           this.currentUserSubject.next(user);
-          console.log('Get performed');
         }
         return user;
       }));

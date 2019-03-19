@@ -54,15 +54,13 @@ export class LoginComponent implements OnInit {
       .subscribe(
         data => {
           console.log('welcome, ' + this.f.email.value);
-          this.authenticationService.performGet();
-          // this.router.navigate(['/home-page']);
+          this.router.navigate(['/home-page']);
         },
         ErrorMessage => {
           console.log('error happened');
         },
         () => {
           this.authenticationService.performGet();
-          console.log(this.authenticationService.currentUserObject.email);
         });
 
   }
