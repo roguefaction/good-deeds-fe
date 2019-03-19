@@ -95,11 +95,19 @@
   <div class = "form-group row">
     <label class="col-2 col-form-label">Confirm password*</label>
     <div class="col-8">
-      <input type="password" class="form-control input-margin" maxLength="50">
+      <input type="password" formControlName="confirmPassword" class="form-control input-margin" maxLength="50">
     </div>
-    <small></small>
     <div class="col-2"></div>
   </div>
+
+    <div *ngIf="userRegistrationForm.get('confirmPassword').touched">
+      <small *ngIf="userRegistrationForm.get('confirmPassword').hasError('required')" class="text-danger validation-message">
+        Please enter password
+      </small>
+      <small class="error text-danger validation-message" *ngIf="userRegistrationForm.get('confirmPassword').errors && userRegistrationForm.get('confirmPassword').errors.ConfirmPassword">
+        Passsword does not match</small>
+
+    </div>
 
   <div class="form-group">
     <div>

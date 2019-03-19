@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {User} from '../models/user';
 import {UserService} from '../services/user.service';
+import { ConfirmPasswordValidator } from '../validators/confirm-password.validator';
 
 @Component({
   selector: 'app-registration',
@@ -25,8 +26,9 @@ export class RegistrationComponent implements OnInit {
         Validators.pattern('[^\\x00-\\x7F]*[a-zA-Z\\s]*')]],
       email: ['', [Validators.required, Validators.maxLength(50), Validators.email]],
       phone: ['', [Validators.required, Validators.pattern('^\\+370[0-9]{8}')]],
-      password: ['', [Validators.required, Validators.pattern('^(?=.{8,}$)(?=.*[A-Z])(?=.*[0-9]).*$')]]
-    });
+      password: ['', [Validators.required, Validators.pattern('^(?=.{8,}$)(?=.*[A-Z])(?=.*[0-9]).*$')]],
+      confirmPassword: ['', [Validators.required]]
+    }, {validators: ConfirmPasswordValidator.MatchPassword });
   }
 
 
