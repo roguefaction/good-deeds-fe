@@ -18,6 +18,7 @@ const routes: Routes = [
   {path: 'success-stories', component: SuccessStoriesComponent},
   {path: 'gallery', component: GalleryComponent},
   {path: 'register-deed', component: RegisterDeedComponent},
+  {path: 'edit-deed/:id', component: RegisterDeedComponent},
   {path: 'calendar', component: CalendarComponent},
   {path: 'login', component: LoginComponent},
   {path: 'user-profile', component: UserProfileComponent},

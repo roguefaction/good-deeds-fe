@@ -16,7 +16,8 @@ export class RegisterDeedComponent implements OnInit {
   registerDeedForm: FormGroup;
   httpStatus: string;
   deedId: number;
-  deed: Deed;
+  deedToEdit: Deed;
+  isEverythingReady: boolean;
 
   constructor(private formBuilder: FormBuilder, private deedService: DeedService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe(id => {
@@ -25,7 +26,13 @@ export class RegisterDeedComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isEverythingReady = false;
     this.createForm();
+    if (this.deedId != null) {
+      this.getDeedById(this.deedId);
+    } else {
+      this.isEverythingReady = true;
+    }
   }
 
   createForm() {
@@ -45,6 +52,23 @@ export class RegisterDeedComponent implements OnInit {
       //  /#(\w*[0-9a-zA-Z]+\w*[0-9a-zA-Z])/g
     });
   }
+
+  populateForm(deed: Deed) {
+    this.registerDeedForm.patchValue({
+      title: deed.title,
+      organization: deed.organization,
+      city: deed.city,
+      date: deed.date,
+      maxPeople: deed.maxPeople,
+      email: deed.email,
+      contactPerson: deed.contactPerson,
+      phoneNumber: deed.phoneNumber,
+      description: deed.description,
+      tags: deed.tags
+    });
+    this.isEverythingReady = true;
+  }
+
   submitForm() {
 
     if (this.registerDeedForm.invalid) {
@@ -52,18 +76,14 @@ export class RegisterDeedComponent implements OnInit {
       this.markFormGroupTouched(this.registerDeedForm);
       return;
     }
-    this.addDeed(this.registerDeedForm.value);
-  }
 
-  submitFormIfEdit() {
-
-    if (this.registerDeedForm.invalid) {
-      console.log(this.registerDeedForm);
-      this.markFormGroupTouched(this.registerDeedForm);
-      return;
+    if (this.deedId) {
+      this.editDeed(this.registerDeedForm.value, this.deedId);
+    } else {
+      this.addDeed(this.registerDeedForm.value);
     }
-    this.editDeed(this.registerDeedForm.value, this.deedId);
   }
+
 
   private markFormGroupTouched(formGroup: FormGroup) {
     (<any> Object).values(formGroup.controls).forEach(control => {
@@ -111,13 +131,14 @@ export class RegisterDeedComponent implements OnInit {
     this.deedService.getDeedById(id).subscribe(
       data => {
         console.log('Deed retrieval successful');
-        this.deed = data;
+        this.deedToEdit = data;
       },
       Error => {
-        console.log(HttpResponse.toString());
+        console.log(Error.error.message);
 
       },
       () => {
+        this.populateForm(this.deedToEdit);
       });
   }
 
