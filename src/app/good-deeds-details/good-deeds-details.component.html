@@ -1,41 +1,64 @@
-<div class="container">
+<div class="container cursor-class">
   <div class="accordion">
     <div class="card">
-      <div class="bg-table card-header row accordion-style d-flex">
-        <div (click)="collapseAbout()" class="col-1">
+      <div class="bg-table card-header row grey-coloring d-flex from-400 " (click)="collapseAbout()">
+        <div class="col-05">
           <img class="mb-0 header-class text-dark caret" src="../../assets/images/caret-down-small-dark.svg"
-               *ngIf="collapseOpen==false" alt="caret.png">
+               *ngIf="!collapseOpen" alt="caret.png">
           <img class="mb-0 header-class text-dark caret-up" src="../../assets/images/caret_up.png"
-               *ngIf="collapseOpen==true" alt="caret.png">
+               *ngIf="collapseOpen" alt="caret.png">
         </div>
-        <div (click)="collapseAbout()" class="col-3">
-          <h5 class="mb-0 header-class text-dark text-truncate">
-            {{job.organization}}
+
+        <div class="col-4 till-1000">
+        <h5 #target class="mb-0 header-class text-dark style-on-small-screen">
+          {{deed.title}}
+        </h5>
+      </div>
+
+        <div class="col-7 from-1000 container">
+          <h5 #target class="mb-0 header-class text-dark style-on-small-screen">
+            {{deed.title}}
           </h5>
         </div>
-        <div (click)="collapseAbout()" class="col-3">
-          <h5 class="mb-0 header-class text-dark text-truncate">
-            {{job.title}}
+
+        <div class="col-25 not-display-small">
+          <h5 class="mb-0 header-class text-dark ">
+            {{deed.date}}
           </h5>
         </div>
-        <div (click)="collapseAbout()" class="col-3">
-          <h5 class="mb-0 header-class text-dark text-truncate">
-            {{job.city}}
+        <div class="col-2 not-display-small">
+          <h5 class="mb-0 header-class text-dark ">
+            {{deed.city}}
           </h5>
         </div>
-        <div class="col-5 col-md-2 container">
-          <button class="btn btn-success btn-block btn-group-sm bg-btn" disabled><h1 class="button-text">Register</h1></button>
+        <div class="col-2 not-display-small">
+          <h5 class="mb-0 header-class text-dark text-center">
+            0/{{deed.maxPeople}}
+          </h5>
+        </div>
+        <div class="col-1 till-1000">
+          <button class="btn btn-green btn-success bg-btn apply-button" disabled>Apply</button>
+        </div>
+        <div class="col-4 from-1000 container">
+          <button class="btn btn-success btn-green bg-btn apply-button" disabled>Apply</button>
         </div>
       </div>
 
-      <div class="collapse collapse-style card bg-collapse" [ngClass]="{ 'show': collapseOpen }">
+      <div class=" collapse collapse-style card collapse-style" [ngClass]="{ 'show': collapseOpen }">
         <div class="card-body">
-          <p class="container display-6">Description: </p>
-          <p class="p">{{job.description}}</p>
-          <p class="container display-6">Contact person:</p>
-          <p class="p">{{job.contactPerson}}</p>
-          <p class="p">{{job.email}}</p>
-          <p class="p">{{job.phoneNumber}}</p>
+          <p *ngIf="deed.organization" class=" display-6">Organization: </p>
+          <p class="p">{{deed.organization}}</p>
+          <p class=" display-6 small-size-screen">City: </p>
+          <p class="p small-size-screen">{{deed.city}}</p>
+          <p *ngIf="deed.description" class=" display-6">Description: </p>
+          <p class="p">{{deed.description}}</p>
+          <p class=" display-6 small-size-screen">Participants: </p>
+          <p class="p small-size-screen">0/{{deed.maxPeople}}</p>
+          <p class=" display-6">Contact person:</p>
+          <p class="p">{{deed.contactPerson}}</p>
+          <p class="p">{{deed.email}}</p>
+          <p class="p">{{deed.phoneNumber}}</p>
+          <p class="p">{{deed.tags}}</p>
         </div>
       </div>
     </div>

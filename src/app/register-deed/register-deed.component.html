@@ -1,0 +1,185 @@
+<div class="jumboclass padding-class"></div>
+
+<div class="container">
+
+  <form class="form-padding" [formGroup]="registerDeedForm" (ngSubmit)="submitForm()  ">
+
+    <h1 class="h1-padding">Deed registration</h1>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Title*</label>
+      <div class="col-sm-7">
+        <input formControlName="title" class="form-control" placeholder="Save the squirrels" maxLength="50">
+      </div>
+    </div>
+    <div *ngIf="registerDeedForm.get('title').touched">
+      <small *ngIf="registerDeedForm.get('title').hasError('required')" class="validation-message text-danger">
+        Please enter title
+      </small>
+      <small *ngIf="registerDeedForm.get('title').hasError('minlength')" class="validation-message text-danger">
+        Title is too short
+      </small>
+
+      <small *ngIf="registerDeedForm.get('title').hasError('maxlength')" class="validation-message text-danger">
+        Title is too long
+      </small>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Organization</label>
+      <div class="col-sm-7">
+        <input formControlName="organization" class="form-control" placeholder="National Squirrel University"
+               maxLength="50">
+      </div>
+    </div>
+    <div *ngIf="registerDeedForm.get('organization').touched">
+      <small *ngIf="registerDeedForm.get('organization').hasError('minlength')" class=" validation-message text-danger">
+        Organization field is too short
+      </small>
+
+      <small *ngIf="registerDeedForm.get('organization').hasError('maxlength')" class=" validation-message text-danger">
+        Organization field is too long
+      </small>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">City*</label>
+      <div class="col-sm-7">
+        <input formControlName="city" class="form-control" placeholder="Vilnius" maxLength="50">
+      </div>
+    </div>
+    <div *ngIf="registerDeedForm.get('city').touched">
+      <small *ngIf="registerDeedForm.get('city').hasError('required')" class=" validation-message text-danger">
+        Please enter city
+      </small>
+      <small *ngIf="registerDeedForm.get('city').hasError('minlength')" class=" validation-message text-danger">
+        City field is too short
+      </small>
+
+      <small *ngIf="registerDeedForm.get('city').hasError('maxlength')" class=" validation-message text-danger">
+        City field is too long
+      </small>
+      <small *ngIf="registerDeedForm.get('city').hasError('pattern')" class=" validation-message text-danger">
+        City must be only letters
+      </small>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Date*</label>
+      <div class="col-sm-7">
+        <input type="date" formControlName="date" class="form-control" placeholder="2010-10-10">
+      </div>
+    </div>
+    <div *ngIf="registerDeedForm.get('date').touched">
+      <small *ngIf="registerDeedForm.get('date').hasError('required')" class=" validation-message text-danger">
+        Please enter date
+      </small>
+
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Max People</label>
+      <div class="col-sm-7">
+        <input formControlName="maxPeople" class="form-control" maxlength="8">
+      </div>
+    </div>
+    <div *ngIf="registerDeedForm.get('maxPeople').touched">
+      <small *ngIf="registerDeedForm.get('maxPeople').hasError('pattern')" class=" validation-message text-danger">
+        Maximum value of people must be only numbers
+      </small>
+    </div>
+
+    <h1 class="h1-padding">Contacts</h1>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Email*</label>
+      <div class="col-sm-7">
+        <input formControlName="email" class="form-control" placeholder="mcsquirrel@gmail.com" maxLength="50">
+      </div>
+    </div>
+    <div *ngIf="registerDeedForm.get('email').touched">
+      <small *ngIf="registerDeedForm.get('email').hasError('required')" class=" validation-message text-danger">
+        Please enter email
+      </small>
+      <small *ngIf="registerDeedForm.get('email').hasError('email')" class=" validation-message text-danger">
+        Please enter valid email
+      </small>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Contact person*</label>
+      <div class="col-sm-7">
+        <input formControlName="contactPerson" class="form-control" placeholder="Name Surname" maxLength="50">
+      </div>
+    </div>
+    <div *ngIf="registerDeedForm.get('contactPerson').touched">
+      <small *ngIf="registerDeedForm.get('contactPerson').hasError('required')" class=" validation-message text-danger">
+        Please enter contact person
+      </small>
+      <small *ngIf="registerDeedForm.get('contactPerson').hasError(['name','pattern'])" class="validation-message text-danger">
+        Please enter valid contact person name
+      </small>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Phone number*</label>
+      <div class="col-sm-7">
+        <input formControlName="phoneNumber" class="form-control" placeholder="+37060000000" maxLength="50">
+      </div>
+    </div>
+    <div *ngIf="registerDeedForm.get('phoneNumber').touched">
+      <small *ngIf="registerDeedForm.get('phoneNumber').hasError('required')" class=" validation-message text-danger">
+        Please enter phone number
+      </small>
+
+      <small *ngIf="registerDeedForm.get('phoneNumber').hasError('pattern')"{{}}  class=" validation-message text-danger">
+        Please enter valid phone number
+      </small>
+    </div>
+
+    <h1 class="h1-padding">Description</h1>
+
+
+    <div class="form-group flex-column row">
+      <div><textarea formControlName="description" #incidentDescription class="form-control col-md-9"
+                id="exampleFormControlTextarea1" rows="4" placeholder="Describe what is this project about"
+                     maxLength="500"></textarea></div>
+      <div><small class="col-md char-count">
+        {{500 - incidentDescription.value.length}}/500
+      </small></div>
+    </div>
+
+    <div *ngIf="registerDeedForm.get('description').touched">
+      <small *ngIf="registerDeedForm.get('description').hasError('maxlength')" class=" validation-message text-danger">
+        Description field is too long
+      </small>
+    </div>
+
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Tags:</label>
+      <div class="col-sm-7">
+        <input formControlName="tags" class="form-control" placeholder="#happydays" maxLength="100">
+      </div>
+    </div>
+    <div *ngIf="registerDeedForm.get('tags').touched">
+      <small *ngIf="registerDeedForm.get('tags').hasError('maxlength')" class=" validation-message text-danger">
+        Please enter shorter tags field
+      </small>
+      <small *ngIf="registerDeedForm.get('tags').hasError('pattern')" class=" validation-message text-danger">
+        Please enter tags starting with # symbol
+      </small>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-7">
+        <button type="submit" class="btn btn-primary">Register</button>
+      </div>
+    </div>
+    <small *ngIf="httpStatus" class=" validation-message text-danger">
+      <p [innerText]="httpStatus"></p>
+    </small>
+  </form>
+
+</div>
+

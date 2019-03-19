@@ -1,4 +1,4 @@
-export interface Job {
+export interface Deed {
   id?: number;
   title: string;
   city: string;
@@ -10,5 +10,6 @@ export interface Job {
   currentPeople: number;
   description: string;
   tags: string;
-
+  date: string;
+  isExpanded: boolean;
 }

@@ -21,6 +21,10 @@
   margin-bottom: 2%;
 }
 
+.nav-active {
+  font-weight: 400;
+}
+
 
 /*.router-outlet-class {*/
 /*height: 70%;*/

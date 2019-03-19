@@ -1,6 +1,31 @@
+.form-padding {
+  padding-top: 10%;
+}
+
+.h1-padding {
+  padding-bottom: 3%;
+}
+
+#exampleFormControlTextarea1 {
+  max-width: 74%;
+}
+
 .title-image {
   background: url('../../assets/images/vintage-rainbow-color-badge.png');
   background-size: cover;
+}
+
+.char-count{
+ color: grey;
+}
+
+.validation-message {
+  padding-left: 16%;
+}
+
+.form-group {
+  margin-top: 20px;
+  margin-bottom: 0;
 }
 
 .jumboclass{
