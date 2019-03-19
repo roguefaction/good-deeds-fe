@@ -6,8 +6,8 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HomePageComponent} from './home-page/home-page.component';
 import {GoodDeedsComponent} from './good-deeds/good-deeds.component';
-import {SuccessStoriesComponent} from './success-stories/success-stories.component';
-import {GalleryComponent} from './gallery/gallery.component';
+// @ts-ignore
+// @ts-ignore
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {GoodDeedsDetailsComponent} from './good-deeds-details/good-deeds-details.component';
@@ -27,8 +27,6 @@ import {ErrorInterceptor} from './helpers/error.interceptor';
     AppComponent,
     HomePageComponent,
     GoodDeedsComponent,
-    SuccessStoriesComponent,
-    GalleryComponent,
     PageNotFoundComponent,
     GoodDeedsDetailsComponent,
     RegisterDeedComponent,
