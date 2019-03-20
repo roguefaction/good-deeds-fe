@@ -89,7 +89,7 @@
       </small>
     </div>
 
-    <h1 class="h1-padding">Contacts</h1>
+    <h1 class="h1-padding-contacts">Contacts</h1>
 
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Email*</label>
@@ -132,12 +132,12 @@
         Please enter phone number
       </small>
 
-      <small *ngIf="registerDeedForm.get('phoneNumber').hasError('pattern')"{{}}  class=" validation-message text-danger">
+      <small *ngIf="registerDeedForm.get('phoneNumber').hasError('pattern')" class=" validation-message text-danger">
         Please enter valid phone number
       </small>
     </div>
 
-    <h1 class="h1-padding">Description</h1>
+    <h1 class="h1-padding-description">Description</h1>
 
 
     <div class="form-group flex-column row">

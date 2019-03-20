@@ -1,6 +1,15 @@
-export interface User {
-  name: string;
+
+export class User {
+  id: number;
   email: string;
-  phone: string;
+  name: string;
   password: string;
+  phone?: string;
+  token?: string;
+
+  constructor(email: string, password: string) {
+    this.email = email;
+    this.password = password;
+
+  }
 }

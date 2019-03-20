@@ -6,8 +6,27 @@
   padding-bottom: 3%;
 }
 
+.h1-padding-contacts {
+  padding-top: 5%;
+  padding-bottom: 3%;
+}
+
+.h1-padding-description {
+  padding-top: 5%;
+  padding-bottom: 3%;
+}
+
+.btn {
+  margin-left: 16px;
+}
+
 #exampleFormControlTextarea1 {
-  max-width: 74%;
+  max-width: 72.5%;
+  margin-left: 15px;
+}
+
+.col-md {
+  margin-left: 16px;
 }
 
 .title-image {
@@ -36,4 +55,8 @@
 
 .padding-class{
   margin-bottom: 2rem;
+}
+
+label {
+  padding-left: 19px;
 }

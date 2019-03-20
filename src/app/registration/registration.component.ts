@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {User} from '../models/user';
 import {UserService} from '../services/user.service';
 import { ConfirmPasswordValidator } from '../validators/confirm-password.validator';
+import {AuthenticationService} from '../services/authentication.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -13,7 +15,8 @@ export class RegistrationComponent implements OnInit {
 
   userRegistrationForm: FormGroup;
   httpStatus: string;
-  constructor(private formBuilder: FormBuilder, private userService: UserService) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService,
+              private authenticationService: AuthenticationService, private router: Router) {
   }
 
   ngOnInit() {
@@ -63,7 +66,9 @@ export class RegistrationComponent implements OnInit {
       },
       () => {
         console.log('USER ADDING COMPLETE');
-        // TODO add login route after adding user
+        this.authenticationService.login(this.authenticationService.currentUserObject.email,
+          this.authenticationService.currentUserObject.password);
+        this.router.navigateByUrl('/');
       }
     );
   }

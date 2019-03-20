@@ -156,7 +156,7 @@
 .cal-month-view .cal-event-title {
   cursor: pointer; }
   .cal-month-view .cal-event-title:hover {
-    text-decoration: underline; }
+    text-decoration: none; }
 
 .cal-week-view {
   /* stylelint-disable-next-line selector-type-no-unknown */ }
