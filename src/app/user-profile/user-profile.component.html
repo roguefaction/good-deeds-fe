@@ -35,29 +35,29 @@
     <div class="row wider text-white">
       <div class="col-05"></div>
 
-      <div class="col-4" (click)="sortByTitle()"><h1 class="display-6 header-class small-size">Title
-        <img *ngIf="isTitleSorted" class="mb-0 header-class text-dark caret small-size"
+      <div class="col-4" (click)="sortByTitleO()"><h1 class="display-6 header-class small-size">Title
+        <img *ngIf="isTitleSortedO" class="mb-0 header-class text-dark caret small-size"
              src="../../assets/images/sort-arrow-up.png">
-        <img *ngIf="!isTitleSorted" class="mb-0 header-class text-dark caret small-size"
+        <img *ngIf="!isTitleSortedO" class="mb-0 header-class text-dark caret small-size"
              src="../../assets/images/sort-arrow-down.png"></h1>
       </div>
 
-      <div class="col-25" (click)="sortByDate()"><h1 class="display-6 header-class">Date
-        <img *ngIf="isDateSorted" class="mb-0 header-class text-dark caret"
+      <div class="col-25" (click)="sortByDateO()"><h1 class="display-6 header-class">Date
+        <img *ngIf="isDateSortedO" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-up.png">
-        <img *ngIf="!isDateSorted" class="mb-0 header-class text-dark caret"
+        <img *ngIf="!isDateSortedO" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-down.png"></h1></div>
 
-      <div class="col-2" (click)="sortByCity()"><h1 class="display-6 header-class city-margin">City
-        <img *ngIf="isCitySorted" class="mb-0 header-class text-dark caret"
+      <div class="col-2" (click)="sortByCityO()"><h1 class="display-6 header-class city-margin">City
+        <img *ngIf="isCitySortedO" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-up.png">
-        <img *ngIf="!isCitySorted" class="mb-0 header-class text-dark caret"
+        <img *ngIf="!isCitySortedO" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-down.png"></h1></div>
 
-      <div class="col-2" (click)="sortByPeople()"><h1 class="display-6 header-class ">People
-        <img *ngIf="isPeopleSorted" class="mb-0 header-class text-dark caret"
+      <div class="col-2" (click)="sortByPeopleO()"><h1 class="display-6 header-class ">People
+        <img *ngIf="isPeopleSortedO" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-up.png">
-        <img *ngIf="!isPeopleSorted" class="mb-0 header-class text-dark caret"
+        <img *ngIf="!isPeopleSortedO" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-down.png"></h1></div>
       <div class="col-1"></div>
     </div>
@@ -65,7 +65,7 @@
 </div>
 
 <app-good-deeds-details [deed]="deed"
-*ngFor="let deed of organizedDeedTable.deeds | paginate: {itemsPerPage: itemsPerPage, currentPage: currentPage}">
+*ngFor="let deed of organizedDeeds | paginate: {itemsPerPage: itemsPerPage, currentPage: currentPage}">
 </app-good-deeds-details>
 <div class="container align-content-end pagination-div spacing">
   <div class="d-flex justify-content-end">
@@ -91,29 +91,29 @@
     <div class="row wider text-white">
       <div class="col-05"></div>
 
-      <div class="col-4" (click)="sortByTitle()"><h1 class="display-6 header-class small-size">Title
-        <img *ngIf="isTitleSorted" class="mb-0 header-class text-dark caret small-size"
+      <div class="col-4" (click)="sortByTitleP()"><h1 class="display-6 header-class small-size">Title
+        <img *ngIf="isTitleSortedP" class="mb-0 header-class text-dark caret small-size"
              src="../../assets/images/sort-arrow-up.png">
-        <img *ngIf="!isTitleSorted" class="mb-0 header-class text-dark caret small-size"
+        <img *ngIf="!isTitleSortedP" class="mb-0 header-class text-dark caret small-size"
              src="../../assets/images/sort-arrow-down.png"></h1>
       </div>
 
-      <div class="col-25" (click)="sortByDate()"><h1 class="display-6 header-class">Date
-        <img *ngIf="isDateSorted" class="mb-0 header-class text-dark caret"
+      <div class="col-25" (click)="sortByDateP()"><h1 class="display-6 header-class">Date
+        <img *ngIf="isDateSortedP" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-up.png">
-        <img *ngIf="!isDateSorted" class="mb-0 header-class text-dark caret"
+        <img *ngIf="!isDateSortedP" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-down.png"></h1></div>
 
-      <div class="col-2" (click)="sortByCity()"><h1 class="display-6 header-class city-margin">City
-        <img *ngIf="isCitySorted" class="mb-0 header-class text-dark caret"
+      <div class="col-2" (click)="sortByCityP()"><h1 class="display-6 header-class city-margin">City
+        <img *ngIf="isCitySortedP" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-up.png">
-        <img *ngIf="!isCitySorted" class="mb-0 header-class text-dark caret"
+        <img *ngIf="!isCitySortedP" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-down.png"></h1></div>
 
-      <div class="col-2" (click)="sortByPeople()"><h1 class="display-6 header-class ">People
-        <img *ngIf="isPeopleSorted" class="mb-0 header-class text-dark caret"
+      <div class="col-2" (click)="sortByPeopleP()"><h1 class="display-6 header-class ">People
+        <img *ngIf="isPeopleSortedP" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-up.png">
-        <img *ngIf="!isPeopleSorted" class="mb-0 header-class text-dark caret"
+        <img *ngIf="!isPeopleSortedP" class="mb-0 header-class text-dark caret"
              src="../../assets/images/sort-arrow-down.png"></h1></div>
       <div class="col-1"></div>
     </div>
@@ -121,7 +121,7 @@
 </div>
 
 <app-good-deeds-details [deed]="deed"
-  *ngFor="let deed of participatingDeedTable.deeds | paginate: {itemsPerPage: itemsPerPage, currentPage: currentPage}">
+  *ngFor="let deed of participationDeeds | paginate: {itemsPerPage: itemsPerPage, currentPage: currentPage}">
 </app-good-deeds-details>
 <div class="container align-content-end pagination-div spacing">
   <div class="d-flex justify-content-end">

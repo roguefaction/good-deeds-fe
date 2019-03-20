@@ -1,4 +1,4 @@
-export interface Deed {
+export class Deed {
   title: string;
   city: string;
   contactPerson: string;

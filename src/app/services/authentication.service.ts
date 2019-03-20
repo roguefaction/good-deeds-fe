@@ -67,6 +67,6 @@ export class AuthenticationService {
   }
 
   purgeCurrentUser() {
-    this.currentUserObject = null;
+    this.currentUserObject = undefined;
   }
 }
