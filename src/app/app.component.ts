@@ -12,7 +12,7 @@ export class AppComponent {
   dropdownOpen = false;
 
 
-  constructor(private authenticationService: AuthenticationService ) {
+  constructor(public authenticationService: AuthenticationService ) {
 
   }
 

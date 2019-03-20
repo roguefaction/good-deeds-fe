@@ -6,8 +6,10 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HomePageComponent} from './home-page/home-page.component';
 import {GoodDeedsComponent} from './good-deeds/good-deeds.component';
-import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
+
+
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {GoodDeedsDetailsComponent} from './good-deeds-details/good-deeds-details.component';
 import {RegisterDeedComponent} from './register-deed/register-deed.component';
@@ -18,6 +20,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { RegistrationComponent } from './registration/registration.component';
+import {UserProfileComponent} from './user-profile/user-profile.component';
 import { LoginComponent } from './login/login.component';
 import {JwtInterceptor} from './helpers/jwt.interceptor';
 import {ErrorInterceptor} from './helpers/error.interceptor';
@@ -33,6 +36,7 @@ import {ErrorInterceptor} from './helpers/error.interceptor';
     CalendarComponent,
     RegistrationComponent,
     LoginComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

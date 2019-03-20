@@ -439,6 +439,12 @@ h6, .h6 {
   line-height: 1.2;
   margin: 20px;
 }
+.display-7 {
+  font-size: 1.2rem;
+  font-weight: 230;
+  line-height: 1;
+  margin: 15px;
+}
 
 .display-title {
   font-size: 4rem;

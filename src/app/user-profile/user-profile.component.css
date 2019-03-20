@@ -1,0 +1,138 @@
+.jumboclass{
+  height: 3rem;
+  background: url('../../assets/images/vintage-rainbow-color-badge.png');
+  background-size: cover;
+}
+
+.padding-class{
+  margin-bottom: 2rem;
+}
+
+
+.component-header{
+  padding-bottom: 10px;
+  width: 100%;
+  text-align: left;
+  padding-top: 3%;
+
+}
+
+.button-style{
+  padding-bottom: 1vh;
+}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+
+.title-image {
+  background: url('../../assets/images/vintage-rainbow-color-badge.png');
+  background-size: cover;
+  margin-bottom: 2rem;
+}
+
+.card{
+  min-height: 3rem;
+  vertical-align: middle;
+}
+
+.header-class{
+  font-family: "Arial";
+  font-size: 2.5vh;
+  text-align: left;
+}
+
+.good-deeds-h1{
+  font-size:1.5vw;
+}
+.button-text{
+  font-size: 2.5vh;
+  vertical-align: middle;
+  margin: 0px;
+}
+.style-class{
+  display: none;
+}
+.btn:hover{
+  color: #fff;
+}
+.caret{
+  vertical-align: center;
+  horiz-align: center;
+  max-width: 1rem;
+  max-height: 1rem;
+  width: 25%;
+  height: 25%;
+}
+.spacing{
+  margin-top: 10px;
+}
+
+.jumboclass{
+  height: 3rem;
+  background: url('../../assets/images/vintage-rainbow-color-badge.png');
+  background-size: cover;
+}
+
+.padding-class{
+  margin-bottom: 2rem;
+}
+
+.city-margin{
+  margin-left: 0;
+}
+
+@media only screen and (max-width: 1000px){
+  .style-class{
+    display: inline-block;
+    align-content: center;
+    margin-top: 7%;
+  }
+  .header-class{
+    display: none;
+  }
+  .small-size{
+    display: inline-block;
+    text-align: center;
+  }
+}
+.center{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.icon-margin{
+  margin-bottom: 2%;
+  margin-bottom: 10px;
+  height: 40px;
+}
+.padding-icon{
+  padding-left: 0px;
+}
+.image-padding{
+  padding-right: 10px;
+  margin-top: 20px;
+}
+.title-margin{
+  margin-top: 2%;
+}
