@@ -21,17 +21,22 @@
           <a class="nav-link display-5" routerLink="good-deeds" routerLinkActive="nav-active">Good deeds</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link display-5" routerLink="success-stories" routerLinkActive="nav-active">Success stories</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link display-5" routerLink="gallery" routerLinkActive="nav-active">Gallery</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link display-5" routerLink="calendar" routerLinkActive="nav-active">Calendar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link display-5" routerLink="login" routerLinkActive="nav-active">Login</a>
+          <a *ngIf="authenticationService.currentUserObject === undefined" class="nav-link display-5" routerLink="login" routerLinkActive="nav-active">Login</a>
         </li>
+        <li class="nav-item">
+          <a  class="nav-link display-5" routerLink="user-registration" routerLinkActive="nav-active">Register</a>
+        </li>
+        <li class="nav-item">
+          <a (click)="authenticationService.logout()"  *ngIf="authenticationService.currentUserObject" class="nav-link display-5" routerLink="user-registration" routerLinkActive="nav-active"><button class="btn"> Log out</button></a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link display-5" *ngIf="authenticationService.currentUserObject">Hello, {{authenticationService.currentUserObject.name}}</a>
+        <!--TODO : add router to user profile on clicking hello, user-->
+      </li>
+
       </ul>
 
 
