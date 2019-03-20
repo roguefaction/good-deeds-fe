@@ -3,6 +3,9 @@ import {AuthenticationService} from '../services/authentication.service';
 import {sortBy} from 'sort-by-typescript';
 import {Deed} from '../models/deed';
 import {User} from '../models/user';
+import {DeedSortFlags} from '../models/deedSortFlags';
+import {DeedTable} from '../models/deedTable';
+import {DeedService} from '../services/deed.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -10,23 +13,27 @@ import {User} from '../models/user';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  deeds: Deed[];
-  itemsPerPage = 5;
+  organizedDeedTable: DeedTable;
+  participatingDeedTable: DeedTable;
   currentPage: number;
-  isTitleSorted = false;
-  isCitySorted = false;
-  isPeopleSorted = false;
-  isDateSorted = false;
-  isRowSorted = false;
   userName: string;
   userPhone: string;
   userEmail: string;
-  constructor(private authenticationService: AuthenticationService) {
 
+  constructor(private authenticationService: AuthenticationService, private deedService: DeedService) {
+    this.setSortFlagsToFalse(this.organizedDeedTable.deedSortFlags);
+    this.setSortFlagsToFalse(this.participatingDeedTable.deedSortFlags);
+  }
+  setSortFlagsToFalse(deedSortFlags: DeedSortFlags) {
+    deedSortFlags.isTitleSorted = false;
+    deedSortFlags.isCitySorted = false;
+    deedSortFlags.isPeopleSorted = false;
+    deedSortFlags.isDateSorted = false;
+    deedSortFlags.isRowSorted = false;
   }
 
   ngOnInit() {
-  this.getUserInfo();
+    this.getUserInfo();
 
   }
 
@@ -38,57 +45,67 @@ export class UserProfileComponent implements OnInit {
     }
   }
 
+  getOrganizedDeeds() {
+    this.deedService.getOrganizedDeeds().subscribe(
+      response => {
+        this.organizedDeedTable.deeds = response;
+      },
+      error => {
+        console.log('Error getting organized deeds');
+      }
+    );
+  }
 
-  sortByCity() {
-    if (this.isCitySorted === false) {
-      this.deeds = this.deeds.sort(sortBy('city^'));
-      this.isCitySorted = true;
-      this.isTitleSorted = false;
-      this.isPeopleSorted = false;
-      this.isDateSorted = false;
-      this.isRowSorted = false;
+  getParticipationDeeds(){
+    this.deedService.getParticipationDeeds().subscribe(
+      response => {
+        this.participatingDeedTable.deeds = response;
+      },
+      error => {
+        console.log('Error getting participation deeds');
+      }
+    );
+  }
+
+
+  sortByCity(deedTable: DeedTable) {
+    if (deedTable.deedSortFlags.isCitySorted === false) {
+      deedTable.deeds = deedTable.deeds.sort(sortBy('city^'));
+      this.setSortFlagsToFalse(deedTable.deedSortFlags);
+      deedTable.deedSortFlags.isCitySorted = true;
     } else {
-      this.deeds = this.deeds.sort(sortBy('date'));
-      this.isCitySorted = false;
+      deedTable.deeds = deedTable.deeds.sort(sortBy('date'));
+      deedTable.deedSortFlags.isCitySorted = false;
     }
   }
-  sortByDate() {
-    if (this.isDateSorted === false) {
-      this.deeds = this.deeds.sort(sortBy('-date'));
-      this.isDateSorted = true;
-      this.isCitySorted = false;
-      this.isTitleSorted = false;
-      this.isPeopleSorted = false;
-      this.isRowSorted = false;
+  sortByDate(deedTable: DeedTable) {
+    if (deedTable.deedSortFlags.isDateSorted === false) {
+      deedTable.deeds = deedTable.deeds.sort(sortBy('date-'));
+      this.setSortFlagsToFalse(deedTable.deedSortFlags);
+      deedTable.deedSortFlags.isDateSorted = true;
     } else {
-      this.deeds = this.deeds.sort(sortBy('date'));
-      this.isDateSorted = false;
+      deedTable.deeds = deedTable.deeds.sort(sortBy('date'));
+      deedTable.deedSortFlags.isDateSorted = false;
     }
   }
-  sortByPeople() {
-    if (this.isPeopleSorted === false) {
-      this.deeds = this.deeds.sort(sortBy('maxPeople^'));
-      this.isPeopleSorted = true;
-      this.isDateSorted = false;
-      this.isCitySorted = false;
-      this.isTitleSorted = false;
-      this.isRowSorted = false;
+  sortByPeople(deedTable: DeedTable) {
+    if (deedTable.deedSortFlags.isPeopleSorted === false) {
+      deedTable.deeds = deedTable.deeds.sort(sortBy('maxPeople^'));
+      this.setSortFlagsToFalse(deedTable.deedSortFlags);
+      deedTable.deedSortFlags.isPeopleSorted = true;
     } else {
-      this.deeds = this.deeds.sort(sortBy('date^'));
-      this.isPeopleSorted = false;
+      deedTable.deeds = deedTable.deeds.sort(sortBy('date^'));
+      deedTable.deedSortFlags.isPeopleSorted = false;
     }
   }
-  sortByTitle() {
-    if (this.isTitleSorted === false) {
-      this.deeds = this.deeds.sort(sortBy('title^'));
-      this.isTitleSorted = true;
-      this.isPeopleSorted = false;
-      this.isDateSorted = false;
-      this.isCitySorted = false;
-      this.isRowSorted = false;
+  sortByTitle(deedTable: DeedTable) {
+    if (deedTable.deedSortFlags.isCitySorted === false) {
+      deedTable.deeds = deedTable.deeds.sort(sortBy('title^'));
+      this.setSortFlagsToFalse(deedTable.deedSortFlags);
+      deedTable.deedSortFlags.isTitleSorted = true;
     } else {
-      this.deeds = this.deeds.sort(sortBy('date^'));
-      this.isTitleSorted = false;
+      deedTable.deeds = deedTable.deeds.sort(sortBy('date^'));
+      deedTable.deedSortFlags.isTitleSorted = false;
     }
   }
 }
