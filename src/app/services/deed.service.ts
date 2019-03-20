@@ -59,7 +59,7 @@ export class DeedService {
   }
 
   editDeed(deed: Deed, id: number) {
-    return this.http.put('https://calm-waters-93672.herokuapp.com/deed/' + id, deed);
+    return this.http.put('https://calm-waters-93672.herokuapp.com/deed/' + id + '/edit/', deed);
   }
 
   getDeedById(id: number): Observable<Deed>  {
