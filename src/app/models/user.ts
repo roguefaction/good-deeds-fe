@@ -6,6 +6,7 @@ export class User {
   password: string;
   phone?: string;
   token?: string;
+  confirmPassword: string;
 
   constructor(email: string, password: string) {
     this.email = email;

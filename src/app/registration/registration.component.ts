@@ -56,6 +56,7 @@ export class RegistrationComponent implements OnInit {
 
 
   addUser(user: User) {
+    delete user.confirmPassword;
     this.userService.addUser(user).subscribe(
       data => {
         console.log('user added!');
@@ -66,8 +67,7 @@ export class RegistrationComponent implements OnInit {
       },
       () => {
         console.log('USER ADDING COMPLETE');
-        this.authenticationService.login(this.authenticationService.currentUserObject.email,
-          this.authenticationService.currentUserObject.password);
+        this.authenticationService.login(user.email, user.password);
         this.router.navigateByUrl('/');
       }
     );
