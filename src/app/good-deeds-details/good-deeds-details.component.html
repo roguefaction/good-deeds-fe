@@ -33,14 +33,16 @@
         </div>
         <div class="col-2 not-display-small">
           <h5 class="mb-0 header-class text-dark text-center">
-            0/{{deed.maxPeople}}
+            {{deed.currentPeople}}/{{deed.maxPeople}}
           </h5>
         </div>
         <div class="col-1 till-1000">
-          <button class="btn btn-green btn-success bg-btn apply-button" disabled>Apply</button>
+          <button class="btn btn-danger apply-button" *ngIf="authenticationService.currentUserObject!==undefined && isUserInArray(authenticationService.currentUserObject, deed.participatingUsers)" (click)="removeParticipation(deed.id)">Leave</button>
+          <button class="btn btn-green btn-success bg-btn apply-button"  *ngIf="authenticationService.currentUserObject!==undefined && !isUserInArray(authenticationService.currentUserObject, deed.participatingUsers)" (click)="participateInADeed(deed.id)" >Apply</button>
         </div>
         <div class="col-4 from-1000 container">
-          <button class="btn btn-success btn-green bg-btn apply-button" disabled>Apply</button>
+          <button class="btn btn-danger apply-button" *ngIf="authenticationService.currentUserObject!==undefined && isUserInArray(authenticationService.currentUserObject, deed.participatingUsers)" (click)="removeParticipation(deed.id)">Leave</button>
+          <button class="btn btn-green btn-success bg-btn apply-button"  *ngIf="authenticationService.currentUserObject!==undefined && !isUserInArray(authenticationService.currentUserObject, deed.participatingUsers)" (click)="participateInADeed(deed.id)" >Apply</button>
         </div>
       </div>
 
@@ -52,13 +54,20 @@
           <p class="p small-size-screen">{{deed.city}}</p>
           <p *ngIf="deed.description" class=" display-6">Description: </p>
           <p class="p">{{deed.description}}</p>
-          <p class=" display-6 small-size-screen">Participants: </p>
-          <p class="p small-size-screen">0/{{deed.maxPeople}}</p>
+          <p class=" display-6 small-size-screen">People: </p>
+          <p class="p small-size-screen">{{deed.currentPeople}}/{{deed.maxPeople}}</p>
+
           <p class=" display-6">Contact person:</p>
           <p class="p">{{deed.contactPerson}}</p>
           <p class="p">{{deed.email}}</p>
           <p class="p">{{deed.phoneNumber}}</p>
           <p class="p">{{deed.tags}}</p>
+
+          <p class="display-6" *ngIf="deed.participatingUsers.length!=0">Participacts: </p>
+          <div *ngFor="let user of deed.participatingUsers">
+            <p class="p font-weight-bold">{{user.name}}</p>
+          </div>
+
         </div>
       </div>
     </div>

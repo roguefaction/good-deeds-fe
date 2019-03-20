@@ -1,3 +1,5 @@
+import {User} from './user';
+
 export interface Deed {
   title: string;
   city: string;
@@ -11,4 +13,5 @@ export interface Deed {
   tags: string;
   date: string;
   isExpanded: boolean;
+  participatingUsers?: User[];
 }
