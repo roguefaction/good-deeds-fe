@@ -71,8 +71,10 @@ export class AuthenticationService {
   purgeCurrentUser() {
     this.currentUserObject = undefined;
   }
-  loadUserFromStorage() {
+  loadUserFromStorage(): User {
     const userObject = JSON.parse(localStorage.getItem('userObject'));
     this.currentUserObject = userObject;
+    return userObject;
+
   }
 }

@@ -13,7 +13,7 @@ export class AppComponent {
 
 
   constructor(public authenticationService: AuthenticationService ) {
-    this.authenticationService.loadUserFromStorage();
+    // this.authenticationService.loadUserFromStorage();
   }
 
   toggleNavbar() {

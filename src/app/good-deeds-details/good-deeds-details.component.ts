@@ -1,6 +1,7 @@
 import {Component, Input, OnInit, ElementRef, Renderer2, ViewChild, AfterViewInit} from '@angular/core';
 import {DeedService} from '../services/deed.service';
 import {element} from 'protractor';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class GoodDeedsDetailsComponent implements OnInit, AfterViewInit {
 
   @ViewChild('target') targetElement: ElementRef;
 
-  constructor(private deedService: DeedService) { }
+  constructor(private deedService: DeedService, private router: Router) { }
 
   ngOnInit() {
     let deedToExpand = this.deedService.getDeedToExpand();
