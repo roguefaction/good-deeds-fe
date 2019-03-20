@@ -122,6 +122,7 @@ export class CalendarComponent {
     this.deeds.forEach((deed) => {
       if (new Date(deed.date) <= today) {
         eventColor = colors.grey;
+
       } else {
         eventColor = colors.red;
       }

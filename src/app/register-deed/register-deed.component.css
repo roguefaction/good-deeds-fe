@@ -6,8 +6,27 @@
   padding-bottom: 3%;
 }
 
+.h1-padding-contacts {
+  padding-top: 5%;
+  padding-bottom: 3%;
+}
+
+.h1-padding-description {
+  padding-top: 5%;
+  padding-bottom: 3%;
+}
+
+.btn {
+  margin-left: 16px;
+}
+
 #exampleFormControlTextarea1 {
-  max-width: 74%;
+  max-width: 72.5%;
+  margin-left: 15px;
+}
+
+.col-md {
+  margin-left: 16px;
 }
 
 .title-image {
@@ -19,6 +38,15 @@
  color: grey;
 }
 
+.validation-message {
+  padding-left: 16%;
+}
+
+.form-group {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
 .jumboclass{
   height: 3rem;
   background: url('../../assets/images/vintage-rainbow-color-badge.png');
@@ -27,4 +55,8 @@
 
 .padding-class{
   margin-bottom: 2rem;
+}
+
+label {
+  padding-left: 19px;
 }
