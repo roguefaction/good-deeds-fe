@@ -9,6 +9,8 @@ import {AuthenticationService} from './services/authentication.service';
 export class AppComponent {
   title = 'good-deeds-fe';
   navbarOpen = false;
+  dropdownOpen = false;
+
 
   constructor(private authenticationService: AuthenticationService ) {
 
@@ -16,6 +18,10 @@ export class AppComponent {
 
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
+  }
+  userDropdown() {
+    this.dropdownOpen = !this.dropdownOpen;
+
   }
 
 }
