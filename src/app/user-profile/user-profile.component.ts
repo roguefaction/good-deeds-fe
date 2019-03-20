@@ -17,6 +17,8 @@ export class UserProfileComponent implements OnInit {
   organizedDeeds: Deed[];
   participationDeeds: Deed[];
 
+  isListReady = Boolean;
+
   currentPageO: number;
   itemsPerPageO: number;
   isTitleSortedO = false;
