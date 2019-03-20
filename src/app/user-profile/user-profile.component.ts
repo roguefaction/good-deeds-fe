@@ -18,6 +18,7 @@ export class UserProfileComponent implements OnInit {
   participationDeeds: Deed[];
 
   currentPageO: number;
+  itemsPerPageO: number;
   isTitleSortedO = false;
   isCitySortedO = false;
   isPeopleSortedO = false;
@@ -25,6 +26,7 @@ export class UserProfileComponent implements OnInit {
   isRowSortedO = false;
 
   currentPageP: number;
+  itemsPerPageP: number;
   isTitleSortedP = false;
   isCitySortedP = false;
   isPeopleSortedP = false;
@@ -36,6 +38,10 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.currentPageO = 1;
+    this.currentPageP = 1;
+    this.itemsPerPageO = 5;
+    this.itemsPerPageP = 5;
     this.getUserInfo();
     this.getOrganizedDeeds();
     this.getParticipationDeeds();
@@ -53,6 +59,7 @@ export class UserProfileComponent implements OnInit {
     this.deedService.getOrganizedDeeds().subscribe(
       response => {
         this.organizedDeeds = response;
+        console.log('organized deeds: ' + response);
       },
       error => {
         console.log('Error getting organized deeds');
@@ -64,6 +71,7 @@ export class UserProfileComponent implements OnInit {
     this.deedService.getParticipationDeeds().subscribe(
       response => {
         this.participationDeeds = response;
+        console.log('participation deeds: ' + response);
       },
       error => {
         console.log('Error getting participation deeds');

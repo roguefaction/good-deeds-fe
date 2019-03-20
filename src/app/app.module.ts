@@ -34,8 +34,8 @@ import {ErrorInterceptor} from './helpers/error.interceptor';
     GoodDeedsDetailsComponent,
     RegisterDeedComponent,
     CalendarComponent,
-    UserProfileComponent,
-    LoginComponent
+    LoginComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
