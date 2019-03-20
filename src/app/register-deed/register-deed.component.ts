@@ -78,6 +78,8 @@ export class RegisterDeedComponent implements OnInit {
     }
 
     if (this.deedId) {
+      console.log('deed to edit ' + this.registerDeedForm.value);
+
       this.editDeed(this.registerDeedForm.value, this.deedId);
     } else {
       this.addDeed(this.registerDeedForm.value);
@@ -114,8 +116,8 @@ export class RegisterDeedComponent implements OnInit {
 
   }
 
-  editDeed(job: Deed, id: number) {
-    this.deedService.editDeed(job, id).subscribe(
+  editDeed(deed: Deed, id: number) {
+    this.deedService.editDeed(deed, id).subscribe(
       data => {
         console.log('Succesfully Edited deed');
       },
