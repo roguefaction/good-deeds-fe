@@ -100,7 +100,6 @@ export class CalendarComponent {
   getCalendarDeeds() {
     this.deedService.getAllDeeds().subscribe(
       deeds => {
-        console.log(deeds);
         this.deeds = deeds;
         this.loadEvents(this.deeds);
       },
@@ -108,7 +107,6 @@ export class CalendarComponent {
         console.log('error');
       },
       () => {
-        console.log('completed');
         this.isCalendarReady = true;
       }
     );
@@ -176,12 +174,9 @@ export class CalendarComponent {
     today.setHours(0);
     today.setMinutes(0);
     if (event.start >= today) {
-      console.log(event.title + ' - event is in the future')
       this.deedService.setPageOfDeed(event.title);
       this.router.navigateByUrl('/good-deeds');
     } else {
-      console.log(event.title + ' - event is in the past');
-      // TODO: show something if event has already passed
     }
   }
 

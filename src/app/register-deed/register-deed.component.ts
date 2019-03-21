@@ -43,7 +43,6 @@ export class RegisterDeedComponent implements OnInit {
   submitForm() {
 
     if (this.registerDeedForm.invalid) {
-      console.log(this.registerDeedForm);
       this.markFormGroupTouched(this.registerDeedForm);
       return;
     }
@@ -63,7 +62,6 @@ export class RegisterDeedComponent implements OnInit {
   addDeed(deed: Deed) {
     this.deedService.addDeed(deed).subscribe(
       data => {
-        console.log('Succesfully Added deed');
         this.deedService.setPageOfDeed(deed.title);
         this.deedService.setDeedToExpand(deed.title);
       },
@@ -73,7 +71,6 @@ export class RegisterDeedComponent implements OnInit {
         alert(ErrorResponse.error.message);
       },
       () => {
-        console.log('Operation complete');
         this.router.navigateByUrl('/good-deeds');
       });
 

@@ -28,7 +28,6 @@ export class AuthenticationService {
         if (user) {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(user));
-          console.log(localStorage.getItem('currentUser'));
           this.currentUserSubject.next(user);
         }
         return user;
@@ -41,7 +40,6 @@ export class AuthenticationService {
     localStorage.removeItem('userObject');
     this.currentUserSubject.next(null);
     this.purgeCurrentUser();
-    console.log(this.currentUserObject);
   }
 
   getUserInfo(): Observable<User> {
@@ -51,19 +49,12 @@ export class AuthenticationService {
   performGet() {
     this.getUserInfo().subscribe(
       data => {
-        console.log('Successfully Fetched info');
         this.currentUserObject = data;
         localStorage.setItem('userObject', JSON.stringify(data));
       },
       ErrorResponse => {
       },
       () => {
-        console.log('Here is your current user');
-        console.log(this.currentUserObject.email);
-        console.log(this.currentUserObject.name);
-        console.log(this.currentUserObject.id);
-        console.log(this.currentUserObject.password);
-        console.log(this.currentUserObject.phone);
       });
 
   }
