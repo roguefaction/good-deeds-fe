@@ -69,6 +69,13 @@ export class DeedService {
       }
     );
   }
+  participateInADeed(id: number) {
+    return this.http.post('https://calm-waters-93672.herokuapp.com/deed/' + id + '/participate', '');
+  }
+
+  cancelParticipation(id: number) {
+    return this.http.post('https://calm-waters-93672.herokuapp.com/deed/' + id + '/participate/delete', '');
+  }
 
 
 }
