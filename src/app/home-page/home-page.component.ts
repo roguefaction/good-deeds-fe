@@ -21,23 +21,17 @@ export class HomePageComponent implements OnInit {
   ngOnInit() {
     this.isListReady = false;
     this.getDeeds();
-    console.log(this.images);
-
-
   }
 
   getDeeds() {
     this.deedService.getUpcomingDeeds().subscribe(
       deeds => {
-        console.log(deeds);
         this.deeds = deeds;
       },
       error => {
         console.log('error');
       },
       () => {
-        console.log('completed');
-        console.log(this.deeds);
         this.isListReady = true;
       }
     );

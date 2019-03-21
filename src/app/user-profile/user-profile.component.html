@@ -7,6 +7,7 @@
 <!--<div class="spinner-border" role="status"></div>-->
 <!--</div>-->
 <div class="container">
+<div class="container">
   <div class="d-flex justify-content-start"><h1 class="display-4">Profile</h1></div>
 </div>
 <div class=" container d-flex justify-content-center">
@@ -28,7 +29,7 @@
   </div>
 </div>
 </div>
-
+</div>
 <div class="container title-margin"><h1 class="display-7">Deeds I created:</h1></div>
 <div class="container">
   <div class="card bg-table-header container">
@@ -65,13 +66,13 @@
 </div>
 
 <app-good-deeds-details [deed]="deed"
-*ngFor="let deed of organizedDeeds | paginate: {itemsPerPage: itemsPerPageO, currentPage: currentPageO}">
+*ngFor="let deed of organizedDeeds | paginate: {itemsPerPage: itemsPerPageO, currentPage: currentPageO, id:'O'}">
 </app-good-deeds-details>
 <div class="container align-content-end pagination-div spacing">
   <div class="d-flex justify-content-end">
     <div>
       <pagination-controls *ngIf="isListReady" class="pagination-style"
-                           (pageChange)="currentPage =$event"></pagination-controls>
+                           (pageChange)="currentPageO =$event" id="O"></pagination-controls>
     </div>
     <div>
       <select *ngIf="isListReady" (change)="showItems($event.target.value)">
@@ -121,13 +122,13 @@
 </div>
 
 <app-good-deeds-details [deed]="deed"
-  *ngFor="let deed of participationDeeds | paginate: {itemsPerPage: itemsPerPageP, currentPage: currentPageP}">
+  *ngFor="let deed of participationDeeds | paginate: {itemsPerPage: itemsPerPageP, currentPage: currentPageP, id: 'P'}">
 </app-good-deeds-details>
 <div class="container align-content-end pagination-div spacing">
   <div class="d-flex justify-content-end">
     <div>
       <pagination-controls *ngIf="isListReady" class="pagination-style"
-                           (pageChange)="currentPage =$event"></pagination-controls>
+                           (pageChange)="currentPageP =$event" id="P"></pagination-controls>
     </div>
     <div>
       <select *ngIf="isListReady" (change)="showItems($event.target.value)">

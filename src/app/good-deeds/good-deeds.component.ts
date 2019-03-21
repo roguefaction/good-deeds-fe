@@ -33,11 +33,9 @@ export class GoodDeedsComponent implements OnInit, AfterViewInit {
     setTimeout( () => {
       this.currentPage = 1;
       if (this.deedService.getPage() !== 0) {
-        console.log('setting page, old page: ' + this.currentPage + ', new page: ' + this.deedService.getPage());
         this.currentPage = this.deedService.getPage();
         this.deedService.setPage(0);
       } else {
-        console.log('NOT SETTING NEW PAGE');
       }
     }, 500 );
 
@@ -50,14 +48,12 @@ export class GoodDeedsComponent implements OnInit, AfterViewInit {
   getDeeds() {
     this.deedService.getUpcomingDeeds().subscribe(
       deeds => {
-        console.log(deeds);
         this.deeds = deeds;
       },
       ErrorResponse => {
         alert(ErrorResponse.error.message);
       },
       () => {
-        console.log('completed');
         this.isListReady = true;
       }
     );

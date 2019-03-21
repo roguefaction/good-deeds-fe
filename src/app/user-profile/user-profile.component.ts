@@ -40,8 +40,6 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.currentPageO = 1;
-    this.currentPageP = 1;
     this.itemsPerPageO = 5;
     this.itemsPerPageP = 5;
     this.getUserInfo();
@@ -61,7 +59,6 @@ export class UserProfileComponent implements OnInit {
     this.deedService.getOrganizedDeeds().subscribe(
       response => {
         this.organizedDeeds = response;
-        console.log('organized deeds: ' + response);
       },
       error => {
         console.log('Error getting organized deeds');
@@ -73,7 +70,6 @@ export class UserProfileComponent implements OnInit {
     this.deedService.getParticipationDeeds().subscribe(
       response => {
         this.participationDeeds = response;
-        console.log('participation deeds: ' + response);
       },
       error => {
         console.log('Error getting participation deeds');

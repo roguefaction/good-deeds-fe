@@ -37,11 +37,17 @@
           </h5>
         </div>
         <div class="col-1 till-1000">
-          <button class="btn btn-green btn-success bg-btn apply-button" disabled>Apply</button>
+          <button *ngIf = "this.router.url === '/good-deeds'" class="btn btn-green btn-success bg-btn apply-button" >Apply</button>
+          <button *ngIf = "this.router.url === '/user-profile'" class="btn  btn-color bg-btn apply-button edit-delete"  ><img src="../../assets/images/edit.png"> </button>
+          <button *ngIf = "this.router.url === '/user-profile'" class="btn btn-color  bg-btn apply-button edit-delete" ><img src="../../assets/images/delete-button.png"> </button>
         </div>
-        <div class="col-4 from-1000 container">
-          <button class="btn btn-success btn-green bg-btn apply-button" disabled>Apply</button>
+        <div  class="col-4 from-1000 container">
+          <button *ngIf = "this.router.url === '/good-deeds'" class="btn btn-success btn-green bg-btn apply-button" >Apply</button>
+          <button *ngIf = "this.router.url === '/user-profile'" class="btn btn-color  bg-btn apply-button edit-delete" ><img src="../../assets/images/edit.png"> </button>
+          <button *ngIf = "this.router.url === '/user-profile'" class="btn  btn-color bg-btn apply-button edit-delete"  ><img src="../../assets/images/delete-button.png"> </button>
         </div>
+
+
       </div>
 
       <div class=" collapse collapse-style card collapse-style" [ngClass]="{ 'show': collapseOpen }">
