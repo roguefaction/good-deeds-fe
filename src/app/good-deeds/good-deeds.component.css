@@ -77,6 +77,11 @@
   margin-top: 10px;
 }
 
+.font-size {
+  font-size: 1.2rem;
+}
+
+
 .jumboclass{
   height: 3rem;
   background: url('../../assets/images/vintage-rainbow-color-badge.png');

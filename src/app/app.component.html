@@ -46,11 +46,11 @@
             Hello, {{authenticationService.currentUserObject.name}}</div>
           <div class="dropdown-menu align-content-center show" [ngClass]="{'show': dropdownOpen}"
                aria-labelledby="navbarDropdownMenuLink">
-            <a class="nav-link display-6 dropdown-item a-style" *ngIf="authenticationService.currentUserObject"
+            <a class="nav-link display-5 a-style" *ngIf="authenticationService.currentUserObject"
                routerLink="user-profile" (click)="toggleNavbar()">Profile</a>
-            <a class="nav-link display-6 dropdown-item a-style" (click)="authenticationService.logout()"
+            <a class="nav-link display-5 a-style" (click)="authenticationService.logout()"
                *ngIf="authenticationService.currentUserObject"
-               routerLink="home" (click)="toggleNavbar()"> Log out</a>
+               routerLink="home" (click)="toggleNavbar()"> Logout</a>
 
           </div>
         </li>
