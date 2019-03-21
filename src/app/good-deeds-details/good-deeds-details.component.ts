@@ -90,4 +90,25 @@ export class GoodDeedsDetailsComponent implements OnInit, AfterViewInit {
 
   }
 
+  confirmDelete(id: number) {
+    if (confirm('Are you sure to delete this deed?')) {
+      this.deleteADeed(id);
+    }
+  }
+
+  deleteADeed(id: number) {
+    this.deedService.deleteDeed(id).subscribe(
+      response => {
+        console.log('Succesfully deleted');
+      },
+      error => {
+        console.log('Error while deleting');
+      },
+      () => {
+        this.router.navigateByUrl('/RefreshComponent', {skipLocationChange: true}).then(() =>
+          this.router.navigate(['user-profile']));
+      }
+    );
+  }
+
 }

@@ -4,6 +4,7 @@ import {sortBy} from 'sort-by-typescript';
 import {Deed} from '../models/deed';
 import {User} from '../models/user';
 import {DeedService} from '../services/deed.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -36,7 +37,7 @@ export class UserProfileComponent implements OnInit {
   isDateSortedP = false;
   isRowSortedP = false;
 
-  constructor(private authenticationService: AuthenticationService, private deedService: DeedService) {
+  constructor(private authenticationService: AuthenticationService, private deedService: DeedService, private router: Router) {
 
   }
 
@@ -57,7 +58,6 @@ export class UserProfileComponent implements OnInit {
       this.userEmail = this.authenticationService.currentUserObject.email;
     }
   }
-
 
 
   getOrganizedDeeds() {
