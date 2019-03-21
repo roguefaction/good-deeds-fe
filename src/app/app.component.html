@@ -7,7 +7,9 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
 
-    <button (click)="toggleNavbar()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <button (click)="toggleNavbar()" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false"
+            aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -24,18 +26,30 @@
           <a class="nav-link display-5" routerLink="calendar" routerLinkActive="nav-active">Calendar</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="authenticationService.currentUserObject === undefined" class="nav-link display-5" routerLink="login" routerLinkActive="nav-active">Login</a>
+          <a *ngIf="authenticationService.currentUserObject === undefined" class="nav-link display-5" routerLink="login"
+             routerLinkActive="nav-active">Login</a>
         </li>
         <li class="nav-item">
-          <a  class="nav-link display-5" routerLink="user-registration" routerLinkActive="nav-active">Register</a>
+          <a *ngIf="authenticationService.currentUserObject === undefined" class="nav-link display-5"
+             routerLink="user-registration" routerLinkActive="nav-active">Register</a>
         </li>
+
         <li class="nav-item">
-          <a (click)="authenticationService.logout()"  *ngIf="authenticationService.currentUserObject" class="nav-link display-5" routerLink="user-registration" routerLinkActive="nav-active"><button class="btn"> Log out</button></a>
+          <a *ngIf="authenticationService.currentUserObject" class="nav-link display-5" routerLink="user-profile"
+             routerLinkActive="nav-active">Profile</a>
         </li>
-      <li class="nav-item">
-        <a class="nav-link display-5" *ngIf="authenticationService.currentUserObject">Hello, {{authenticationService.currentUserObject.name}}</a>
-        <!--TODO : add router to user profile on clicking hello, user-->
-      </li>
+
+
+        <li class="nav-item dropdown" (click)="userDropdown()" >
+
+          <div class="nav-link display-5 dropdown-toggle dropdown-style" routerLinkActive="nav-active"
+             *ngIf="authenticationService.currentUserObject">Hello, {{authenticationService.currentUserObject.name}}</div>
+          <div class="dropdown-menu align-content-center show" [ngClass]="{'show': dropdownOpen}" aria-labelledby="navbarDropdownMenuLink">
+            <a class="nav-link display-6 dropdown-item a-style" (click)="authenticationService.logout()" *ngIf="authenticationService.currentUserObject"
+                routerLink="user-registration"> Log out</a>
+            <a class="nav-link display-6 dropdown-item a-style" *ngIf="authenticationService.currentUserObject" routerLink="user-profile">Profile</a>
+          </div>
+        </li>
 
       </ul>
 
@@ -56,7 +70,6 @@
     class="footer-copyright text-center">© 2019 Copyright: JJRV
   </div>
 </footer>
-
 
 
 </body>

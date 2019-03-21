@@ -24,6 +24,18 @@ export class DeedService {
     return this.http.get<Deed[]>(`https://calm-waters-93672.herokuapp.com/deeds`);
   }
 
+  getOrganizedDeeds(): Observable<Deed[]> {
+    return this.http.get<Deed[]>(`https://calm-waters-93672.herokuapp.com/users/deeds`);
+  }
+
+  getParticipationDeeds(): Observable<Deed[]> {
+    return this.http.get<Deed[]>(`https://calm-waters-93672.herokuapp.com/users/participation-deeds`);
+  }
+
+  getAttendingUsers(deedID: number): Observable<Deed[]> {
+    return this.http.get<Deed[]>('https://calm-waters-93672.herokuapp.com/deed/' + deedID + '/participatingusers');
+  }
+
   createAuthorizationHeader(headers: HttpHeaders) {
     headers.append('Content-Type', 'application/json');
   }

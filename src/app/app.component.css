@@ -24,8 +24,10 @@
 .nav-active {
   font-weight: 400;
 }
-
-
-/*.router-outlet-class {*/
-/*height: 70%;*/
-/*}*/
+.dropdown-style{
+  width: 10%;
+}
+.a-style{
+  width: 8vh;
+  background-color: white;
+}
