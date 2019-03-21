@@ -1,4 +1,7 @@
-export class Deed {
+import {User} from './user';
+
+export interface Deed {
+  id?: number;
   title: string;
   city: string;
   contactPerson: string;
@@ -11,4 +14,5 @@ export class Deed {
   tags: string;
   date: string;
   isExpanded: boolean;
+  participatingUsers?: User[];
 }
