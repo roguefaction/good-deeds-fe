@@ -18,7 +18,7 @@ export class GoodDeedsDetailsComponent implements OnInit, AfterViewInit {
 
   @ViewChild('target') targetElement: ElementRef;
 
-  constructor(private deedService: DeedService, public authenticationService: AuthenticationService, private router: Router) {
+  constructor(private deedService: DeedService, public authenticationService: AuthenticationService, public router: Router) {
   }
 
   ngOnInit() {
