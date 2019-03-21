@@ -3,7 +3,7 @@
 <div class="jumboclass padding-class"></div>
 
 <div *ngIf="isListReady" class="container button-style d-flex justify-content-end">
-  <button *ngIf="!authenticationService.currentUserObject === undefined || !authenticationService.currentUserObject === null" class="btn btn-orange" routerLink="/register-deed"><h5>Add a deed</h5></button>
+  <button *ngIf="authenticationService.currentUserObject" class="btn btn-orange" routerLink="/register-deed"><h5>Add a deed</h5></button>
 </div>
 <div *ngIf="!isListReady" class="d-flex justify-content-center text-danger" role="status">
   <div class="spinner-border" role="status"></div>
