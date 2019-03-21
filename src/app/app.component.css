@@ -31,3 +31,7 @@
   width: 8vh;
   background-color: white;
 }
+
+.nav-link{
+  cursor: pointer;
+}
