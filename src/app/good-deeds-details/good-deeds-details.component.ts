@@ -16,6 +16,7 @@ export class GoodDeedsDetailsComponent implements OnInit, AfterViewInit {
   @Input() deed;
   @Input() isOrganized;
   collapseOpen = false;
+  currentPage: string;
 
   @ViewChild('target') targetElement: ElementRef;
 
@@ -32,6 +33,8 @@ export class GoodDeedsDetailsComponent implements OnInit, AfterViewInit {
       console.log('target element text:' + this.targetElement.nativeElement.innerText);
       this.targetElement.nativeElement.scrollIntoView({block: 'start', inline: 'nearest', behavior: 'smooth'});
     }
+
+    this.currentPage = this.router.url;
   }
 
   ngAfterViewInit() {
@@ -53,7 +56,7 @@ export class GoodDeedsDetailsComponent implements OnInit, AfterViewInit {
       () => {
         console.log('Operation Complete');
         this.router.navigateByUrl('/RefreshComponent', {skipLocationChange: true}).then(()=>
-          this.router.navigate(["good-deeds"]));
+          this.router.navigate([this.currentPage]));
       }
     );
   }
@@ -69,7 +72,7 @@ export class GoodDeedsDetailsComponent implements OnInit, AfterViewInit {
       () => {
         console.log('Operation Complete');
         this.router.navigateByUrl('/RefreshComponent', {skipLocationChange: true}).then(()=>
-          this.router.navigate(["good-deeds"]));
+          this.router.navigate([this.currentPage]));
       }
     );
   }
