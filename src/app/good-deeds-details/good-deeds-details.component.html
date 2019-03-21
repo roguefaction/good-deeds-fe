@@ -1,41 +1,43 @@
 <div class="container cursor-class">
-  <div class="accordion">
+  <div class="accordion ">
     <div class="card">
-      <div class="bg-table card-header row grey-coloring d-flex from-400 " (click)="collapseAbout()">
+      <div class="bg-table card-header row grey-coloring d-flex from-400 center">
         <div class="col-05">
-          <img class="mb-0 header-class text-dark caret" src="../../assets/images/caret-down-small-dark.svg"
+          <img (click)="collapseAbout()" class="mb-0 header-class text-dark caret" src="../../assets/images/caret-down.svg"
                *ngIf="!collapseOpen" alt="caret.png">
-          <img class="mb-0 header-class text-dark caret-up" src="../../assets/images/caret_up.png"
+          <img (click)="collapseAbout()" class="mb-0 header-class text-dark caret" src="../../assets/images/caret-up.svg"
                *ngIf="collapseOpen" alt="caret.png">
         </div>
 
-        <div class="col-4 till-1000">
-          <h5 #target class="mb-0 header-class text-dark style-on-small-screen">
+        <div class="col-4 till-1000 center" (click)="collapseAbout()">
+          <p #target class="mb-0  text-dark font-size style-on-small-screen">
             {{deed.title}}
-          </h5>
+          </p>
         </div>
 
-        <div class="col-7 from-1000 container">
-          <h5 #target class="mb-0 header-class text-dark style-on-small-screen">
+        <div class="col-7 from-1000 container" (click)="collapseAbout()">
+          <p #target class="mb-0  text-dark  font-sizestyle-on-small-screen">
             {{deed.title}}
-          </h5>
+          </p>
         </div>
 
-        <div class="col-25 not-display-small">
-          <h5 class="mb-0 header-class text-dark ">
+        <div class="col-25 not-display-small" (click)="collapseAbout()">
+          <p class="mb-0  text-dark font-size">
             {{deed.date}}
-          </h5>
+          </p>
         </div>
-        <div class="col-2 not-display-small">
-          <h5 class="mb-0 header-class text-dark ">
+        <div class="col-2 not-display-small" (click)="collapseAbout()">
+          <p class="mb-0  text-dark font-size">
             {{deed.city}}
-          </h5>
+          </p>
         </div>
-        <div class="col-2 not-display-small">
-          <h5 class="mb-0 header-class text-dark text-center">
+
+        <div class="col-2 not-display-small" (click)="collapseAbout()">
+          <p class="mb-0  text-dark text-center font-size">
             {{deed.participatingUsers.length}}/{{deed.maxPeople}}
-          </h5>
+          </p>
         </div>
+
         <div class="col-1 till-1000">
           <button class="btn btn-danger apply-button"
                   *ngIf="authenticationService.currentUserObject && isUserInArray(authenticationService.currentUserObject, deed.participatingUsers) && !isOrganized"
@@ -56,19 +58,19 @@
         </div>
         <div class="col-4 from-1000 container">
           <button class="btn btn-danger apply-button"
-                  *ngIf="authenticationService.currentUserObject && isUserInArray(authenticationService.currentUserObject, deed.participatingUsers)"
+                  *ngIf="authenticationService.currentUserObject && isUserInArray(authenticationService.currentUserObject, deed.participatingUsers) && !isOrganized"
                   (click)="removeParticipation(deed.id)">Leave
           </button>
           <button class="btn btn-green btn-success bg-btn apply-button"
-                  *ngIf="authenticationService.currentUserObject && !isUserInArray(authenticationService.currentUserObject, deed.participatingUsers)"
+                  *ngIf="authenticationService.currentUserObject && !isUserInArray(authenticationService.currentUserObject, deed.participatingUsers) && !isOrganized"
                   (click)="participateInADeed(deed.id)">Apply
           </button>
           <button
-            *ngIf="this.router.url === '/user-profile' && authenticationService.currentUserObject.id === deed.applicationUser.id"
+            *ngIf="this.router.url === '/user-profile' && authenticationService.currentUserObject.id === deed.applicationUser.id && isOrganized"
             class="btn  btn-color bg-btn apply-button edit-delete" [routerLink]="['/edit-deed/', deed.id]"><img
             src="../../assets/images/edit.png"></button>
           <button
-            *ngIf="this.router.url === '/user-profile' && authenticationService.currentUserObject.id === deed.applicationUser.id"
+            *ngIf="this.router.url === '/user-profile' && authenticationService.currentUserObject.id === deed.applicationUser.id && isOrganized"
             class="btn btn-color  bg-btn apply-button edit-delete" (click)="confirmDelete(deed.id)"><img
             src="../../assets/images/delete-button.png"></button>
         </div>
@@ -79,30 +81,44 @@
       <div class=" collapse collapse-style card collapse-style" [ngClass]="{ 'show': collapseOpen }">
 
         <div class="card-body">
-          <div class="row">
+
+          <div class="container row">
             <p *ngIf="deed.organization" class="display-6">Organization: </p>
             <p class="p">{{deed.organization}}</p>
           </div>
 
+          <div class="container row">
+            <p class=" display-6 small-size-screen">City: </p>
+            <p class="p small-size-screen">{{deed.city}}</p>
+          </div>
 
-          <p class=" display-6 small-size-screen">City: </p>
-          <p class="p small-size-screen">{{deed.city}}</p>
-          <p *ngIf="deed.description" class=" display-6">Description: </p>
-          <p class="p">{{deed.description}}</p>
-          <p class=" display-6 small-size-screen">People: </p>
-          <p class="p small-size-screen">{{deed.participatingUsers.length}}/{{deed.maxPeople}}</p>
+          <div class="container row">
+            <p class=" display-6">Contact person:</p>
+            <p class="p m">{{deed.contactPerson}}</p>
+            <p class="p m">{{deed.email}}</p>
+            <p class="p m">{{deed.phoneNumber}}</p>
+          </div>
 
-          <p class=" display-6">Contact person:</p>
-          <p class="p">{{deed.contactPerson}}</p>
-          <p class="p">{{deed.email}}</p>
-          <p class="p">{{deed.phoneNumber}}</p>
-          <p class="p">{{deed.tags}}</p>
+          <div class="container row">
+            <p *ngIf="deed.description" class=" display-6">Description: </p>
+            <p class="p">{{deed.description}}</p>
+          </div>
+
+          <div class="container row">
+            <p class=" display-6 small-size-screen">People: </p>
+            <p class="p small-size-screen">{{deed.participatingUsers.length}}/{{deed.maxPeople}}</p>
+          </div>
+
 
           <p class="display-6" *ngIf="deed.participatingUsers.length!=0">Participacts: </p>
+          <ul *ngFor="let user of deed.participatingUsers">
+            <li><p class="p">{{user.name}}</p></li>
+          </ul>
 
-          <div *ngFor="let user of deed.participatingUsers">
-            <p class="p font-weight-bold">{{user.name}}</p>
+          <div class="container row">
+            <p class="p text-primary">{{deed.tags}}</p>
           </div>
+
 
         </div>
       </div>

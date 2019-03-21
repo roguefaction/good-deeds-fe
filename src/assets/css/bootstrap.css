@@ -468,6 +468,12 @@ h6, .h6 {
   line-height: 1;
   margin: 15px;
 }
+.display-8 {
+  font-size: 2.5vh;
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 20px;
+}
 
 .display-title {
   font-size: 4rem;
@@ -2503,8 +2509,8 @@ fieldset:disabled a.btn {
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
+  background-color: #f0b747;
+  border-color: #f0b747;
 }
 
 .btn-primary:focus, .btn-primary.focus {

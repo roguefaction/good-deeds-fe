@@ -123,6 +123,49 @@
   }
 }
 
+@media only screen and (max-width: 770px) {
+  .style-class {
+    display: inline-block;
+    align-content: center;
+    margin-top: 7%;
+  }
+
+  .header-class {
+    display: none;
+  }
+
+  .small-size {
+    display: inline-block;
+    text-align: center;
+  }
+  .small-profile-info{
+    display: block;
+  }
+  .user-info-small{
+    display: block;
+  }
+  .small-icon{
+    margin-left: 20px;
+  }
+  .display-8{
+    font-size: 1.8vh;
+  }
+}
+.from-520{
+  display: none;
+}
+@media only screen and (max-width: 580px) {
+ .from-520{
+   display: block;
+ }
+  .till-520{
+    display: none;
+  }
+  .from-520-margin{
+    margin-bottom: 9%;
+  }
+}
+
 .center {
   margin: auto;
   width: 50%;
@@ -140,10 +183,13 @@
 }
 
 .image-padding {
-  padding-right: 10px;
   margin-top: 20px;
 }
 
 .title-margin {
   margin-top: 2%;
 }
+.username-margin{
+  margin-left: 45px;
+ }
+

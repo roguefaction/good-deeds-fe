@@ -4,7 +4,7 @@
 
 <h1 class="container display-4">Good deeds</h1>
 <div *ngIf="isListReady" class="container button-style d-flex justify-content-end">
-  <button *ngIf="authenticationService.currentUserObject" class="btn btn-orange" routerLink="/register-deed"><h5>Add a deed</h5></button>
+  <button *ngIf="authenticationService.currentUserObject" class="btn btn-orange" routerLink="/register-deed">Add a deed</button>
 </div>
 <div *ngIf="!isListReady" class="d-flex justify-content-center text-danger" role="status">
   <div class="spinner-border" role="status"></div>
@@ -16,7 +16,7 @@
     <div class="row wider text-white">
       <div class="col-05"></div>
 
-      <div class="col-4" (click)="sortByTitle()"><h1 class="display-6 header-class small-size">Title
+      <div class="col-4" (click)="sortByTitle()"><h1 class="display-6 header-class small-size ">Title
         <img *ngIf="isTitleSorted" class="mb-0 header-class text-dark caret small-size"
              src="../../assets/images/sort-arrow-up.png">
         <img *ngIf="!isTitleSorted" class="mb-0 header-class text-dark caret small-size"

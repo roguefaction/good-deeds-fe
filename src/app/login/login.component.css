@@ -1,3 +1,9 @@
 .padding{
   margin-left: 1rem;
 }
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #f0b747;
+  border-color: #f0b747;
+}
