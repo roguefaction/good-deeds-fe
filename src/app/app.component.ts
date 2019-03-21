@@ -13,7 +13,8 @@ export class AppComponent {
 
 
   constructor(public authenticationService: AuthenticationService ) {
-    // this.authenticationService.loadUserFromStorage();
+    this.authenticationService.loadUserFromStorage();
+    console.log('CURRENT USER OBJECT: ' + this.authenticationService.currentUserObject);
   }
 
   toggleNavbar() {
