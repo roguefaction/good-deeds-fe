@@ -40,8 +40,6 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.currentPageO = 1;
-    this.currentPageP = 1;
     this.itemsPerPageO = 5;
     this.itemsPerPageP = 5;
     this.getUserInfo();
