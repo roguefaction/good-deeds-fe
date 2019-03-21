@@ -33,7 +33,7 @@ export class RegistrationComponent implements OnInit {
       name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50),
         Validators.pattern('[^\\x00-\\x7F]*[a-zA-Z\\s]*')]],
       email: ['', [Validators.required, Validators.maxLength(50), Validators.email]],
-      phone: ['', [Validators.pattern('^\\+370[0-9]{8}')]],
+      phone: ['', [Validators.required, Validators.pattern('^\\+370[0-9]{8}')]],
       password: ['', [Validators.required, Validators.pattern('^(?=.{8,}$)(?=.*[A-Z])(?=.*[0-9]).*$')]],
       confirmPassword: ['', [Validators.required]]
     }, {validators: ConfirmPasswordValidator.MatchPassword});
