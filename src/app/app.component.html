@@ -26,16 +26,16 @@
           <a class="nav-link display-5" routerLink="calendar" routerLinkActive="nav-active">Calendar</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="authenticationService.currentUserObject === undefined" class="nav-link display-5" routerLink="login"
+          <a *ngIf="authenticationService.currentUserObject === undefined || authenticationService.currentUserObject === null" class="nav-link display-5" routerLink="login"
              routerLinkActive="nav-active">Login</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="authenticationService.currentUserObject === undefined" class="nav-link display-5"
+          <a *ngIf="authenticationService.currentUserObject === undefined || authenticationService.currentUserObject === null" class="nav-link display-5"
              routerLink="user-registration" routerLinkActive="nav-active">Register</a>
         </li>
 
         <li class="nav-item">
-          <a *ngIf="authenticationService.currentUserObject" class="nav-link display-5" routerLink="user-profile"
+          <a *ngIf="authenticationService.currentUserObject !== undefined && authenticationService.currentUserObject !== null" class="nav-link display-5" routerLink="user-profile"
              routerLinkActive="nav-active">Profile</a>
         </li>
 
