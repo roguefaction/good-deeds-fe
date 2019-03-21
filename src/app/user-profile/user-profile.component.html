@@ -6,33 +6,40 @@
 <!--<div *ngIf="!isListReady" class="d-flex justify-content-center text-danger" role="status">-->
 <!--<div class="spinner-border" role="status"></div>-->
 <!--</div>-->
-<div class="container">
+
   <div class="container">
     <div class="d-flex justify-content-start"><h1 class="display-4">Profile</h1></div>
   </div>
-  <div class=" container row">
-    <div class=" row  col-4">
-      <div class=" row col-6">
-        <div class="image-padding col-3"><img src="../../assets/images/user.png"></div>
-        <div class="col-9"> <p class="display-6">{{userName}}</p></div>
+<div class="container">
+  <div class=" row info-align till-520">
+    <div class="container row username-margin  col-4">
+      <div class="justify-content-center row col-6">
+        <div class="image-padding col-3"><img class="image-display" src="../../assets/images/user.png"></div>
+        <div class="col-9"> <p class="display-8">{{userName}}</p></div>
       </div>
     </div>
-    <div class=" row  col-4">
-      <div class=" row col-6">
-        <div class="image-padding col-3"><img src="../../assets/images/phone-book.png"></div>
-        <div class="col-9"><p class="display-6">{{userPhone}}</p></div>
+    <div class="container row  col-4">
+      <div class="justify-content-center row col-6">
+        <div class="image-padding col-3"><img class="image-display" src="../../assets/images/phone-book.png"></div>
+        <div class="col-9"><p class="display-8">{{userPhone}}</p></div>
       </div>
     </div>
 
     <div class="container  col-4">
-      <div class="row col-6">
-        <div class="image-padding col-3"><img src="../../assets/images/arroba.png"></div>
-        <div class="col-9"><p class="display-6">{{userEmail}}</p></div>
+      <div class="justify-content-center row col-6">
+        <div class="image-padding col-3"><img class="image-display" src="../../assets/images/arroba.png"></div>
+        <div class="col-9"><p class="display-8">{{userEmail}}</p></div>
       </div>
     </div>
   </div>
+
+  <div class="from-520 from-520-margin">
+    <div><p class="display-7">{{userName}}</p></div>
+    <div><p class="display-7">{{userPhone}}</p></div>
+    <div><p class="display-7">{{userEmail}}</p></div>
+  </div>
 </div>
-<div class="container title-margin"><h1 class="display-7">Deeds I created:</h1></div>
+<div class="container title-margin"><h1 class="display-6">Deeds I created:</h1></div>
 <div class="container">
   <div class="card bg-table-header container">
     <div class="row wider text-white">
@@ -88,7 +95,7 @@
 </div>
 
 
-<div class="container title-margin"><h1 class="display-7">Deeds I participate:</h1></div>
+<div class="container title-margin"><h1 class="display-6">Deeds I participate:</h1></div>
 <div class="container">
   <div class="card bg-table-header container">
     <div class="row wider text-white">
