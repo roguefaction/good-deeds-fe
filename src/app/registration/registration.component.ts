@@ -17,6 +17,8 @@ export class RegistrationComponent implements OnInit {
 
   userRegistrationForm: FormGroup;
   httpStatus: string;
+  loading = false;
+  submitted = false;
 
   constructor(private formBuilder: FormBuilder, private userService: UserService,
               private authenticationService: AuthenticationService, private router: Router) {
@@ -71,13 +73,17 @@ export class RegistrationComponent implements OnInit {
         });
   }
 
+  
   addUser(user: User) {
+    this.loading = true;
     delete user.confirmPassword;
     this.userService.addUser(user).subscribe(
       data => {
       },
-      error => {
-        console.log('error adding user');
+      ErrorResponse => {
+        this.httpStatus = 'Registration failed';
+        this.submitted = false;
+        this.loading = false;
       },
       () => {
         this.loginUser(user.email, user.password);
