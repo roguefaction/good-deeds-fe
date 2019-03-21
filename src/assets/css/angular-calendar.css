@@ -65,7 +65,7 @@
 .cal-month-view .cal-day-badge {
   margin-top: 18px;
   margin-left: 10px;
-  background-color: #28a745;
+  background-color: #F0B747;
   display: inline-block;
   min-width: 10px;
   padding: 3px 7px;
@@ -131,6 +131,17 @@
 
 .cal-month-view .cal-day-cell.cal-drag-over {
   background-color: #e0e0e0 !important; }
+
+.btn-outline-warning {
+  color: #9dd2b5;
+  border-color: #9dd2b5;
+}
+
+.btn-not-orange {
+  color: #fff;
+  background-color: rgb(157, 210, 181);
+  border-color: rgb(157, 210, 181);
+}
 
 .cal-month-view .cal-open-day-events {
   padding: 15px;

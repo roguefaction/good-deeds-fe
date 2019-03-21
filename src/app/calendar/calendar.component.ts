@@ -29,7 +29,7 @@ import {Router} from '@angular/router';
 
 const colors: any = {
   red: {
-    primary: '#DE5B1E',
+    primary: '#28a745',
     secondary: '#FAE3E3'
   },
   blue: {
