@@ -77,9 +77,14 @@
       </div>
 
       <div class=" collapse collapse-style card collapse-style" [ngClass]="{ 'show': collapseOpen }">
+
         <div class="card-body">
-          <p *ngIf="deed.organization" class=" display-6">Organization: </p>
-          <p class="p">{{deed.organization}}</p>
+          <div class="row">
+            <p *ngIf="deed.organization" class="display-6">Organization: </p>
+            <p class="p">{{deed.organization}}</p>
+          </div>
+
+
           <p class=" display-6 small-size-screen">City: </p>
           <p class="p small-size-screen">{{deed.city}}</p>
           <p *ngIf="deed.description" class=" display-6">Description: </p>
@@ -94,6 +99,7 @@
           <p class="p">{{deed.tags}}</p>
 
           <p class="display-6" *ngIf="deed.participatingUsers.length!=0">Participacts: </p>
+
           <div *ngFor="let user of deed.participatingUsers">
             <p class="p font-weight-bold">{{user.name}}</p>
           </div>
