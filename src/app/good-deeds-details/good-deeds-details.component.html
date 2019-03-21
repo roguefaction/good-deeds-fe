@@ -3,9 +3,9 @@
     <div class="card">
       <div class="bg-table card-header row grey-coloring d-flex from-400 center">
         <div class="col-05">
-          <img class="mb-0 header-class text-dark caret" src="../../assets/images/caret-down.svg"
+          <img (click)="collapseAbout()" class="mb-0 header-class text-dark caret" src="../../assets/images/caret-down.svg"
                *ngIf="!collapseOpen" alt="caret.png">
-          <img class="mb-0 header-class text-dark caret" src="../../assets/images/caret-up.svg"
+          <img (click)="collapseAbout()" class="mb-0 header-class text-dark caret" src="../../assets/images/caret-up.svg"
                *ngIf="collapseOpen" alt="caret.png">
         </div>
 
