@@ -27,8 +27,6 @@ import {ErrorInterceptor} from './helpers/error.interceptor';
     AppComponent,
     HomePageComponent,
     GoodDeedsComponent,
-    SuccessStoriesComponent,
-    GalleryComponent,
     PageNotFoundComponent,
     GoodDeedsDetailsComponent,
     RegisterDeedComponent,
