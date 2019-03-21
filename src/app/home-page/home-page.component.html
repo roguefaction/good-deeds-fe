@@ -1,4 +1,3 @@
-
 <div *ngIf="!isListReady" class="d-flex justify-content-center text-danger" role="status">
   <div class="spinner-border" role="status"></div>
 </div>
@@ -7,7 +6,7 @@
 
     <div *ngFor="let image of images; let i = index" class="slider">
       <ng-template ngbSlide>
-        <img [src]="image"  [alt]="image" class="carousel-style">
+        <img [src]="image" [alt]="image" class="carousel-style">
         <div class="carousel-caption-edit" [(ngModel)]="deeds[i]" ngDefaultControl>
           <p class="carousel-text">{{deeds[i].title}}</p>
           <p class="carousel-text-secondary">{{deeds[i].date}}</p>
@@ -20,31 +19,28 @@
 
 <div class="container d-flex align-content-center">
   <div class="row">
-  <div class="col-12 col-md-4 home-padding">
-    <h1 class="text-center"><img class="m-3" src="../../assets/images/icons8-ask-question-80.png"></h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum quis velit quis vestibulum.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum quis velit quis vestibulum.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum quis velit quis vestibulum.
-    </p>
-  </div>
+    <div class="col-12 col-md-4 home-padding">
+      <h1 class="text-center"><img class="m-3" src="../../assets/images/icons8-ask-question-80.png"></h1>
+      <p>Good deeds is a project to help bring people together and to do good deeds. . The things we do are the most
+        important things of all. They are more important than what we say or what we look like. The things we do outlast
+        our mortality.
+      </p>
+    </div>
 
-  <div class="col-12 col-md-4 home-padding">
-    <h1 class="text-center"><img class="m-3" src="../../assets/images/icons8-place-marker-64.png"></h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum quis velit qu
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum quis velit quis vestibulum.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum quis velit quis vestibulum.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum quis velit quis vestibulum.</p>
-  </div>
+    <div class="col-12 col-md-4 home-padding">
+      <h1 class="text-center"><img class="m-3" src="../../assets/images/icons8-place-marker-64.png"></h1>
+      <p>
+        Good deeds can be done at any place, by anyone willing to do them. If our world will be full of bad deeds of all
+        kind,
+        you can imagine the kind of world we shall
+        be living in!</p>
+    </div>
 
-  <div class="col-12 col-md-4 home-padding">
-    <h1 class="text-center"><img class="m-3" src="../../assets/images/icons8-calendar-80.png"></h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum quis velit quis vestibulum.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum quis velit quis vestibulum.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum quis velit quis vestibulum.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dictum quis velit quis vestibulum.
-    </p>
-  </div>
+    <div class="col-12 col-md-4 home-padding">
+      <h1 class="text-center"><img class="m-3" src="../../assets/images/icons8-calendar-80.png"></h1>
+      <p>
+        Good deeds can be done anytime. If you hold your hand closed, nothing good can come in. The open hand is blessed, for it gives in abundance, even as it receives.
+      </p>
+    </div>
   </div>
 </div>

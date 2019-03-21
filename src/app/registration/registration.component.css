@@ -78,41 +78,6 @@
   }
 }
 
-/* @media (max-width: 575px) {
-  .container {
-    max-width: 540px;
-  }
-
-
-  .col-8-new {
-    padding-top: 3%;
-  }
+.form-padding{
+  padding-left: 1rem;
 }
-
-@media (max-width: 991px) {
-  .container {
-    max-width: 956px;
-  }
-}
-
-@media (max-width: 897px) {
-  .container {
-    max-width: 860px;
-  }
-
-
-  .col-8-new {
-    padding-top: 1.5%;
-  }
-}
-
-@media (max-width: 448px) {
-  .container {
-    max-width: 410px;
-  }
-
-
-  .col-8-new {
-    padding-top: 1.5%;
-  }
-} */
