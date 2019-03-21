@@ -1,12 +1,17 @@
 
 .p {
-  margin: 1.6rem;
+  margin: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .header-class {
   font-family: "Arial";
   font-size: 1.8vh;
   text-align: left;
+}
+
+.caret-class {
+  margin-right: 0.3rem;
 }
 
 .collapse-style {
@@ -34,6 +39,11 @@
   padding: 3px;
 }
 
+.font-size {
+  font-size: 1.2rem;
+}
+
+
 @media only screen and (max-width: 1000px) {
   .small-size-screen {
     display: block;
@@ -55,11 +65,24 @@
   .till-1000 {
     display: none;
   }
+
+  .font-size {
+    font-size: 1.7rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+.col-05{
+  -ms-flex: 0 0 8.333333%;
+  flex: 0 0 8.333333%;
+  max-width: 8.333333%;
+}
 }
 
 .cursor-class {
   cursor: pointer;
 }
+
 
 
 .caret {
@@ -72,8 +95,8 @@
 .caret-up {
   vertical-align: center;
   horiz-align: center;
-  max-width: 1.6rem;
-  max-height: 1.6rem;
+  max-width: 0.8rem;
+  max-height: 0.8rem;
 }
 
 .fixedElement {
@@ -96,4 +119,7 @@
   background-color: rgb(157 210 181);
 }
 
+.m {
+  margin-right: 1rem;
+}
 
