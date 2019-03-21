@@ -2,15 +2,16 @@
 
 <div class="container">
 
+  
   <form class="form-padding" [formGroup]="userRegistrationForm" (ngSubmit)="submitForm()">
-    <h1 class="h1-padding display-4">User registration</h1>
+    <h1 class="h1-padding display-4 row">User registration</h1>
 
     <div class="form-group row">
-      <label class="col-2 col-form-label">Name*</label>
+      <label class="col-2 new-col col-form-label">Name*</label>
       <div class="col-8">
-        <input formControlName="name" class="form-control input-margin" placeholder="name surname" maxLength="50">
+        <input formControlName="name" class="form-control" placeholder="name surname" maxLength="50">
       </div>
-      <div class="col-2"></div>
+      <div class="col-2 new-col"></div>
     </div>
 
     <div *ngIf="userRegistrationForm.get('name').touched">
@@ -31,11 +32,11 @@
     </div>
 
     <div class="form-group row">
-      <label class="col-2 col-form-label">Email*</label>
+      <label class="col-2 new-col col-form-label">Email*</label>
       <div class="col-8">
-        <input formControlName="email" class="form-control input-margin" placeholder="email@mail.com" maxLength="50">
+        <input formControlName="email" class="form-control " placeholder="email@mail.com" maxLength="50">
       </div>
-      <div class="col-2"></div>
+      <div class="col-2 new-col"></div>
     </div>
 
     <div *ngIf="userRegistrationForm.get('email').touched">
@@ -48,15 +49,15 @@
       <small *ngIf="userRegistrationForm.get('email').hasError('email')" class="text-danger validation-message">
         Please enter valid email
       </small>
-      <div class="col-2"></div>
+      <div class="col-2 new-col"></div>
     </div>
 
     <div class="form-group row">
-      <label class="col-2 col-form-label">Phone</label>
+      <label class="col-2 new-col col-form-label">Phone</label>
       <div class="col-8">
-        <input formControlName="phone" class="form-control input-margin" placeholder="+37060000000" maxlength="12">
+        <input formControlName="phone" class="form-control " placeholder="+37060000000" maxlength="12">
       </div>
-      <div class="col-2"></div>
+      <div class="col-2 new-col"></div>
     </div>
 
     <div *ngIf="userRegistrationForm.get('phone').touched">
@@ -64,17 +65,17 @@
       <small *ngIf="userRegistrationForm.get('phone').hasError('pattern')" class="text-danger validation-message">
         Please enter valid phone
       </small>
-      <div class="col-2"></div>
+      <div class="col-2 new-col"></div>
 
     </div>
 
     <div class="form-group row">
-      <label class="col-2 col-form-label">Password*</label>
+      <label class="col-2 new-col col-form-label">Password*</label>
       <div class="col-8">
-        <input type="password" formControlName="password" class="form-control input-margin" maxLength="50" validation-message id="inputPassword">
+        <input type="password" formControlName="password" class="form-control " maxLength="50" validation-message id="inputPassword">
         <small class="help-block">Min 8 characters (at least 1 upper case letter and 1 number)</small></div>
 
-      <div class="col-2"></div>
+      <div class="col-2 new-col"></div>
     </div>
 
     <div *ngIf="userRegistrationForm.get('password').touched">
@@ -90,11 +91,11 @@
 
 
   <div class = "form-group row">
-    <label class="col-2 col-form-label">Confirm password*</label>
-    <div class="col-8">
-      <input type="password" formControlName="confirmPassword" class="form-control input-margin" maxLength="50">
+    <label class="col-2 new-col-pswrd col-form-label">Confirm password*</label>
+    <div class="col-8 col-8-new">
+      <input type="password" formControlName="confirmPassword" class="form-control " maxLength="50">
     </div>
-    <div class="col-2"></div>
+    <div class="col-2 new-col-pswrd"></div>
   </div>
 
     <div *ngIf="userRegistrationForm.get('confirmPassword').touched">
@@ -106,13 +107,17 @@
 
     </div>
 
-  <div class="form-group">
+  <div class="form-group row">
     <div>
-      <button type="submit" class="btn btn-orange register-border">Register</button>
+      <button [disabled]="loading" type="submit" class="btn btn-orange register-border">Register</button>
+
     </div>
+          <div *ngIf="loading" class="pl-1 text-danger" role="status">
+        <div class="spinner-border" role="status"></div>
+      </div>
   </div>
     <small *ngIf="httpStatus" class=" validation-message text-danger">
-      <p [innerText]="httpStatus"></p>
+      <p class="row" [innerText]="httpStatus"></p>
     </small>
   </form>
 </div>
