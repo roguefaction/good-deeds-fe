@@ -38,6 +38,7 @@ export class AuthenticationService {
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('userObject');
     this.currentUserSubject.next(null);
     this.purgeCurrentUser();
     console.log(this.currentUserObject);
@@ -52,6 +53,7 @@ export class AuthenticationService {
       data => {
         console.log('Successfully Fetched info');
         this.currentUserObject = data;
+        localStorage.setItem('userObject', JSON.stringify(data));
       },
       ErrorResponse => {
       },
@@ -68,5 +70,12 @@ export class AuthenticationService {
 
   purgeCurrentUser() {
     this.currentUserObject = undefined;
+  }
+
+  loadUserFromStorage(): User {
+    const userObject = JSON.parse(localStorage.getItem('userObject'));
+    this.currentUserObject = userObject;
+    return userObject;
+
   }
 }

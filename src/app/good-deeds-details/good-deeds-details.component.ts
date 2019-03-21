@@ -14,6 +14,7 @@ import {forEach} from '@angular/router/src/utils/collection';
 })
 export class GoodDeedsDetailsComponent implements OnInit, AfterViewInit {
   @Input() deed;
+  @Input() isOrganized;
   collapseOpen = false;
 
   @ViewChild('target') targetElement: ElementRef;

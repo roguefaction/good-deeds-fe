@@ -4,6 +4,7 @@ import {sortBy} from 'sort-by-typescript';
 import {Deed} from '../models/deed';
 import {User} from '../models/user';
 import {DeedService} from '../services/deed.service';
+
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -50,12 +51,14 @@ export class UserProfileComponent implements OnInit {
   }
 
   getUserInfo() {
-    if (this.authenticationService.currentUserObject !== undefined ) {
+    if (this.authenticationService.currentUserObject !== undefined) {
       this.userName = this.authenticationService.currentUserObject.name;
       this.userPhone = this.authenticationService.currentUserObject.phone;
       this.userEmail = this.authenticationService.currentUserObject.email;
     }
   }
+
+
 
   getOrganizedDeeds() {
     this.deedService.getOrganizedDeeds().subscribe(
@@ -69,7 +72,7 @@ export class UserProfileComponent implements OnInit {
     );
   }
 
-  getParticipationDeeds(){
+  getParticipationDeeds() {
     this.deedService.getParticipationDeeds().subscribe(
       response => {
         this.participationDeeds = response;
@@ -80,6 +83,7 @@ export class UserProfileComponent implements OnInit {
       }
     );
   }
+
   /*
   *
   *  Will refactor sorting methods later, this is a quick solution for now
@@ -94,13 +98,14 @@ export class UserProfileComponent implements OnInit {
     this.isRowSortedO = false;
   }
 
-  setParticipationFlagsFalse(){
+  setParticipationFlagsFalse() {
     this.isCitySortedP = false;
     this.isTitleSortedP = false;
     this.isPeopleSortedP = false;
     this.isDateSortedP = false;
     this.isRowSortedP = false;
   }
+
   sortByCityO() {
     if (this.isCitySortedO === false) {
       this.organizedDeeds = this.organizedDeeds.sort(sortBy('city^'));
@@ -111,6 +116,7 @@ export class UserProfileComponent implements OnInit {
       this.isCitySortedO = false;
     }
   }
+
   sortByDateO() {
     if (this.isDateSortedO === false) {
       this.organizedDeeds = this.organizedDeeds.sort(sortBy('-date'));
@@ -121,6 +127,7 @@ export class UserProfileComponent implements OnInit {
       this.isDateSortedO = false;
     }
   }
+
   sortByPeopleO() {
     if (this.isPeopleSortedO === false) {
       this.organizedDeeds = this.organizedDeeds.sort(sortBy('maxPeople^'));
@@ -131,6 +138,7 @@ export class UserProfileComponent implements OnInit {
       this.isPeopleSortedO = false;
     }
   }
+
   sortByTitleO() {
     if (this.isTitleSortedO === false) {
       this.organizedDeeds = this.organizedDeeds.sort(sortBy('-title^'));
@@ -153,6 +161,7 @@ export class UserProfileComponent implements OnInit {
       this.isCitySortedP = false;
     }
   }
+
   sortByDateP() {
     if (this.isDateSortedP === false) {
       this.participationDeeds = this.participationDeeds.sort(sortBy('-date'));
@@ -163,6 +172,7 @@ export class UserProfileComponent implements OnInit {
       this.isDateSortedP = false;
     }
   }
+
   sortByPeopleP() {
     if (this.isPeopleSortedP === false) {
       this.participationDeeds = this.participationDeeds.sort(sortBy('maxPeople^'));
@@ -173,6 +183,7 @@ export class UserProfileComponent implements OnInit {
       this.isPeopleSortedP = false;
     }
   }
+
   sortByTitleP() {
     if (this.isTitleSortedP === false) {
       this.participationDeeds = this.participationDeeds.sort(sortBy('title^'));

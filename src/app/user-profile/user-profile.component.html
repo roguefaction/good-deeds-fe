@@ -64,7 +64,7 @@
   </div>
 </div>
 
-<app-good-deeds-details [deed]="deed"
+<app-good-deeds-details id="mydeeds" [deed]="deed" [isOrganized]="true"
 *ngFor="let deed of organizedDeeds | paginate: {itemsPerPage: itemsPerPageO, currentPage: currentPageO}">
 </app-good-deeds-details>
 <div class="container align-content-end pagination-div spacing">
