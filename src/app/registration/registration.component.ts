@@ -40,7 +40,6 @@ export class RegistrationComponent implements OnInit {
 
   submitForm() {
     if (this.userRegistrationForm.invalid) {
-      console.log(this.userRegistrationForm);
       this.markFormGroupTouched(this.userRegistrationForm);
       return;
     }
@@ -62,11 +61,10 @@ export class RegistrationComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          console.log('welcome, ' + email);
           this.router.navigate(['/home']);
         },
         ErrorMessage => {
-          console.log('error happened');
+          console.log('error happened while logging in');
         },
         () => {
           this.authenticationService.performGet();
@@ -77,13 +75,11 @@ export class RegistrationComponent implements OnInit {
     delete user.confirmPassword;
     this.userService.addUser(user).subscribe(
       data => {
-        console.log('user added!');
       },
       error => {
-        console.log('error');
+        console.log('error adding user');
       },
       () => {
-        console.log('USER ADDING COMPLETE');
         this.loginUser(user.email, user.password);
       }
     );
