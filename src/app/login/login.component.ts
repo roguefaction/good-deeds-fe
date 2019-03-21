@@ -12,7 +12,6 @@ export class LoginComponent implements OnInit {
   submitted = false;
   returnUrl: string;
   error = '';
-  loginError: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,7 +32,6 @@ export class LoginComponent implements OnInit {
     localStorage.clear();
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    this.loginError = '';
   }
 
   // convenience getter for easy access to form fields
@@ -55,13 +53,10 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          console.log('welcome, ' + this.f.email.value);
           this.router.navigate(['/home']);
         },
         ErrorMessage => {
-          this.loginError = 'No users with matching credentials found';
-          this.loading = false;
-          this.submitted = false;
+          console.log('error happened');
         },
         () => {
           this.authenticationService.performGet();

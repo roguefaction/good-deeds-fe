@@ -43,28 +43,24 @@ export class DeedService {
   addDeed(deed: Deed) {
     return this.http.post('https://calm-waters-93672.herokuapp.com/deed', deed);
   }
-
   setDeedToExpand(title: string) {
     this.deedToExpand = title;
   }
-
   getDeedToExpand() {
     return this.deedToExpand;
   }
-
   getPage() {
     return this.currentPage;
   }
-
   setPage(page: number) {
     this.currentPage = page;
   }
 
-  setPageOfDeed(titleToSearch: string) {
+  setPageOfDeed(titleToSearch: string){
     this.getUpcomingDeeds().subscribe(
       deeds => {
         for (let deed of deeds) {
-          if (deed.title === titleToSearch) {
+          if (deed.title === titleToSearch){
             let page = deeds.indexOf(deed) / 5 + 1;
             page = Math.trunc(page);
             this.setPage(page);
@@ -90,6 +86,7 @@ export class DeedService {
   cancelParticipation(id: number) {
     return this.http.post('https://calm-waters-93672.herokuapp.com/deed/' + id + '/participate/delete', '');
   }
+
 
   deleteDeed(id: number) {
     return this.http.post('https://calm-waters-93672.herokuapp.com/deed/' + id + '/delete/', '');

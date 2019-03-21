@@ -13,4 +13,6 @@ export class UserService {
   getAll() {
     return this.http.get<User[]>('https://calm-waters-93672.herokuapp.com/users');
   }
+
+
 }

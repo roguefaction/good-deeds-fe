@@ -20,7 +20,7 @@ export class GoodDeedsDetailsComponent implements OnInit, AfterViewInit {
 
   @ViewChild('target') targetElement: ElementRef;
 
-  constructor(private deedService: DeedService, public authenticationService: AuthenticationService, private router: Router) {
+  constructor(private deedService: DeedService, public authenticationService: AuthenticationService, public router: Router) {
   }
 
   ngOnInit() {
@@ -29,8 +29,6 @@ export class GoodDeedsDetailsComponent implements OnInit, AfterViewInit {
     if (deedToExpand === this.deed.title) {
       this.collapseAbout();
       this.deedService.setDeedToExpand(undefined);
-      console.log('We have expanded the deed!');
-      console.log('target element text:' + this.targetElement.nativeElement.innerText);
       this.targetElement.nativeElement.scrollIntoView({block: 'start', inline: 'nearest', behavior: 'smooth'});
     }
 
@@ -48,7 +46,6 @@ export class GoodDeedsDetailsComponent implements OnInit, AfterViewInit {
   participateInADeed(id: number) {
     this.deedService.participateInADeed(id).subscribe(
       info => {
-        console.log('Your participation has been noted');
       },
       error => {
         console.log(error.header.value);
