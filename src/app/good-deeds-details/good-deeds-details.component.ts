@@ -14,7 +14,9 @@ import {forEach} from '@angular/router/src/utils/collection';
 })
 export class GoodDeedsDetailsComponent implements OnInit, AfterViewInit {
   @Input() deed;
+  @Input() isOrganized;
   collapseOpen = false;
+  currentPage: string;
 
   @ViewChild('target') targetElement: ElementRef;
 
@@ -29,6 +31,8 @@ export class GoodDeedsDetailsComponent implements OnInit, AfterViewInit {
       this.deedService.setDeedToExpand(undefined);
       this.targetElement.nativeElement.scrollIntoView({block: 'start', inline: 'nearest', behavior: 'smooth'});
     }
+
+    this.currentPage = this.router.url;
   }
 
   ngAfterViewInit() {
@@ -47,8 +51,9 @@ export class GoodDeedsDetailsComponent implements OnInit, AfterViewInit {
         console.log(error.header.value);
       },
       () => {
-        this.router.navigateByUrl('/RefreshComponent', {skipLocationChange: true}).then(() =>
-          this.router.navigate(["good-deeds"]));
+        console.log('Operation Complete');
+        this.router.navigateByUrl('/RefreshComponent', {skipLocationChange: true}).then(()=>
+          this.router.navigate([this.currentPage]));
       }
     );
   }
@@ -62,8 +67,9 @@ export class GoodDeedsDetailsComponent implements OnInit, AfterViewInit {
         console.log(error.header.value);
       },
       () => {
-        this.router.navigateByUrl('/RefreshComponent', {skipLocationChange: true}).then(() =>
-          this.router.navigate(["good-deeds"]));
+        console.log('Operation Complete');
+        this.router.navigateByUrl('/RefreshComponent', {skipLocationChange: true}).then(()=>
+          this.router.navigate([this.currentPage]));
       }
     );
   }
@@ -82,6 +88,27 @@ export class GoodDeedsDetailsComponent implements OnInit, AfterViewInit {
       }
     }
 
+  }
+
+  confirmDelete(id: number) {
+    if (confirm('Are you sure to delete this deed?')) {
+      this.deleteADeed(id);
+    }
+  }
+
+  deleteADeed(id: number) {
+    this.deedService.deleteDeed(id).subscribe(
+      response => {
+        console.log('Succesfully deleted');
+      },
+      error => {
+        console.log('Error while deleting');
+      },
+      () => {
+        this.router.navigateByUrl('/RefreshComponent', {skipLocationChange: true}).then(() =>
+          this.router.navigate(['user-profile']));
+      }
+    );
   }
 
 }

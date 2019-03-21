@@ -7,7 +7,7 @@ export interface Deed {
   contactPerson: string;
   phoneNumber: string;
   email: string;
-  organisation: string;
+  organization: string;
   maxPeople: number;
   currentPeople: number;
   description: string;
@@ -15,4 +15,5 @@ export interface Deed {
   date: string;
   isExpanded: boolean;
   participatingUsers?: User[];
+  applicationUser?: User;
 }

@@ -23,13 +23,18 @@
     </div>
     </div>
 
+    <small *ngIf="errorMessage" class="row validation-message text-danger">
+      <p [innerText]="errorMessage"></p>
+    </small>
+
     <div class="form-group row">
-      <button [disabled]="loading" class="btn btn-primary btn btn-orange">Login</button>
+      <button [disabled]="loading" class="btn btn-primary btn btn-orange padding">Login</button>
       <div *ngIf="loading" class="pl-1 text-danger" role="status">
-        <div class="spinner-border" role="status"></div>
+        <div class="spinner-border padding" role="status"></div>
       </div>
     </div>
     <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+
   </form>
 
   <p class="form-group row">Don't have account ? <a routerLink="/user-registration" class="register-padding">Register</a></p>

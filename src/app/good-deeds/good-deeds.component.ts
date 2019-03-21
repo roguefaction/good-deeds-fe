@@ -2,6 +2,7 @@ import {Component, OnInit, AfterViewInit, ViewChild, ElementRef} from '@angular/
 import {DeedService} from '../services/deed.service';
 import {Deed} from '../models/deed';
 import { sortBy } from 'sort-by-typescript';
+import {AuthenticationService} from '../services/authentication.service';
 
 @Component({
   selector: 'app-good-deeds',
@@ -18,7 +19,7 @@ export class GoodDeedsComponent implements OnInit, AfterViewInit {
   isDateSorted = false;
   isRowSorted = false;
 
-  constructor(private deedService: DeedService) {
+  constructor(private deedService: DeedService, public authenticationService: AuthenticationService) {
   }
 
   isListReady: boolean;

@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   returnUrl: string;
   error = '';
+  errorMessage: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -56,7 +57,9 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/home']);
         },
         ErrorMessage => {
-          console.log('error happened');
+          this.errorMessage = 'Login credentials are incorrect';
+          this.submitted = false;
+          this.loading = false;
         },
         () => {
           this.authenticationService.performGet();

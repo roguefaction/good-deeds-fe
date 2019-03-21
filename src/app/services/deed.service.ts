@@ -69,6 +69,16 @@ export class DeedService {
       }
     );
   }
+
+  editDeed(deed: Deed, id: number) {
+    return this.http.post('https://calm-waters-93672.herokuapp.com/deed/' + id + '/edit/', deed);
+  }
+
+  getDeedById(id: number): Observable<Deed> {
+    return this.http.get<Deed>('https://calm-waters-93672.herokuapp.com/deed/' + id);
+
+  }
+
   participateInADeed(id: number) {
     return this.http.post('https://calm-waters-93672.herokuapp.com/deed/' + id + '/participate', '');
   }
@@ -78,4 +88,7 @@ export class DeedService {
   }
 
 
+  deleteDeed(id: number) {
+    return this.http.post('https://calm-waters-93672.herokuapp.com/deed/' + id + '/delete/', '');
+  }
 }

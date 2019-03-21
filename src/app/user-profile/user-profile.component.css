@@ -1,15 +1,15 @@
-.jumboclass{
+.jumboclass {
   height: 3rem;
   background: url('../../assets/images/vintage-rainbow-color-badge.png');
   background-size: cover;
 }
 
-.padding-class{
+.padding-class {
   margin-bottom: 2rem;
 }
 
 
-.component-header{
+.component-header {
   padding-bottom: 10px;
   width: 100%;
   text-align: left;
@@ -17,7 +17,7 @@
 
 }
 
-.button-style{
+.button-style {
   padding-bottom: 1vh;
 }
 
@@ -50,32 +50,36 @@
   margin-bottom: 2rem;
 }
 
-.card{
+.card {
   min-height: 3rem;
   vertical-align: middle;
 }
 
-.header-class{
+.header-class {
   font-family: "Arial";
   font-size: 2.5vh;
   text-align: left;
 }
 
-.good-deeds-h1{
-  font-size:1.5vw;
+.good-deeds-h1 {
+  font-size: 1.5vw;
 }
-.button-text{
+
+.button-text {
   font-size: 2.5vh;
   vertical-align: middle;
   margin: 0px;
 }
-.style-class{
+
+.style-class {
   display: none;
 }
-.btn:hover{
+
+.btn:hover {
   color: #fff;
 }
-.caret{
+
+.caret {
   vertical-align: center;
   horiz-align: center;
   max-width: 1rem;
@@ -83,56 +87,63 @@
   width: 25%;
   height: 25%;
 }
-.spacing{
+
+.spacing {
   margin-top: 10px;
 }
 
-.jumboclass{
+.jumboclass {
   height: 3rem;
   background: url('../../assets/images/vintage-rainbow-color-badge.png');
   background-size: cover;
 }
 
-.padding-class{
+.padding-class {
   margin-bottom: 2rem;
 }
 
-.city-margin{
+.city-margin {
   margin-left: 0;
 }
 
-@media only screen and (max-width: 1000px){
-  .style-class{
+@media only screen and (max-width: 1000px) {
+  .style-class {
     display: inline-block;
     align-content: center;
     margin-top: 7%;
   }
-  .header-class{
+
+  .header-class {
     display: none;
   }
-  .small-size{
+
+  .small-size {
     display: inline-block;
     text-align: center;
   }
 }
-.center{
+
+.center {
   margin: auto;
   width: 50%;
   padding: 10px;
 }
 
-.icon-margin{
+.icon-margin {
   margin-bottom: 2%;
   margin-bottom: 10px;
   height: 40px;
 }
-.padding-icon{
+
+.padding-icon {
   padding-left: 0px;
 }
-.image-padding{
+
+.image-padding {
   padding-right: 10px;
   margin-top: 20px;
 }
-.title-margin{
+
+.title-margin {
   margin-top: 2%;
 }

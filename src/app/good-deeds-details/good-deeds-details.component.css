@@ -1,63 +1,75 @@
 
-.p{
-  margin: 20px;
+.p {
+  margin: 1.6rem;
 }
-.header-class{
+
+.header-class {
   font-family: "Arial";
   font-size: 1.8vh;
   text-align: left;
 }
 
-.collapse-style{
+.collapse-style {
   background-color: ghostwhite;
 }
-.button-text{
+
+.button-text {
   font-size: 1.5vh;
   vertical-align: middle;
 }
-.small-size-screen{
+
+.small-size-screen {
   display: none;
 }
-.from-1000{
+
+.from-1000 {
   display: none;
 }
-.grey-coloring{
+
+.grey-coloring {
   background-color: rgb(234 225 200);
 }
-.apply-button{
+
+.apply-button {
   padding: 3px;
 }
-@media only screen and (max-width: 1000px){
-  .small-size-screen{
+
+@media only screen and (max-width: 1000px) {
+  .small-size-screen {
     display: block;
   }
-  .not-display-small{
+
+  .not-display-small {
     display: none;
   }
-  .button-container{
+
+  .button-container {
     margin-left: 0px;
     margin-right: 0px;
   }
-  .from-1000{
+
+  .from-1000 {
     display: inline-block;
   }
-  .till-1000{
+
+  .till-1000 {
     display: none;
   }
 }
-.cursor-class{
+
+.cursor-class {
   cursor: pointer;
 }
 
 
-.caret{
+.caret {
   vertical-align: center;
   horiz-align: center;
   max-width: 0.8rem;
   max-height: 0.8rem;
 }
 
-.caret-up{
+.caret-up {
   vertical-align: center;
   horiz-align: center;
   max-width: 1.6rem;
@@ -66,19 +78,21 @@
 
 .fixedElement {
   background-color: #c0c0c0;
-  position:fixed;
-  top:0;
-  width:100%;
-  z-index:100;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
 }
-.pagination-div{
+
+.pagination-div {
   margin-top: 10px;
 }
 
-.edit-delete{
- margin-right: 5px;
+.edit-delete {
+  margin-right: 5px;
 }
-.btn-color{
+
+.btn-color {
   background-color: rgb(157 210 181);
 }
 

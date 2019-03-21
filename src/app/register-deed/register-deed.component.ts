@@ -4,7 +4,7 @@ import {Deed} from '../models/deed';
 import {HttpResponse} from '@angular/common/http';
 import {DeedService} from '../services/deed.service';
 import {routerNgProbeToken} from '@angular/router/src/router_module';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-register-deed',
@@ -15,12 +15,24 @@ export class RegisterDeedComponent implements OnInit {
 
   registerDeedForm: FormGroup;
   httpStatus: string;
+  deedId: number;
+  deedToEdit: Deed;
+  isEverythingReady: boolean;
 
-  constructor(private formBuilder: FormBuilder, private deedService: DeedService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private deedService: DeedService, private route: ActivatedRoute, private router: Router) {
+    this.route.params.subscribe(id => {
+      this.deedId = id['id'];
+    });
   }
 
   ngOnInit() {
+    this.isEverythingReady = false;
     this.createForm();
+    if (this.deedId != null) {
+      this.getDeedById(this.deedId);
+    } else {
+      this.isEverythingReady = true;
+    }
   }
 
   createForm() {
@@ -40,14 +52,39 @@ export class RegisterDeedComponent implements OnInit {
       //  /#(\w*[0-9a-zA-Z]+\w*[0-9a-zA-Z])/g
     });
   }
+
+  populateForm(deed: Deed) {
+    this.registerDeedForm.patchValue({
+      title: deed.title,
+      organization: deed.organization,
+      city: deed.city,
+      date: deed.date,
+      maxPeople: deed.maxPeople,
+      email: deed.email,
+      contactPerson: deed.contactPerson,
+      phoneNumber: deed.phoneNumber,
+      description: deed.description,
+      tags: deed.tags
+    });
+    this.isEverythingReady = true;
+  }
+
   submitForm() {
 
     if (this.registerDeedForm.invalid) {
       this.markFormGroupTouched(this.registerDeedForm);
       return;
     }
-    this.addDeed(this.registerDeedForm.value);
+
+    if (this.deedId) {
+      console.log('deed to edit ' + this.registerDeedForm.value);
+
+      this.editDeed(this.registerDeedForm.value, this.deedId);
+    } else {
+      this.addDeed(this.registerDeedForm.value);
+    }
   }
+
 
   private markFormGroupTouched(formGroup: FormGroup) {
     (<any> Object).values(formGroup.controls).forEach(control => {
@@ -74,6 +111,36 @@ export class RegisterDeedComponent implements OnInit {
         this.router.navigateByUrl('/good-deeds');
       });
 
+  }
+
+  editDeed(deed: Deed, id: number) {
+    this.deedService.editDeed(deed, id).subscribe(
+      data => {
+        console.log('Succesfully Edited deed');
+      },
+      Error => {
+        console.log(HttpResponse.toString());
+
+      },
+      () => {
+        this.router.navigateByUrl('/RefreshComponent', {skipLocationChange: true}).then(() =>
+          this.router.navigate(['user-profile']));
+      });
+  }
+
+  getDeedById(id: number) {
+    this.deedService.getDeedById(id).subscribe(
+      data => {
+        console.log('Deed retrieval successful');
+        this.deedToEdit = data;
+      },
+      Error => {
+        console.log(Error.error.message);
+
+      },
+      () => {
+        this.populateForm(this.deedToEdit);
+      });
   }
 
 

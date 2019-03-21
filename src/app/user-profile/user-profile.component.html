@@ -7,28 +7,30 @@
 <!--<div class="spinner-border" role="status"></div>-->
 <!--</div>-->
 <div class="container">
-<div class="container">
-  <div class="d-flex justify-content-start"><h1 class="display-4">Profile</h1></div>
-</div>
-<div class=" container d-flex justify-content-center">
-<div class="container icon-margin d-flex justify-content-start">
-  <div class="image-padding"><img src="../../assets/images/user.png"></div>
-  <div><p class = "display-6">{{userName}}</p></div>
-</div>
-<div class="container icon-margin">
-  <div class="container icon-margin d-flex justify-content-start padding-icon">
-    <div class="image-padding"><img src="../../assets/images/phone-book.png"></div>
-    <div><p class="display-6">{{userPhone}}</p></div>
+  <div class="container">
+    <div class="d-flex justify-content-start"><h1 class="display-4">Profile</h1></div>
   </div>
-</div>
+  <div class=" container row">
+    <div class=" row  col-4">
+      <div class=" row col-6">
+        <div class="image-padding col-3"><img src="../../assets/images/user.png"></div>
+        <div class="col-9"> <p class="display-6">{{userName}}</p></div>
+      </div>
+    </div>
+    <div class=" row  col-4">
+      <div class=" row col-6">
+        <div class="image-padding col-3"><img src="../../assets/images/phone-book.png"></div>
+        <div class="col-9"><p class="display-6">{{userPhone}}</p></div>
+      </div>
+    </div>
 
-<div class="container icon-margin">
-  <div class="container icon-margin d-flex justify-content-start padding-icon">
-    <div class="image-padding"><img src="../../assets/images/arroba.png"></div>
-    <div><p class="display-6">{{userEmail}}</p></div>
+    <div class="container  col-4">
+      <div class="row col-6">
+        <div class="image-padding col-3"><img src="../../assets/images/arroba.png"></div>
+        <div class="col-9"><p class="display-6">{{userEmail}}</p></div>
+      </div>
+    </div>
   </div>
-</div>
-</div>
 </div>
 <div class="container title-margin"><h1 class="display-7">Deeds I created:</h1></div>
 <div class="container">
@@ -65,8 +67,8 @@
   </div>
 </div>
 
-<app-good-deeds-details [deed]="deed"
-*ngFor="let deed of organizedDeeds | paginate: {itemsPerPage: itemsPerPageO, currentPage: currentPageO, id:'O'}">
+<app-good-deeds-details [deed]="deed" [isOrganized]="true"
+                        *ngFor="let deed of organizedDeeds | paginate: {itemsPerPage: itemsPerPageO, currentPage: currentPageO, id:'O'}">
 </app-good-deeds-details>
 <div class="container align-content-end pagination-div spacing">
   <div class="d-flex justify-content-end">
@@ -122,7 +124,7 @@
 </div>
 
 <app-good-deeds-details [deed]="deed"
-  *ngFor="let deed of participationDeeds | paginate: {itemsPerPage: itemsPerPageP, currentPage: currentPageP, id: 'P'}">
+                        *ngFor="let deed of participationDeeds | paginate: {itemsPerPage: itemsPerPageP, currentPage: currentPageP, id: 'P'}">
 </app-good-deeds-details>
 <div class="container align-content-end pagination-div spacing">
   <div class="d-flex justify-content-end">
