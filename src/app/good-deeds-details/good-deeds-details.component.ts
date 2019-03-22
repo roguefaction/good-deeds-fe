@@ -5,6 +5,7 @@ import {element} from 'protractor';
 import {Router} from '@angular/router';
 import {User} from '../models/user';
 import {forEach} from '@angular/router/src/utils/collection';
+import {ModalService} from '../services/modal.service.service';
 
 
 @Component({
@@ -17,13 +18,15 @@ export class GoodDeedsDetailsComponent implements OnInit, AfterViewInit {
   @Input() isOrganized;
   collapseOpen = false;
   currentPage: string;
+  bodyText: string;
 
   @ViewChild('target') targetElement: ElementRef;
 
-  constructor(private deedService: DeedService, public authenticationService: AuthenticationService, public router: Router) {
+  constructor(private deedService: DeedService, public authenticationService: AuthenticationService, public router: Router, public modalService: ModalService) {
   }
 
   ngOnInit() {
+    this.bodyText = "test1";
     let deedToExpand = this.deedService.getDeedToExpand();
 
     if (deedToExpand === this.deed.title) {
@@ -91,9 +94,10 @@ export class GoodDeedsDetailsComponent implements OnInit, AfterViewInit {
   }
 
   confirmDelete(id: number) {
-    if (confirm('Are you sure to delete this deed?')) {
+    this.openModal('custom-modal-1');
+    /*if (confirm('Are you sure to delete this deed?')) {
       this.deleteADeed(id);
-    }
+    }*/
   }
 
   deleteADeed(id: number) {
@@ -109,6 +113,14 @@ export class GoodDeedsDetailsComponent implements OnInit, AfterViewInit {
           this.router.navigate(['user-profile']));
       }
     );
+  }
+
+  openModal(id: string) {
+    this.modalService.open(id);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
   }
 
 }

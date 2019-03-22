@@ -20,6 +20,8 @@ import {UserProfileComponent} from './user-profile/user-profile.component';
 import { LoginComponent } from './login/login.component';
 import {JwtInterceptor} from './helpers/jwt.interceptor';
 import {ErrorInterceptor} from './helpers/error.interceptor';
+import { ModalComponent } from './modal/modal.component';
+import {ModalService} from './services/modal.service.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {ErrorInterceptor} from './helpers/error.interceptor';
     CalendarComponent,
     RegistrationComponent,
     LoginComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,8 @@ import {ErrorInterceptor} from './helpers/error.interceptor';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    ModalService
   ],
   bootstrap: [AppComponent]
 })
